@@ -1,0 +1,141 @@
+%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english]{report}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{setspace}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}[chapter]
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage{UTSAthesis}      
+\usepackage{times}            
+\usepackage{latexsym}
+
+\newenvironment{ruledcenter}{%
+  \begin{center}
+  \rule{\textwidth}{1mm} } {%
+  \rule{\textwidth}{1mm} 
+  \end{center}}%
+
+
+  \theoremstyle{definition}
+  \newtheorem{defn}{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{epsfig}          
+\usepackage{setspace}         
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{xspace}
+\usepackage{enumerate}
+\usepackage{array} 
+\usepackage{color}
+\usepackage{cases}
+\usepackage{amsfonts}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\usepackage{babel}
+  \providecommand{\definitionname}{Definition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+
+
+\committee{Prof. Ravi Sandhu, Ph. D.}{Prof. Jianwei Niu, Ph.D.}{Prof.Gregory White, Ph.D.}{Prof.Palden Lama, Ph.D.}{Prof. Ram Krishnan, Ph.D. }
+
+
+\informationitems{Doctor of Philosophy in Computer Science}{Ph. D.}{M. Sc.}{Department of Computer Science}{College of Sciences}{February}{ 2012 }
+
+
+\thesiscopyright{Copyright 2012 Prosunjit Biswas\\
+All rights reserved. }
+
+
+\dedication{\emph{I would like to dedicate this thesis to my father  who is as eager to learn \\ \hfill as a child at his age of 80s.}}
+
+
+\title{\textbf{Enumerated Authorization Policy Models
+}\\
+}
+
+
+\author{Prosunjit Biswas}
+\maketitle
+
+\input{acknowledgement.tex}
+
+\input{abstract.tex}
+
+
+\pageone{}
+
+\input{introduction.tex}
+
+\input{background.tex}
+
+\input{eap-model.tex}
+
+
+\input{expressive-power.tex}
+
+\input{enforcement.tex}
+
+\input{conclusion.tex}
+
+\input{futurework.tex}
+
+
+
+\appendix
+
+\chapter{Notations }
+
+Here we show the use of multiple appendixes.
+
+
+\section{Math Notations}
+
+Each appendix can have sub-sections as a regular chapter.
+
+
+\section{Additional Notations}
+
+
+\chapter{Ontologies}
+
+The Bibliography following this appendix should be set to single line.
+
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{sampleThesis}
+
+\begin{vita}
+This should be a one-page short vita.
+
+There can be more paragraphs.\end{vita}
+
+\end{document}
