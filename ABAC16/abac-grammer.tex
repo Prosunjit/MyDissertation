@@ -1,0 +1,23 @@
+\newcommand{\UAttrVal}{\text{UAttrVal}}
+\newcommand{\OAttrVal}{\text{OAttrVal}}
+\newcommand{\Action}{action}
+\newcommand{\E}{E}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{Policy Definition for \sABAC}
+\label{tab:sabac-def}
+\begin{tabular}{@{}l@{}}
+ \hline
+	$\phi ::= \phi \land \phi | \ \phi \lor \phi | \ (\phi) | \neg \phi $\\
+ 
+	$\phi ::= \E $ \\
+	Terminal Symbols:\\
+	$ \E (attr: UA \cup OA, val: range(Attr))$ \\ \hfill  $\to \{true, false\}$ \\
+	%$Act(\requestContext, a) \to \{true, false\}$\\
+ %\bottomrule
+ \\\hline
+\end{tabular}
+\end{table}
+

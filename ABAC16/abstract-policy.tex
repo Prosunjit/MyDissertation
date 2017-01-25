@@ -1,0 +1,25 @@
+\newcommand{\uSubset}{U_S}
+\newcommand{\oSubset}{O_S}
+\newcommand{\UAExpr}{UAExpr}
+\newcommand{\OAExpr}{OAExpr}
+\newcommand{\uSelector}{USERs}
+\newcommand{\oSelector}{OBJECTs}
+\newcommand{\policySpace}{PolicySpace}
+
+ \input{abstract-policy-example.tex}
+ 
+ \textbf{Abstract Policy}
+ We define abstract policy as a tuple of following forms - $(\uSubset, a, \oSubset)$ and $(\UAExpr, a, \OAExpr)$, where $\uSubset \subseteq U$ and $\oSubset \subseteq O$, $\uSelector(\UAExpr) \subseteq U$ and $\oSelector(\OAExpr) \subseteq O$, for function $\uSelector()$ and $\oSelector()$ which specifies set of users and objects for given user attribute expression and object attribute expression. Examples of abstract policy are $(\{ Alice, Bob\}, read, \{ o1, o2\} )$ or $( E(role(u), \{manager \}), read, E(\{ type(o), \{sensitive\} ) ) $
+ 
+ We say two abstract policies $\rho_i \equiv (\UAExpr_i, a, \OAExpr_i)$ and   $\rho_j \equiv (\UAExpr_j, a, \OAExpr_j)$ are different ($\rho_i \neq \rho_j$) iff either or both of following conditions are true.
+ \begin{enumerate}
+ 	\item $\uSelector(\UAExpr_i) \neq  \uSelector(\UAExpr_j) \lor U_i \neq U_j$  
+ 	\item $\oSelector(\OAExpr_i) \neq  \oSelector(\OAExpr_j) \lor O_i \neq O_j$
+ \end{enumerate}
+
+Informally, \policySpace{} of an model is the set of all distinct abstract policies of the model. For simplicity, here we are only interested about the size of the \policySpace{}.
+
+\input{policyspace-hru-diagram.tex}
+\input{policyspace-labac1-diagram.tex}
+\input{policyspace-labace-diagram.tex}
+\input{policyspace-comparison-table.tex}

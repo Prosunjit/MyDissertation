@@ -1,0 +1,35 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ \elabac{} Model} %\vspace*{3pt}
+	\label{tab:labac-definition}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I'. New/updated components of the extended model } } }\\	
+		- $NUL$ and $NOL$ (set of negated user-labels and \\ \hfill negated object-labels).  $NUL = \{ \lnot ul | \exists ul \in UL\}$ and \\ \hfill  $NOL = \{ \lnot  ol | \exists ol \in OL \}$ \\
+		%- $EUL$ and $EOL$ (extended set of user-labels and object-labels). \\ \hfill $EUL = UL \cup NUL$ and  $EOL = OL \cup NOL$ \\
+		%- $uLabel$ and $oLabel$ are label functions on users and objects respectively. \\ \hfil Formally, $\uLabel(u:U) \to 2^{\UL}$ and $\oLabel(o:O) \to 2^{\OL}$ \\
+		-  $\policy \subseteq 2^{UL \cup NUL} \times A \times 2^{OL\cup NOL}$. \\
+		- An individual policy,  $p \in \policy$  \\ \hfil is enumeration of tuples of the form \\ \hfill  $( UL_s \subseteq  UL \cup NUL, a \in \A, OL_s \subseteq OL \cup NOL)$. \\
+		%- $\sessionLabels(s:S) \to 2^{UL}$, mapping function from a session to the set of user-labels.  \\ \hfil Formally, 
+		%$\sessionLabels(s) \subseteq \{ul' | ul \in uLabel(user(s)) \land ul  \udominate ul'  \}$.		\\ \\
+		
+	 		  
+		
+		\multicolumn{1}{|c|}{\underline{\textit{IV. Derived components}}} \\
+		- $\impliedPolicy = \{ (UL_t, a, OL_t) | ( \exists (UL_s, a, OL_s) \in \policy) \land$  \\ \hfill $UL_t=\{ ul_j | ( ul_i \in UL_s \cap UL \land ul_j \udominate ul_i) \lor ul_j \in UL_s \cap NUL \} \land$ \\ \hfill $  OL_t=\{ ol_j | (ol_i \in OL_s \cap OL \land ol_i \udominate ol_j\}) \lor ol_i \in OL_s \cap NOL \}$		\\		
+	 
+		\multicolumn{1}{|c|}{\underline{\textit{V. Authorization functions}}} \\
+		- \request(s:S,\amem:A,\objmem:O) =	\\ \hfill  $\exists (UL_s, a, OL_s) \in \policy \cup \impliedPolicy ] \land $   \\
+		 \hfill   $\exists ul_i \in UL_s \cap UL \implies  ul_i \in \uLabel(u) \land$ \\
+		 \hfill $\exists  ul_i \in UL_s \cap NUL \implies  ul_i \notin \uLabel(u)$ \\
+		 \hfill   $\exists ol_i \in OL_s \cap OL \implies  ol_i \in \oLabel(o) \land$ \\
+		 \hfill $\exists  ol_i \in OL_s \cap NOL \implies  ol_i \notin \oLabel(o)$ \\
+
+		\\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%mod

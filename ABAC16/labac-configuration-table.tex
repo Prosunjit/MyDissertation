@@ -1,0 +1,59 @@
+\newcommand{\userLBAC}{U_{L}}
+\newcommand{\objectLBAC}{O_{L}}
+\newcommand{\sessionLBAC}{S_{L}}
+\newcommand{\sessionUser}{sub\_creator}
+\newcommand{\clearance}{clearance}
+\newcommand{\classification}{classification}
+
+\begin{table}
+	\centering
+	\caption{ LBAC in \labacOneOneOne{}} %\vspace*{3pt}
+	\label{tab:lbac-in-labac}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. LBAC components }}}\\				 
+		 - $\userLBAC, \objectLBAC$ and $\sessionLBAC$ (set of users, objects and sessions resp.) \\
+		 -  \textit{SC}:  set of security classes in the lattice \\
+		 -  \textit{SCH}: partial order on \textit{SC} (also denoted by $\succeq$ ) \\
+		 - $\sessionUser: \sessionLBAC \to \userLBAC$, many-to-one mapping \\ \hfill from $\sessionLBAC$ to $\userLBAC$\\
+		 - $\clearance: (\userLBAC \cup \sessionLBAC) \to SC$,  and \\ \hfill $clearance(s) \preceq \clearance(\sessionUser(s))$\\
+		 - $\classification: \objectLBAC \to SC$\\		
+	
+		 - \textit{Simple-security property}: Subject s can read object o \\ \hfill only if \textit{clearance(s) $\succeq$ classification(o)}\\
+		 - \textit{Liberal $\star$-property}: Subject s can write object o\\ \hfill only if  \textit{clearance(s) $\preceq$ classification(o)}\\
+		  - \textit{Strict $\star$-property}: Subject s can write object o\\ \hfill only if  \textit{clearance(s) = classification(o)}\\
+%		  - $createSession(u:\userLBAC,s:\sessionLBAC, sc:SC)$ \\ \hfill condition:$ s \not \in \sessionLBAC \land \clearance(u) \succeq sc$ \\ \hfill \hfil update: $\sessionLBAC' = \sessionLBAC \cup s$\\
+		  
+		  	\\	  \multicolumn{1}{|c|}{\underline{\textit{II. Construction in \labacOneOneOne{} }}} \\
+		  
+		\\	  \multicolumn{1}{|l|}{{\textit{II(a). Construction of basic sets and relations }}} \\
+		 - $U = \userLBAC, O = \objectLBAC, S = \sessionLBAC, A=\{read, write\}$\\
+		 
+		 - $\creator(s) = \sessionUser(s)$, for $s \in S$\\
+		 -  $UL = SC,  ULH = SCH$ \\
+		 - $OL = \{sc | sc \in SC \} \cup \{sc' | sc \in SC \}$\\
+		 - $OLH=\{ (sc_i, sc_j) | sc_i \succeq sc_j \} \cup \{ (sc_i', sc_j') | sc_j' \succeq sc_i'\} $ \\ \hfill [under \liberalStar{}]\\
+		 - $OLH=\{ (sc_i, sc_j) | sc_i \succeq sc_j \} $  [under  \strictStar{}]\\
+		 -  $  \uLabel(u) =  clearance(u)$ \\
+		 -  $  \oLabel(o) =  \{ sc, sc'\}$, where $sc=\classification(o)$	\\
+		 - $ \Policy_{read} = \{ (sc_i, sc_i)| sc_i \in SC \}$ \\
+		 - $ \Policy_{write} = \{ (sc_i, sc_i')| sc_i \in SC  \}$ \\
+		% - Def. of  $\impliedPolicy_{op_i}$,  $\sessionLabels(s)$ for session $s \in S$ \\ \hfill and $\request(s, a, o)$  are unchanged from Table \ref{tab:labac-definition}	\\	
+		 %- Session Constraints: $|\sessionLabels(s)  \cap SC| = 1$
+		 
+		 \\ \multicolumn{1}{|l|}{{\textit{II(b). Condition on session functions}}} \\
+		 - $f_{\createSession} (u, s, val) : |val|=1$\\
+		 - $f_{\deleteSession}(u,s): true$\\
+	     - $f_{\assignValues} (u, s, val): false$ [assuming tranquility]\\
+	     - $f_{\removeValues} (u, s, val): false$ [assuming tranquility]\\
+	     
+	     \\ \multicolumn{1}{|c|}{\underline{\textit{III. LaBAC extension for object creation}}} \\
+	     - $\createObject(s,o,\{val\})$: create a new object, and \\ \hfill  assign value $\{val\}$\\
+		     \hfil condition: $s \in S \land o \not \in O \land \exists ul  \in \sessionLabels(s)  $ \\ \hfill$ \land val \succeq ul]$ \\
+		     \hfil update: $O' = O \cup \{o\}, \oLabel(o) = \{val\}$ \\
+%		 - $\updateObject(s,o,\{val\})$: update $\oLabel$ value \\ \hfill of existing object\\
+%		 \hfil condition: $s \in S \land o \in O \land \exists ol, \exists ul [\sessionLabels(s)=ul \land$ \\ \hfill $  \oLabel(o) = ol \land ul \udominate ol \land ul \udominate val ]$ \\
+%		   \quad  update: $ \oLabel(o) = \{val\}$ 
+	 \hline	
+	\end{tabular}	
+\end{table}

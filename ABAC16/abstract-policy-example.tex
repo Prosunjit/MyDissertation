@@ -1,0 +1,13 @@
+ \begin{table} 
+\centering
+\caption{One abstract policy represented by different \sABAC{} policies}
+\label{table:sabac-def}
+\begin{tabular}{@{}l@{}}
+ \toprule	
+	 $  E(role(u), \{manager, employee\}) \land E(type(o),\{new\} )$\\
+	 $  E(role(u), \{manager\}) \land E(role(u), \{employee\}) \land E(type(o),\{new\} )$\\
+	 $ \lnot E(role(u), \{\}) \land E(role(u), \{employee\}) \land E(type(o),\{new\} )$\\
+ 	 $ \lnot (\lnot (E(role(u), \{manager, employee\}))) \land E(type(o),\{new\} )$\\
+ \bottomrule
+\end{tabular}
+\end{table}

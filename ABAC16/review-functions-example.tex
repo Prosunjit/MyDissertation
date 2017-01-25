@@ -1,0 +1,31 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{Some review questions on an ABAC model} %\vspace*{3pt}
+	\label{tab:review-functions-example}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. Attribute Reviews }}}\\				 
+		
+			 1. What attributes are assigned to a user? \\
+			 2. What are the values of a user attribute for a given user? \\
+			 3. Which users are assigned to a given (attribute, value) pair? \\
+			 4. Values of an object attribute? \\
+			 5. What objects are assigned to a (attribute,value) pair ? \\
+			 
+		\multicolumn{1}{|c|}{\underline{\textit{II. Permission Reviews}}} \\		
+		
+	     	1. What permissions a user has? \\
+	     	2. What permissions a user gains or looses after being assigned  \\ \hfil to a new attribute value? \\	     	 
+	     	3. For a  certain permission, which attribute, values are required? \\
+	     	
+		\multicolumn{1}{|c|}{\underline{\textit{III. Policy Reviews}}} \\
+		
+			 1. Which users are allowed by a given policy? \\
+			 2. Which objects are allowed by a given policy? \\
+			 3. Which actions are granted by a given policy?\\
+			 4. Which users (in term of (attribute, value) pair) are granted \\ \hfil what actions  on which objects (in term of (attribute, value) pair)?
+		\\ \hline	
+	\end{tabular}	
+\end{table}

@@ -1,0 +1,53 @@
+\newcommand{\pmMini}{PM_{mini}}
+\newcommand{\assignment}{assign}
+\newcommand{\assignmentPlus}{\assignment^+}
+\newcommand{\assignmentStar}{\assignment^*}
+\newcommand{\assignmentOOA}{\assignment_{ooa}}
+\newcommand{\assignmentUUA}{\assignment_{uua}}
+\newcommand{\assignmentOAOA}{\assignment_{oaoa}}
+\newcommand{\assignmentUAUA}{\assignment_{uaua}}
+\newcommand{\assignmentATPC}{\assignment_{atpc}}
+\newcommand{\association}{assoc}
+\newcommand{\associationPolicy}{\association_{policy}}
+\newcommand{\decisionFunction}{is\_authorized}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ $\pmMini$ definition} %\vspace*{3pt}
+	\label{tab:poilcy-machine-mini}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. Basic sets }}}\\				 
+		 - $U, O, OP$ and $P$ (set of users, objects, operations \\ \hfill  and processes) \\ 
+		 - $UA, OA$ (set of user and object attributes) \\  \hfill $AT \in (UA \cup OA)$ is a subset of  users  or objects.\\
+		 - $AR$ (set of access rights).   In $\pmMini$, $AR=OP$ \\
+		 - $PC$ (set of policy classes). \\ %In $\pmMini$, $PC=\{Labac\}$ \\
+		\multicolumn{1}{|c|}{\underline{\textit{II. Assignment and association relations}}} \\
+		
+		- $\assignmentUUA \subseteq U \times UA$ \\
+		- $\assignmentOOA \subseteq O \times OA$ \\	
+ 	    - $\assignmentUAUA \subseteq UA \times UA$   \\  
+		- $\assignmentOAOA \subseteq OA \times OA$  \\  
+		- $\assignmentATPC \subseteq (UA\cup OA) \times PC$\\
+		- $\assignment = \assignmentUUA \cup \assignmentOOA \cup \assignmentUAUA \cup$ \\ \hfill   $\assignmentOAOA \cup \assignmentATPC$, an irreflexive, acyclic relation \\
+		- $\assignmentPlus$, transitive closure  of $\assignment$   \\
+		%- $\assignmentStar$ transitive-reflexive closure $\assignment$\\
+		 - $Users:UA \to 2^U$. $Users(ua) = \{u | (u,ua) \in \assignmentPlus\}$\\
+		 - $Objects: OA \to 2^O$. $Objects(oa) = \{ o | (o,oa) \in \assignmentPlus \}$ \\
+	 
+		 
+	 	\multicolumn{1}{|c|}{\underline{\textit{III. Association relations}}} \\
+	 	- $\associationPolicy \subseteq UA \times 2^{AR} \times OA$ \\\\
+	 
+	 	\multicolumn{1}{|c|}{\underline{\textit{IV. Decision Function}}} \\
+	 	 - $\decisionFunction(p,a,o) = \exists(ua, ars, oa)$  $\in \associationPolicy$   \\ \hfill $[ (u,ua) \in \assignmentUAUA \land (o,oa) \in \assignmentOAOA \land a \in ars]$ 
+	 	 	
+		 	
+ 		\\ \hline	
+	\end{tabular}	
+
+	
+\end{table}

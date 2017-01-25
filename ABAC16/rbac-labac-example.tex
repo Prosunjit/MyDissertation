@@ -1,0 +1,14 @@
+\begin{table}[]
+\centering
+\caption{Authorization policies in \hlabac{}  illustrating roles  in Figure \ref{fig:rbac-labac-example}}
+\label{tab:rbac-labac-example-table}
+\begin{tabular}{|l|l|l|l|}
+	\hline
+UL  & OL                                                                   & oLabel(o)                                                                          & Policy                                                                                                                                               \\
+\hline
+mng & \begin{tabular}[c]{@{}l@{}}\{mng\_read,\\ mng\_write\}\end{tabular}  & \begin{tabular}[c]{@{}l@{}}oLabel(o1)=\\ \{mng\_read, \\ mng\_write\}\end{tabular} & \begin{tabular}[c]{@{}l@{}} $p_{read} \equiv$ \\$\{(mng, mng\_read) \}$,\\ $p_{write} \equiv$ \\ $\{(mng, mng\_write)$,\}\end{tabular} \\ 
+\hline
+emp & \begin{tabular}[c]{@{}l@{}}\{emp\_write, \\ emp\_exec\}\end{tabular} & \begin{tabular}[c]{@{}l@{}}oLabel(o2)=\\ \{emp\_write, \\ emp\_exec\}\end{tabular} & \begin{tabular}[c]{@{}l@{}}$p_{read} \equiv$ \\ $\{(emp, emp\_write)\}$,\\ $p_{exec} \equiv $ \\ $\{(emp,  emp\_exec)\}$\end{tabular}       \\
+\hline                                               
+\end{tabular}
+\end{table}

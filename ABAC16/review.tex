@@ -1,0 +1,14 @@
+\section{Administrative Reviews in ABAC}
+Administrative review functions or simply review functions of an access control model provides capability to pose queries on basic sets (e.g. users, object), elements (e.g. attributes) and relations (user-role assignment, user-attribute assignment) of the model. For example, review functions in RBAC \cite{nist-rbac} ask for roles assigned to a user, or users assigned to a role and so on. These capabilities allow an administrator to audit or troubleshot  a system, update existing policies and/or define more precise policies. For example, before assign a new role to a user, it may be desirable to see first what roles the user already posses. 
+
+Like review functions play an important role in RBAC model (30+ review function being defined in NIST RBAC model), there are significant needs for review facilities in the context of ABAC model. For example, before assigning a new value to an  attribute (say, `clearance') of a user, it is desirable to see what `clearance' values the user has already been assigned. Similarly, administrators may want to see, with the available clearances what permissions the user has authority to exercise. A careful administrator would also want to check, what additional permission the user gains with assignment of a new clearance value. 
+
+\input{review-functions.tex}
+
+\input{review-functions-example.tex}
+
+In addition to reviews on attributes, we can also pose interesting review questions on policies. While, some review questions may need to consider all  available policies in the system, some other simple reviews can be answered using a candidate policy. For simplicity, in this section, we are interested only on those simple review functions. Informally, let us assume an ABAC policy that says `users with clearance manager can approve existing loan' for user attribute `clearance' and value from the set \{manager, employee\}, object attribute `loan' and value from the set  \{existing, default\} and  and action 'approve'. Some simple review questions that we can ask using this policy include - a. who can approve existing loans ? b. which type of loan a manager can approve? c. who can approve which loans so on.
+
+To formally define review functions, in the following section we first define a simple ABAC model - \sABAC{}. We follow the conventional approach for designing policies based on flexible policy language. In Section \ref{sec:review-function}, we define review functions using the \sABAC{} model. In Section \ref{section:np-complete}, we show that even simple policy review in \sABAC{} is NP-Complete. 
+
+	\input{review-np-complete.tex}

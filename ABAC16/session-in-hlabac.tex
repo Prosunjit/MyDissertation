@@ -1,0 +1,14 @@
+\begin{table} 
+\centering
+ \captionsetup{justification=centering}
+\caption{Session functions in \hlabac{} \newline (condition of session functions modified from Table \ref{tab:session-management} ) }
+\label{tab:session-in-hlabac}
+\begin{tabular}{|l|l|} \hline
+\textbf{Function} & \textbf{Modified condition} \\ \hline
+  $\createSession{}$      & \begin{tabular}[c]{@{}l@{}}  $u \in U \land s \not \in S \land values \subseteq$ \\ \hfill$  \{ ul' | \exists ul \udominate ul' [ ul \in \uLabel(u)] \}$ \end{tabular}             \\ \hline
+	$\deleteSession{} $        & $u \in U \land s  \in S \land creator(s)=u  $                     \\ \hline
+     $\assignValues{}$    &     \begin{tabular}[c]{@{}l@{}}  $u \in U \land s  \in S \land creator(s)=u \land values $ \\ \hfill$  \subseteq \{ ul' | \exists ul \udominate ul' [ ul \in \uLabel(u)] \}$ \end{tabular}                \\ \hline
+ $\removeValues{}$    &     \begin{tabular}[c]{@{}l@{}}  $u \in U \land s  \in S \land creator(s)=u  \land values $ \\ \hfill$  \subseteq \{ ul' | \exists ul \in  \uLabel(u) \land ul \udominate ul' \}$ \end{tabular}                 \\ \hline
+\end{tabular}
+\end{table}
+

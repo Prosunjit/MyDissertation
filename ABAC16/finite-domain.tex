@@ -1,0 +1,8 @@
+\section{Assumption of Finite Domains}
+\subsection{Finite policies for Finite domain ABAC}
+
+\textbf{Theorm 1:} \\
+For L boolean variables at most $2^{2^L}$ distinct boolean expression can be defined over logical AND, OR and NOT operators. 
+
+\textbf{Theorm 2:} \\
+Let UA be the set of user attributes, OA be the set of object attributes and $A=UA \cup OA$. For an attribute $a \in A$, let $R(a)$ denote co-domain or range of the attribute. Further $OPS$ be the set of all comparison operators that compares user/object attribute with other attribute values or constant values. The maximum number of boolean variable (expression of the form (value op value) ) that can be defined comparing attribute values are $|A| \times |OP| \times \sum_{a \in A} R(a)$

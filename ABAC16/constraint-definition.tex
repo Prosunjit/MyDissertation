@@ -1,0 +1,38 @@
+\begin{table}
+	\centering
+	\captionsetup{justification=centering}
+	\caption{\consLabac{} Model \newline (Additions and modifications to \clabac{})} %\vspace*{3pt}
+	\label{tab:constraint-definition}
+%	\begin{tabular}{|l|l|}
+%		\hline
+		\begin{tabular}{|l|}						
+			\hline					
+				
+				  \multicolumn{1}{|c|}{\underline{\textit{I. Components added from \clabac{}}}} \\								 
+					\textit{uLabel value assignment constraint:}\\
+						  - CUL = a collection of conflicting user-label values, \\ \hfil $\{ CUL_1, CUL_2, ... CUL_n \}$    where $CUL_i = \{ ul_1, ... ul_k\}$ \\		
+ 					\textit{oLabel value assignment constraint:}\\
+						    - COL = a collection of conflicting object-label values,\\ \hfil $\{ COL_1, COL_2, ... COL_n \}$    where $COL_i = \{ ol_1, ... ol_k\}$ \\
+				    \textit{Session value assignment constraint:}\\
+					    	 - CSL = a collection of conflicting user-label values, \\ \hfil $\{ CSL_1, CSL_2, ... CSL_n \}$    where $CSL_i = \{ ul_1, ... ul_k\}$ 	\\ 
+								  
+					\textit{Policy constraint:}\\
+						 % - $\allowedLabels(a:A, l:UL/OL) \to 2^{UL/OL}$,  \\ \hfill allowed oLabel values for   given uLabel values \\ \hfill  and vice-versa for action $a$.	\\
+						 - $\restrictedTuples \subseteq UL \times OL$ \\
+						  
+			\\ \multicolumn{1}{|c|}{\underline{\textit{II. Derived components}}}	  \\
+						  %- $\textit{\policyBound}_a =$ \\ \hfill $ \{ (ul,ol) | \exists ul \in UL \land ol \in \allowedLabels(a,ul)\}  \cap$  \\ \hfill  $\{ (ul,ol) | \exists ol \in OL \land ul \in \allowedLabels(a,ol)\}$  \\    \\				
+						  - $\policyBound = (UL \times OL) \setminus \restrictedTuples$ \\
+			 
+			
+			\\ \multicolumn{1}{|c|}{\underline{\textit{III. Authorization function}}} \\						
+					- \request(s:S,\amem:A,\objmem:O) =	 
+					$\exists ul \in \sessionLabels(s) ,$ \\ \hfill $ \exists ol \in oLabel(o)$  $[ (ul,ol) \in$ $\textit{\policy}_a \cap \policyBound_a  ]  $  					  
+			 
+				 	
+			 %	\multicolumn{1}{|c|}{\underline{\textit{VI. Sample Enforcement of Assignment Constraints}}} \\
+			%		- $ | labels(s) \cap OneElement(CSL) | = 1$, only one  user-label \\ \hfill value can be activated in a session. 
+ \\ \hline	
+	\end{tabular}
+	
+\end{table}

@@ -1,0 +1,32 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ \clabac{} Model} %\vspace*{3pt}
+	\label{tab:labac-definition}
+		\begin{tabular}{|l|}						
+		\hline					
+				\multicolumn{1}{|c|}{\underline{\textit{I. Sets and relations }}}\\			
+				- $U, O$ and $S$ (set of users, objects and sessions resp.)  \\
+				- $UL$, $OL$ and $A$ (finite set of user-label values, \\ \hfill object-label values and action resp.) \\
+				- $uLabel$ and $oLabel$ (label functions on users and \\ \hfill objects).  $\uLabel: U \to 2^{\UL}$;   $\oLabel: O \to 2^{\OL}$ \\			
+				- $\creator: S \to U$, many-to-one mapping from $S$  to $U$ \\
+				- $\sessionLabels: S \to 2^{UL}$, mapping from $S$   to    $uLabel$  values. \\ \hfill
+				$\sessionLabels(s) \subseteq   uLabel(\creator(s)) $ 	\\ 
+				$\langle$ see Section \ref{sec:session-management} for session management functions $\rangle$\\
+			%	\hfil [session management functions] \\ 
+				\\ \multicolumn{1}{|c|}{\underline{\textit{II. Policy components}}} \\	
+				-  $\Policy_a \subseteq \ULV \times  \OLV$,  for action $a \in A$. \\
+				- $\Policy = \{ \Policy_a | a \in A  \}$ \\ \\			
+				
+				\multicolumn{1}{|c|}{\underline{\textit{III. Authorization function}}} \\						
+				- \request(s:S,\amem:A,\objmem:O) =	 
+					$\exists ul \in \sessionLabels(s) ,$ \\ \hfill $ \exists ol \in oLabel(o)$  $[ (ul,ol) \in$ $\textit{\policy}_a ]  $  		
+			
+ \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%mod
+

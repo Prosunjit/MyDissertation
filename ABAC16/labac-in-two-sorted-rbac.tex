@@ -1,0 +1,28 @@
+\begin{table}
+	\centering
+	\caption{ \hlabac{} in \twoSortedRBAC{} } %\vspace*{3pt}
+	\label{tab:labac-in-two-sorted-rbac-table}
+	\begin{tabular}{|l|}						
+		\hline					
+			\multicolumn{1}{|c|}{\underline{\textit{I. \hlabac{} components}}} \\
+			-  $U, O,  A$ (set of users, objects and actions resp.) \\ 
+%			- $UL, OL, ULH,  OLH$ (uLabel and oLabel values, \\ \hfill uLabel and oLabel value hierarchy  resp.) \\		  
+%			-  $\uLabel()$, user to user-label value assignment relation \\		 	
+%			-  $\oLabel()$, object to object-label value assignment relation \\
+%			-  $\policy_{a}$, LaBAC authorization policies for $a \in A$\\\\
+			- $UL, OL, ULH,  OLH$ (uLabel values, oLabel values, \\ \hfill uLabel and oLabel value hierarchy  resp.) \\		  
+			-  $\uLabel: U \to 2^{UL}$, $\oLabel: O \to 2^{OL}$ \\
+			-  $\Policy_{a}$, authorization policy for action $a \in A$\\
+		
+		\\ \multicolumn{1}{|c|}{\underline{\textit{II. Construction in \twoSortedRBAC}}}\\	
+		- $S=U, OBS=O, OPS=A$\\			 
+		 - $\properRole = UL$, $\properRoleHierarchy = ULH$ \\ 
+ 		 - $\demarcation = OL$, $\demarcationHierarchy = \{\}$ \\ 
+ 		 - $\SR = \{ (u,r) | r \in uLabel(u)\}$\\
+ 		 - $\PD = \{ ((o_i, a_i), ol) | \exists (ul,ol) \in \policy_{a_i} \land$ \\ \hfill $ol' \in oLabel(o_i) \land ol \odominate ol'\}$ \\
+ 		 - $G = \{ (ul,ol) | (ul,ol) \in \policy_a  \}$\\
+		\hline	
+	\end{tabular}	
+
+	
+\end{table}

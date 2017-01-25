@@ -1,0 +1,76 @@
+
+\newcommand{\phiu}{\phi_{u}}
+\newcommand{\phio}{\phi_{o}}
+\newcommand{\phia}{\phi_{a}}
+\newcommand{\phip}{\phi_{p}}
+\newcommand{\phix}{\phi_{x}}
+\newcommand{\phiy}{\phi_{y}}
+\newcommand{\userAttrExpr}{UAExpr}
+\newcommand{\objectAttrExpr}{OAExpr}
+\newcommand{\actionExpr}{AExpr}
+\newcommand{\review}{acting\_users}
+\newcommand{\simpleReview}{deep\_review}
+\newcommand{\isSatisfiable}{is\_satisfiable}
+\newcommand{\interpretationY}{I_y}
+\newcommand{\interpretationX}{I_x}
+\newcommand{\interpretation}{I}
+\newcommand{\reductionAlgo}{CircuitSAT2PolicyReview}
+\newcommand{\psiu}{\psi_{u}}
+
+
+
+\subsection{\sABAC{} as a Conventional ABAC Model}
+\sABAC{} model is defined for a finite set of users $U$, objects $O$ and actions $A$. Additionally, it has a set of attribute functions for users and objects. One or more user attributes form UAExpr, one of more object attributes form OAExpr and oen or more actions from AExpr.
+
+	\input{sabac-def.tex}
+	\input{abac-grammer.tex} 
+	
+
+
+\subsection{Review Functions in \sABAC{}}
+	
+
+\textbf{Interpretation of Attribute Expression}\\
+	Informally, an interpretation of an attribute expression  is the set of  $(attr,Value)$ pairs where $attr \in UA \cup OA$ and $Value \subseteq Range(attr)$ for which the attribute expression is evaluated to be true. Formally, we define interpretation as a function $\interpretation$ as follows.
+
+\begin{itemize}
+	\item $\interpretation(\phi) \to 2^{(attr: UA \cup OA,  Value: 2^{Range(attr)})}$ and  defined as \\
+	$\interpretation(\phi) = \{(attr,Value) | (E(attr,val) \implies true ) \implies (\phi \implies true) \land val \in Value \}$
+	
+\end{itemize}
+	
+\noindent \textbf{Example of \sABAC{} Policy and its interpretation} \\
+let $ \phi  \equiv \{ E(role, manager) \land \lnot E(role, dir) \land E(type, new) \}$ be a  \sABAC  policy. 	
+$I_\phi = \{ (role,  \{ manager\}),$  $(type, \{ new\}), $   $(action, \{ approve\}) \}$ is satisfying interpretation for $\phi $. but $\{ (role,  \{ manager, dir\}) , (type, \{ new\}),$ \\ $(action, \{ approve\}) \}$ is not a satisfying interpretation. \\
+
+\noindent \textbf{Review Function As a Decision Problem}
+	
+$\simpleReview=\{  \phi$ | exists an assignment of user and object attribute values of policy $\phi$ st. $\phi$ is evaluated true \}  \\
+	
+%Finally, we define review function $\reviewFunction$ as follows.$R(\phi, input:2^{\interpretation_\phi}) \to 2 ^{\interpretation_\phi}$, defined as  $R(\phi, input) = 2^{\interpretation_\phi} \setminus input$ \\	\\
+
+
+
+ 
+ 
+% \input{review-fun-list.tex}
+ 
+
+  \subsection{Policy review in \sABAC{} is NP-Complete }
+	
+	we first informally argue that there exists a one-to-one correspondence between a boolean circuit and a policy in \sABAC{} model. Roughly, a boolean circuit is composed of n boolean variables/inputs (each denoted by $x_i$ and having a value from $\{0, 1\}$ )   and one boolean output ($y$) (in general, m outputs. But for our purpose we stick to one output). On the other hand, a \sABAC{} policy is composed of one or more functions of  $E$ which is also evaluated to be either true and false.  While boolean variable uses AND, OR and NOT gates, \sABAC{} policies uses logical $\land, \lor, \lnot$ respectively which corresponds semantically. Analogous to the output of a boolean circuit, evaluation of an \sABAC{} policy is either true or false. Thus we say a boolean circuit and a \sABAC{} policy correspond to each other. 
+	
+	Satisfiability of a boolean circuit asks for values of each boolean variable, $x_i$ that make the output of the circuit to be one. Similarly,  a review function (for example, in deep_review in Table \ref{table:review-fun}) may ask for possible attribute value assignments that evaluates  a access control request to be true. 
+	%Each input ($x_i$) in the boolean circuit, can be thought of a evaluation function ($E$) in the UAExpr and OAExpr. \sABAC 
+	
+	 \subsubsection{CircuitSAT}
+	 \input{circuit.tex}
+	 
+
+	
+	\input{np-completeness-proof.tex}
+	
+	
+	\input{reduction.tex}
+\subsubsection{Policy Review in LaBAC is Polynomial}
+\input{policy-review-in-labac.tex}

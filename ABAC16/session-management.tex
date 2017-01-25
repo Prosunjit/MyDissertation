@@ -1,0 +1,27 @@
+
+
+
+%\subsection{Functional Specification}
+\label{sec:session-management}
+\input{ABAC16/session-functions.tex}
+
+
+
+LaBAC allows users to create or destroy sessions, and assign/remove values from an existing session. Table \ref{tab:session-management} presents user-level \textit{\sessionLabels{}} functions for managing sessions in \clabac{}. Each function is presented with formal parameters (given in the first column), necessary preconditions (in the second column) and resulting updates (in the third column).  The function $\createSession()$ creates a new session with given values, $\deleteSession()$ deletes an existing session, $\assignValues()$ assigns values in an existing session and $\removeValues()$ removes values from an existing session. 
+
+%First column in the table shows function names along with formal parameters, second column defines precondition which must be satisfied for the function to be executed. The third column describes updates in the LaBAC sets and relations once corresponding function is executed.
+
+In \hlabac{}, we modify condition of the session functions from Table \ref{tab:session-management} to accommodate  that in a session created by a user, he can choose from the values he is assigned to or junior values. The modified conditions are given in Table \ref{tab:session-in-hlabac}. We specify an additional condition with each session function  in \consLabac{} and \labacOneOneOne{}.  For example, with $\createSession()$,  we specify a boolean function $f_{\createSession}()$ as additional precondition which must also be true. The definition of these boolean functions are  open-ended to be able to configure any session constraints. The difference between session functions in \consLabac{} and \labacOneOneOne{} is that the former does not consider hierarchy on user-label values whereas the later does. Table \ref{tab:session-in-consLabac} and \ref{tab:session-in-labacOne} show session functions in \consLabac{} and \labacOneOneOne{} respectively. Table \ref{tab:example-f-create-session} presents some constraints specified with $f_{\createSession}()$ function.  \textit{Example 1} uses an enumerated policy, $\Policy_{\createSession}$. It specifies that in order to create a session and assign values to the session, a user must be assigned to value $\createReq$. \textit{Example 2} enforces the constraint that no more than one conflicting $\uLabel$ values can be activated in a session. \textit{Example 3} imposes that a user cannot have more than some bounded number of sessions.
+
+Note that creation and deletion of objects, updating object-label values by sessions are outside the scope of LaBAC operational models presented here. One reason behind is that, LaBAC assumes actions not to be state-changing, while creation and deletion of objects change state of the model.
+
+\input{ABAC16/session-in-hlabac.tex}
+
+\input{ABAC16/session-in-clabac.tex}
+
+\input{ABAC16/additional-session-constraints.tex}
+
+
+
+\input{ABAC16/example-f-create-session.tex}
+

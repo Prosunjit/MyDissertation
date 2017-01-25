@@ -1,0 +1,39 @@
+\newcommand{\processUser}{process\_user}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ $\pmMini$ definition} %\vspace*{3pt}
+	\label{tab:poilcy-machine-mini}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. Basic sets and relations }}}\\				 
+		 - $U, O, OP$ and $P$ (set of users, objects, operations \\ \hfill  and processes resp.) \\ 
+		 - $UA, OA$ (set of user and object attributes) \\  
+		 - $AR$ (set of access rights).   In $\pmMini$, $AR=OP$ \\
+		 - $\processUser: P \to U$\\	 
+		
+		\\ \multicolumn{1}{|c|}{\underline{\textit{II. Assignment and association relations}}} \\
+			- $\assignment \subseteq (U \times UA) \cup (UA \times UA) \cup (O \times OA)$ \\ \hfill $\cup (OA \times OA),$  an irreflexive, acyclic relation \\
+	 
+	
+		- $\association \subseteq UA \times 2^{AR} \times OA$ \\
+	 
+		 \\ \multicolumn{1}{|c|}{\underline{\textit{III. Derived relations}}} \\
+	 	
+		 - $\assignmentPlus$, transitive closure  of $\assignment$   \\		 
+	 
+	 	
+	 
+	 	\\ \multicolumn{1}{|c|}{\underline{\textit{IV. Decision function}}} \\
+	 	% - $\decisionFunction(p,a,o) = \exists(ua, ars, oa)$  $\in \associationPolicy$   \\ \hfill $[ (u,ua) \in \assignmentUAUA \land (o,oa) \in \assignmentOAOA \land a \in ars]$ 
+	 	 
+	 	- $\decisionFunction(p,op,o) $ =\\ \hfill $\exists oa \in OA, \exists ua \in UA, \exists u \in U $ \\ \hfill $[(ua,\{op\}, oa) \in \association \land$ \\ \hfill $ (u,ua) \in \assignmentPlus\land (o,oa) \in \assignmentPlus \land $  \\ \hfill$\processUser(p) = u]$ 	
+		 	
+ 		\\ \hline	
+	\end{tabular}	
+
+	
+\end{table}

@@ -1,0 +1,28 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ \labacZeroTwoTwo{} Model} %\vspace*{3pt}
+	\label{tab:labac022-definition}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. Component of the basic model }}}\\			
+		- $U, O$, $A$ and $S$ (set of users, objects, actions and \\ \hfill sessions respectively).  \\
+		- $\ULOne, \ULTwo, \OLOne, \OLTwo$ (set of $uLabel_1, uLabel_2,$ \\ \hfill $oLabel_1$ and $oLabel_2$ values respectively). \\
+		- $\uLabelOne, \uLabelTwo, \oLabelOne, \oLabelTwo$ are label functions \\ \hfill on users and objects respectively. Formally, \\ \hfill  $\uLabelOne(u:U) \to 2^{\ULOne}$ and $\oLabelOne(o:O) \to 2^{\OL1}$ \\ \hfill  $\uLabelTwo(u:U) \to 2^{\ULTwo}$ and $\oLabelTwo(o:O) \to 2^{\OL2}$ \\  
+		-  $\policy_a \subseteq \ULV_1 \times \ULV_2 \times \OLV_1 \times \OLV_2$ \\
+		 %An individual policy,   $p \in \policy$  is \\ \hfil enumeration of tuples of the form $( ul_1 \in UL_1, ul_2 \in UL_2, a \in \A, ol_1 \in OL_1, ol_2 \in OL_2)$. \\
+	 
+		 - $\sessionLabels(s:S) \to 2^{UL_1 \times UL_2}$, mapping function from \\ \hfill a session   to the set  of $\uLabelOne{}$ and $\uLabelTwo{}$ values.    \\ \hfill formally	$\sessionLabels(s) \subseteq \{(ul_1', ul_2') | ul_1 \in \uLabelOne(user(s)) \land$ \\ \hfill $ul_1  \udominate ul_1' \land$   $ul_2 \in \uLabelTwo(user(s)) \land ul_2  \udominate ul_2' \}$.		\\ \\
+		
+		\multicolumn{1}{|c|}{\underline{\textit{V. Authorization functions}}} \\
+		- \request(u:U,\amem:A,\objmem:O) =	 \\ \hfill
+		$\exists ul_1 \in \uLabelOne(u) \land ul_2 \in \uLabelTwo(2) \land$ $ ol_1 \in \oLabelOne(o) \land$ \\ \hfill  $ ol_2 \in \oLabelTwo(o) \land  (ul_1, ul_2,ol_1, ol_2) \in \policy_a   $  
+
+		\\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%mod
+

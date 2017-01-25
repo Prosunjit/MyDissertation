@@ -1,0 +1,13 @@
+\begin{table}[]
+\centering
+ \captionsetup{justification=centering}
+\caption{Session functions in  \consLabac{} \newline (condition added with session functions from Table \ref{tab:session-management})}
+\label{tab:session-in-consLabac}
+\begin{tabular}{|l|l|} \hline
+\textbf{Session function} & \textbf{Additional condition} \\ \hline
+   $\createSession{}$      & $\land f_{\createSession}(u,s,values)$               \\ \hline
+	$\deleteSession{} $        & $\land f_{\deleteSession}(u,s)$                     \\ \hline
+     $\assignValues{}$    &      $\land f_{\assignValues}(u,s,values)$                \\ \hline
+ $\removeValues{}$    &      $\land f_{\removeValues}(u,s,values)$                \\ \hline
+\end{tabular}
+\end{table}

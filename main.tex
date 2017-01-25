@@ -37,6 +37,9 @@
 \theoremstyle{plain}
 \newtheorem{thm}{\protect\theoremname}
 
+\input{command.tex}
+\input{abac16-command.tex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{epsfig}          
 \usepackage{setspace}         
@@ -51,6 +54,29 @@
 \usepackage{color}
 \usepackage{cases}
 \usepackage{amsfonts}
+
+%%%%-----------------Packages from ABAC16 papers------------------%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{booktabs}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{pifont}
+\usepackage{lipsum,multicol}
+\usepackage[T1]{fontenc}
+\usepackage{epstopdf}
+\epstopdfsetup{outdir=./}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{flushend}
+\usepackage{caption}
+
+%%%--------------ENd ABAC16 package imports-----------------%%%%
 
 \@ifundefined{showcaptionsetup}{}{%
  \PassOptionsToPackage{caption=false}{subfig}}
@@ -68,17 +94,18 @@
 \committee{Prof. Ravi Sandhu, Ph. D.}{Prof. Jianwei Niu, Ph.D.}{Prof.Gregory White, Ph.D.}{Prof.Palden Lama, Ph.D.}{Prof. Ram Krishnan, Ph.D. }
 
 
-\informationitems{Doctor of Philosophy in Computer Science}{Ph. D.}{M. Sc.}{Department of Computer Science}{College of Sciences}{February}{ 2012 }
+\informationitems{Doctor of Philosophy in Computer Science}{Ph. D.}{M. Sc.}{Department of Computer Science}{College of Sciences}{May}{2017}
 
 
-\thesiscopyright{Copyright 2012 Prosunjit Biswas\\
+\thesiscopyright{Copyright 2017 Prosunjit Biswas\\
 All rights reserved. }
 
 
 \dedication{\emph{I would like to dedicate this thesis to my father  who is as eager to learn \\ \hfill as a child at his age of 80s.}}
 
 
-\title{\textbf{Enumerated Authorization Policy Models
+\title{\textbf{Enumerated Authorization Policy ABAC Models,
+Expressive Power and Enforcements
 }\\
 }
 
@@ -131,7 +158,7 @@ The Bibliography following this appendix should be set to single line.
 
 \bibliographystyle{plain}
 \nocite{*}
-\bibliography{sampleThesis}
+\bibliography{references}
 
 \begin{vita}
 This should be a one-page short vita.

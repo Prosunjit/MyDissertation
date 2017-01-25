@@ -1,0 +1,37 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ \hlabac{} Model} %\vspace*{3pt}
+	\label{tab:labac-definition}
+		\begin{tabular}{|l|}						
+		\hline								
+			\multicolumn{1}{|c|}{\underline{\textit{I. Components of the hieararchical model }}} \\		
+			\multicolumn{1}{|c|}{\underline{\textit{(in addition to the basic model)}}} \\		
+				  - $\ULH \subseteq \ULV \times \ULV$, partial order on user-label values \\ \hfil written as $\succeq_{ul}$ \\
+					
+				- $\OLH \subseteq \OLV \times \OLV$, partial order on object-label values \\ \hfil written as $\succeq_{ol}$ \\ \\						  
+				 
+			 	\multicolumn{1}{|c|}{\underline{\textit{III. Constraint model}}} \\		
+				 \hfil Definition of the constraint model is shown in Table 				 
+				  \ref{tab:constraint-definition}. \\ \\
+				\multicolumn{1}{|c|}{\underline{\textit{IV. Derived components}}} \\
+				- $\impliedPolicy_a = \{ (\ulvmem_i, \olvmem_j) | ( \exists (\ulvmem_j, \olvmem_i) \in \policy_a)$ \\ \hfill $[ \ulvmem_i \udominate \ulvmem_j \land \olvmem_i \odominate \olvmem_j] \}$	(explained in Figure \ref{fig:implied-policy})	\\
+				
+				- $\textit{\effectivePolicy}_a$ $ = \policy_a \cup \impliedPolicy_a$ \\
+					
+				 \\
+				\multicolumn{1}{|c|}{\underline{\textit{V. Authorization functions}}} \\
+				- \request(s:S,\amem:A,\objmem:O) =	 
+				      $\exists ul \in \sessionLabels(s) ,$ \\ \hfill $ol \in oLabel(o)$  $[ (ul,ol) \in$ $\textit{\effectivePolicy}_a ]  $  
+			 
+				 
+			  			  
+					 
+ \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%mod
+

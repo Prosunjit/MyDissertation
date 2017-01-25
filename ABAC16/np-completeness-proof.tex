@@ -1,0 +1,15 @@
+ \textbf{NP Completeness of Policy Review} 
+\begin{itemize}
+	\item $\simpleReview \in NP$
+		 given an instance of \simpleReview,   $\phi$  and a certificate $\interpretation$ for $\phi$. We can verify the certificate by evaluating each function $\E \in \phi$ with given attribute and values in $\interpretation$ in linear time. 
+		
+	\item Algorithm \ref{alg:reduction}  reduces \CircuitSAT{} to \simpleReview
+
+	\item $\psi \in \CircuitSAT \implies \reductionAlgo(\psi) \in \simpleReview$:
+		    $\psi  \in \CircuitSAT$ means there is a satisfying assignment of all $x_i \in \psi$. We replace all boolean variable, $x_i$ with evaluation function, $E_i$ resulting $\psiu$. So there must be a satisfying truth assignment of each $E_i$ satisfying $\psiu$. If we use the same (attribute, value) pairs as used in the construction of each $E_i$, we get a satisfying interpretation of attributes, $\interpretationX$ for $\psiu$.
+		     %As a result, for $(\psiu \land \E(a_i, val_i), E(a_i, val_i), ( ai, \{val_i\}) )$, there is an interpretation $\interpretationX$ that satisfy $\psiu$. That means, $\reductionAlgo(\psi) \in \simpleReview$. ( because of fact that  $\reductionAlgo(\psi)$ results $(\psiu \land \E(a_i, val_i), E(a_i, val_i), ( ai, \{val_i\}) )$)
+	\item $ \phi \in \simpleReview \implies \exists \psi [ \psi \in \CircuitSAT]$:	\\
+		   If we replace each $\E_i$ in $\phi$ with $x_i$ resulting $\psi$, $psi$ is still satisfiable because $\phi$ is satisfiable. This implies that $\psi \in \CircuitSAT$. 
+		
+	\item Algorithm \ref{alg:reduction} runs in polynomial time. 
+\end{itemize}

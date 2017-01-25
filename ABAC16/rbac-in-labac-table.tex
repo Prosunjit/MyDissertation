@@ -1,0 +1,38 @@
+\newcommand{\sessionRoles}{session\_roles}
+\begin{table}
+	\centering
+	\caption{ $RBAC_1$ in \hlabac} %\vspace*{3pt}
+	\label{tab:rbac-in-labac-table}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. $RBAC_1$ components }}}\\				 
+		 -  \textit{USERS, OBS, OPS, SESSIONS, ROLES} and \textit{RH} \\ \hfill (users,  objects, operations, sessions, roles \\ \hfill and role hierarchy resp.) \\
+		 -  $\textit{PRMS} = {(\textit{OBS} \times \textit{OPS})}$, the set of permissions  \\		 
+		 -  $\textit{UA} \subseteq \textit{USERS} \times \textit{ROLES}$.  \\
+		 - $\textit{PA} \subseteq \textit{PRMS} \times \textit{ROLES}$. \\	
+		 - $session\_user: \textit{SESSIONS} \to USERS$ \\
+		 %- $\sessionRoles: \textit{SESSIONS} \to 2^{\textit{ROLES}}$ ; $\sessionRoles(s) \subseteq$ \\ \hfill  $  \{r | (\exists r' \succeq r)[session\_user(s),r') \in \textit{UA}]\}$\\
+		  - $\sessionRoles: \textit{SESSIONS} \to 2^{\textit{ROLES}}$ and \\ \hfill $\sessionRoles(s) \subseteq  \{r | (\exists r' \succeq r)[session\_user(s),r') \in \textit{UA}]\}$\\
+		\\\multicolumn{1}{|c|}{\underline{\textit{II. Construction in \hlabac}}} \\
+		 	-  $U = \textit{USERS}, O = \textit{OBS}, A = \textit{OPS}, S=\textit{SESSIONS} $ \\ 
+		 	- \textit{UL=ROLES, ULH=RH}\\		  
+		 	- $ OL = \textit{ROLES} \times \textit{OPS}$, $\textit{OLH}= \{ \}$\\
+		 	-  $\uLabel(u) = \{ r | (u,r) \in UA \}$ \\
+		 	
+		 	-  $ \oLabel(o) = \{ (r,op) | ((o,op),r) \in PA \}$\\
+		 	- $\creator(s) = session\_user(s)$, for $s \in S$	\\
+		 	- $\sessionLabels(s) = \sessionRoles(s)$, for $s \in S$\\
+		 	-  $\policy_{op_i} = \{ (r, (r',op_i) ) |  ((o,op_i),r')  \in PA \land r' = r  \} $ \\
+		 	%- $\impliedPolicy_{op_i}$ and $\request()$ functions  are \\ \hfill unchanged from Table \ref{tab:labac-definition}	\\	
+		 	
+%		 	 \\ \multicolumn{1}{|c|}{\underline{\textit{III. Condition on session functions}}} \\
+%		 	 - $\createSession(u,s,values)$: \\ \hfil $u \in U \land s \not \in S \land values \subseteq \uLabel(u)$\\
+%		 	 - $\deleteSession(u,s)$: \\ \hfil $u \in U \land s \in S \land \creator(s)=u$\\
+%		 	 - $\assignValues(u,s,values)$: \\ \hfil $u \in U \land s \in S \land \creator(s)=u \land values \subseteq \uLabel(u)  $ \\ 
+%		 	 - $\removeValues(u,s,value)$: \\ \hfil $u \in U \land s \in S \land \creator(s)=u \land value \subseteq \uLabel(u)$ \\
+		 	
+		 \hline	
+	\end{tabular}	
+
+	
+\end{table}

@@ -1,0 +1,33 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	 \captionsetup{justification=centering}
+	 \caption{\hlabac{} Model \newline (Additions and modifications to \clabac{})}
+	%\caption{  } %\vspace*{3pt}
+	\label{tab:labach-definition}
+		\begin{tabular}{|l|}						
+		\hline								
+			\multicolumn{1}{|c|}{\underline{\textit{I. Sets and relations}}} \\		
+			%\multicolumn{1}{|c|}{\underline{\textit{(in addition to the basic model)}}} \\		
+				  - $\ULH \subseteq \ULV \times \ULV$, partial order ($\succeq_{ul}$) on $UL$  \\
+					
+	              - $\OLH \subseteq \OLV \times \OLV$, partial order ($\succeq_{ol}$) on $OL$  \\ 
+				  - $\sessionLabels(s) \subseteq   \{ ul' | ul \in uLabel(\creator(s)) \land ul \udominate ul' \}$		\\   \\						  				 			 	
+		
+			\multicolumn{1}{|c|}{\underline{\textit{II. Implied policy}}} \\
+				- $\impliedPolicy_a = \{ (\ulvmem_i, \olvmem_j) |  \exists (\ulvmem_m, \olvmem_n) \in \policy_a$[ \\ \hfill $ \ulvmem_i \udominate \ulvmem_m \land \olvmem_n \odominate \olvmem_j] \}$	(explained in Figure \ref{fig:implied-policy})	\\ \\
+				
+				%- $\textit{\effectivePolicy}_a$ $ = \policy_a \cup \impliedPolicy_a$ \\\\
+					
+		 	\multicolumn{1}{|c|}{\underline{\textit{III. Authorization function}}} \\
+				 
+				 	- \request(s:S,\amem:A,\objmem:O) =	 
+				 	$\exists ul \in \sessionLabels(s) ,$ \\ \hfill $ol \in oLabel(o)$  $[ (ul,ol) \in$ $\textit{\impliedPolicy}_a ]  $ \\					 
+ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%mod
+

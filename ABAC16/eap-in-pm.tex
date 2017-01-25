@@ -1,0 +1,26 @@
+%\section{\hlabac{} in Policy Machine}
+\label{sec:pm}
+
+
+In this section, we show how LaBAC can be presented as a simple instance of Policy Machine (PM) \cite{policy-machine}. In order to do so, we first define Policy Machine Mini ($\pmMini{}$) - a step down version of PM sufficient enough for our purpose. We then configure \hlabac{} in $\pmMini{}$.
+
+\subsubsection{$\pmMini{}$}
+
+$\pmMini{}$ is a sufficiently reduced version of PM.  For example, while PM uses four basic relations namely Assignment, Association, Prohibition and Obligation, $\pmMini$ includes only the first two of these. Similarly, PM manages both resource operations and administrative actions but $\pmMini$ is limited to managing operation on resources only.  Additionally, \textit{Policy Class}, an important concept in PM for combining multiple policies, is not considered in $\pmMini$. 
+
+
+
+
+Definition of $\pmMini{}$ is shown in Table \ref{tab:poilcy-machine-mini}. In $\pmMini{}$ users, objects, operations and processes are denoted by set $U, O, OP$ and $P$ respectively. $UA$ and $OA$ represent the finite sets of user attributes and object attributes. The definition of attributes in $\pmMini$ is different than the definition of attributes in most other models. While typically attributes are used as (attribute, value) pairs, $\pmMini$ uses attributes  as containers for users, objects and other attributes (constraints apply). For example, a user can be assigned to a user attribute $ua_i$ which can further be assigned to another user attribute $ua_j$. Same type of assignment applies for object and object attributes. User (or user attribute) to user-attribute  assignments and object (or object attribute) to object-attribute assignments are captured by the \textit{\assignment}{} relation which must be acyclic and irreflexive. On the other hand, the \textit{\association}{} relation is like a grant relation. The meaning of $(ua,\{a\},oa) \in \textit{\association}$ is that users contained in $ua$ can perform operation $a$ on objects contained in $oa$. Containment of users and objects can be transitive which is specified by the $\assignmentPlus{}$ relation. The decision function  $\decisionFunction(p,op,o)$ allows a process, $p$ (running on behalf of a user, $u$) to perform an operation, $op$ on an object, $o$ if there exists an entry, $(ua,\{op\},oa)$ in \textit{\association}{} relation  where $ua$ transitively contains $u$ and $oa$ transitively contains $o$.
+
+\input{ABAC16/policy-machine-mini.tex}
+
+A process in $\pmMini{}$ simply inherits all attributes of the creating user. Thus $\pmMini{}$ lacks the ability to model sessions, since there is no user control over a process's attributes.  Note that PM achieves this effect through obligation and prohibition relations \cite{INCITS526}. A complete and detailed model of Policy Machine can be found here \cite{INCITS526,policy-machine}.
+
+  % In modeling sessions,  $\pmMini$ lacks the ability to model sessions like they are modeled (Section \ref{sec:session-management}) in LaBAC. Note that PM achieves these through Obligation and Prohibition relations \cite{INCITS526}. For curious readers, a complete and detailed model of Policy Machine can be found here \cite{INCITS526,policy-machine}.
+
+ \subsubsection{\hlabac{} in $\pmMini{}$}
+ 
+ \input{ABAC16/hlabac-in-policy-machine.tex}
+ 
+As $\pmMini{}$ lacks the ability to manage sessions, here we present a mapping from $\pmMini{}$ to \hlabac{} without session management. In the mapping, users, objects, actions and sessions in LaBAC are directly mapped to users, objects, operations and processes in $\pmMini{}$.  User-label values and object-label values in LaBAC correspond to $UA$ and $OA$ respectively. Additionally,  user to user-label value assignments, object to object-label value assignments,  $ULH$ and $OLH$ in \hlabac{} is mapped to the \assignment{} relation. Finally, each tuple in each policy in LaBAC is contained in the \association{} relation. A mapping from  $\pmMini{}$ to \hlabac{} is given in Table \ref{tab:labac-in-policy-machine}. 

@@ -1,0 +1,25 @@
+% Please add the following required packages to your document preamble:
+ % \usepackage{booktabs}
+ \begin{table}
+ 	\centering
+ 	\caption{Some review functions for \sABAC{}}
+ 	\label{tab:review-fun}
+ 	\begin{tabular}{|l|l|l|}
+ 		 \hline
+ 		 \textit{function Name} &  \textit{Input} &  \textit{Output}\\
+ 		 \hline
+ 		 \textit{\request} &   \{$\interpretation(\phiu), \interpretation(\phio), \interpretation(\phia)$\}&  $\delta \equiv \{true, false\}$ \\ 		 
+ 		 
+ 		 \hline
+ 		 \textit{UA-query} &   \{$ \interpretation(\phio), \interpretation(\phia), \delta$\}&  $\{\interpretation(\phiu)\}$ \\
+		\hline
+		\textit{OA-query} &   \{$ \interpretation(\phiu), \interpretation(\phia), \delta$\}&  $\{\interpretation(\phio)\}$ \\
+		\hline
+		\textit{Act-query} &   \{$ \interpretation(\phiu), \interpretation(\phio), \delta$\}&  $ \{ \interpretation(\phia) \}$ \\
+		\hline
+		\textit{UO-query} &   \{$ \interpretation(\phia), \delta$\}&  $ \{ \interpretation(\phiu),\interpretation(\phio) \}$ \\
+			\hline
+		\textit{deep-query} &   \{$\delta$\}&  $ \{ \interpretation(\phiu),\interpretation(\phio),  \interpretation(\phia),  \}$ \\
+			\hline
+ 	\end{tabular}
+ \end{table} 

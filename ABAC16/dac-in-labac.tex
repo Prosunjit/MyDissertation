@@ -1,0 +1,31 @@
+\subsection{DAC in \clabac}
+
+ 
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table*}
+	\centering
+	\caption{ DAC in \labacOneOneOne{} for finite users and objects} %\vspace*{3pt}
+	\label{tab:dac-definition}
+	\begin{tabular}{|l|}						
+		\hline					
+	 
+		\multicolumn{1}{|c|}{\underline{\textit{I. Construction}}} \\
+		- let $OID$ be finite set of object ids. \\
+		-  $U, A$, be finite set of users, and actions\\
+		- $O$, set of existing objects. \\
+		-   $OL=OID$, $UL=\{ id(u) | u \in U \}$, for \\ \hfill $id(u)$ as the unique id of a user. \\
+		- $\policy$, set of existing policies.\\
+		\multicolumn{1}{|c|}{\underline{\textit{II. Administrative Actions Required for DAC}}} \\
+			- let $\canAddPolicy \subseteq U \times 2^{UL} \times A \times 2^{OL}$, \\  \hfill be an administrative relation.  $(au, X, a, Z) \in \canAddPolicy$ \\  \hfill implies that  administrative user, $au$  can add/remove \\ \hfill  policy,  $policy_a \equiv (x:X,z:Z)$\\
+		\multicolumn{1}{|c|}{\underline{\textit{III. create new object}}} \\
+			- $create\_object(u:U, oid:OID)$ \{ \\
+			\quad $o = create\_new(oid)$ \\
+			\quad	$oLabel(o) = \{oid\}$\\
+			\quad	$\policy = \policy \cup \{ ( id(u), read, oid), ( id(u), write, oid) )\}$ \\
+			\quad   $\canAddPolicy = \canAddPolicy \cup \{(u, UL, A, \{oid \}) \}$ \\		
+			\quad \} \\
+			\hline
+	\end{tabular}	
+\end{table*}
+

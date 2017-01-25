@@ -1,0 +1,14 @@
+\begin{algorithm}
+	\caption{ Reduction of Circuit SAT to Policy Review Problem}
+	\label{alg:reduction}
+	\begin{algorithmic}[1]
+		\Procedure{\reductionAlgo ($Circuit \ \psi$)}{}
+		\State Replace boolean ops with logical ops.
+		\For{each variable  $x$ \Pisymbol{psy}{206} $\psi$ }
+		\State replace $x$ with \textbf{\E($a \in UA \cup OA, val \in range(a)$) } 
+		\EndFor
+		\State let $\psiu$ denote the resulting \userAttrExpr		
+		\State return $\psiu$ 	
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}

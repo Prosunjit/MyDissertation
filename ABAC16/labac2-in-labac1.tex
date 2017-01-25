@@ -1,0 +1,26 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+
+\begin{table}
+	\centering
+	\caption{  \labacZeroTwoTwo{} in \labacZeroOneOne{}} %\vspace*{3pt}
+	\label{tab:lbac-in-labac}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. \labacZeroTwoTwo{} Components }}}\\	
+		 - $U^{2,2}, O^{2,2}, A^{2,2}$	\\		 
+	     - $UL_1, UL_2, OL_1, OL_2$\\
+		 -  $\uLabelOne(), \uLabelTwo(), \oLabelOne(), \oLabelTwo()$ \\
+		 -  $\policy^{2,2}_a \subseteq  UL_1 \times UL_2 \times OL_1 \times OL_2$\\	 
+		\multicolumn{1}{|c|}{\underline{\textit{III. Construction}}} \\
+		 - $U = U^{2,2}, O = O^{2,2}, A = A^{2,2}$\\
+		 -  $UL = UL_1 \times UL_2$ \\
+		 - $OL = OL_1 \times OL_2$\\		 
+		 -  $  \uLabel(u) =  \uLabelOne(u) \cup \uLabelTwo(u)$ \\
+		 -  $  \oLabel(o) =  \oLabelOne(o) \cup \oLabelTwo(o)$ \\ 
+		 - $ \policy_{a} = \{ ( (UL_1 \times UL_2) \times (OL_1 \times OL_2))|$ \\ \hfill $(ul1, ul2, ol1, ol2) \in \policy_a \}$ \\
+		 - Def. of  $\sessionLabels(s)$ for session $s \in S$  and \\ \hfill $\request(s, a, o)$   are unchanged 	\\	
+	 
+		\\ \hline	
+	\end{tabular}	
+\end{table}

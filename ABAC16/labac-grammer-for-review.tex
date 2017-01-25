@@ -1,0 +1,16 @@
+ %\newcommand{\E}{E}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table} 
+\centering
+\caption{Policy Definition for \elabac{}}
+\label{table:sabac-def}
+\begin{tabular}{@{}l@{}}
+ \toprule	
+	$\phi ::= \phi \land \phi  $\\
+	$\phi ::= \E $ \\	 
+	Terminal Symbols\\
+	$ \E (label: UA \cup OA, val: range(label) \cup NUL \cup NOL)  \to$ \\ \hfill $\{true, false\}$ \\
+ \bottomrule
+\end{tabular}
+\end{table}

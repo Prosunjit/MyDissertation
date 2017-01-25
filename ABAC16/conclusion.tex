@@ -1,0 +1,14 @@
+\section{Conclusion \& Future work}
+\label{sec:conclusion}
+
+
+In this paper, we present a simple Attribute Based Access Control model (LaBAC) using enumerated policies. LaBAC is based on single user attribute ($\uLabel$) and single object attribute ($\oLabel$). We analyze LaBAC with other enumerated policy models. LaBAC can be viewed as a simple instance of an existing enumerated policy model - Policy Machine. LaBAC is also equivalent to \twoSortedRBAC{}, which is the other enumerated policy model as we are aware of. We show flexibility of LaBAC in terms of configuring traditional models (RBAC and LBAC) in it. 
+
+Besides enumerated policy, we also discuss logical formula based authorization policy which is the more conventional approach for designing ABAC policy.  Logical formula can be very rich and complex and capable of expressing even complicated business logic in a very succinct form. But policy review or policy update may become NP-complete in policies expressed in logical formulas. 
+%We believe, reviewing or updating policy would be  crucial in maintaining an ABAC system. This motivates us to explore other avenues in the design of an ABAC model. 
+
+Enumerated policies as an alternate to specify authorization policies raise many interesting issues that need to be addressed to better  understand the nature of ABAC. For example, are there other alternates to specify authorization policies or policies in general in a ABAC system? What are the pros and cons of using logical formula or enumerated policy? Does review of policy or policy update become any simple in enumerated policies?  
+
+Additionally, many other questions need to be addressed in term of enumerated policy ABAC models. Are enumerated policy models as expressive (or less/more) as logical formula based models? How (if possible) can we express arbitrary business logic in enumerated policies? What would be the cost of storing potentially large number of enumerated tuples? How can we extend LaBAC to incorporate more than one user and object labels (or attributes) and so on?
+
+%On the contrary, enumerated policy is simple and policy review in it is inherently polynomial time. But there are many issues we need to be addressed in term of enumerated policy model. Is enumerated policy model less (or equal/more) expressive in general than logical formula based model?  Is there a  trade-off between expressive power and complexity of policy review/policy update? What would be the cost of storing potentially large number of enumerated polices? Are there alternates of designing ABAC policy other than or in between two extremes of logical formula and enumerated tuples and so on. 

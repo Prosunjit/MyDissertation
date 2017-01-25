@@ -1,0 +1,34 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ $RBAC_1$ in \clabac} %\vspace*{3pt}
+	\label{tab:rbac-in-labac-table}
+	\begin{tabular}{|l|}						
+		\hline					
+		\multicolumn{1}{|c|}{\underline{\textit{I. RBAC Components }}}\\				 
+		 -  $USERS, OBS, OPS$ and $ROLES$, $RH$ (users, \\ \hfill objects, operations, roles and role hierarchy respectively). \\
+		 -  $PRMS = {(OPS \times OBS)}$, the set of permissions.  \\		 
+		 -  $UA \subseteq USERS \times ROLES$.  \\
+		 - $PA \subseteq PRMS \times ROLES$. \\
+		% - $assigned\_permissions (r:ROLES) \to 2^{PRMS}$, defined as \\  \hfill	 $assigned\_permissions(r)  = \{ p \in PRMS \arrowvert (p,r) \in PA \}$. \\
+		%\multicolumn{1}{|c|}{\underline{\textit{II. Auxilary Functions}}} \\		
+		 %	- $\associatedObj (r:ROLES, op:OPS ) = $  \\ \hfill $\{  ob \in OBS |  (ob,op) \in PRMS \}   $  \\
+		\multicolumn{1}{|c|}{\underline{\textit{II. Construction}}} \\
+		 	-  $U = USERS, O = OBS, A = OPS, $ \\ 	
+		 	- $UL=ROLES$ \\	  
+		 	- $ OL = ROLES \times OPS$ \\
+		 	-  $\uLabel(u) = \{ r | (u,r) \in UA \}$ \\		 	
+		 	-  $ \oLabel(o) = \{ (r,op) | ((o,op),r) \in PA \}$\\
+		 	-  $\policy_{op_i} = \{ (r, (r',op_i) ) |  r \succeq r' \land ((o,op_i),r')) \in PA  \} $ \\
+		 	- Def. of  $\impliedPolicy_{op_i}$,  $\sessionLabels(s)$ for session $s \in S$ \\ \hfill and $\request(s, a, o)$  are unchanged from Table \ref{tab:labac-definition}	\\	
+		 	%- $\impliedPolicy_{op_i} = \{ (\ulvmem_i, \olvmem_j) | ( \exists (\ulvmem_j, \olvmem_i) \in \policy_{op_i})$ \\ \hfill $[ \ulvmem_i \udominate \ulvmem_j \land \olvmem_i \odominate \olvmem_j] \}$ [unchanged]	 	\\
+		 	%- $\sessionLabels(s) \subseteq \{ul' | ul \in uLabel(user(s)) \land ul  \udominate ul'  \}$ $$ \\ \hfill [unchanged]	\\
+		 	%- \request(s:S,\amem:A,\objmem:O) =	 
+		 	%$\exists ul \in labels(s), ol \in oLabel(o)$ \\ \hfill $[ (ul,ol) \in \policy_a \cup \impliedPolicy_a ]$[unchanged]  \\
+		 	
+		 \hline	
+	\end{tabular}	
+
+	
+\end{table}
