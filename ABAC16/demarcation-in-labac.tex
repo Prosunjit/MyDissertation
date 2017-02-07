@@ -4,20 +4,20 @@
 	\label{tab:two-sorted-rbac-in-labac-table}
 	\begin{tabular}{|l|}						
 		\hline					
-		\multicolumn{1}{|c|}{\underline{\textit{I. \twoSortedRBAC{} components }}}\\				 
-		 -  $S, OBS, OPS$, $\roles, \RH$, $\demarcation, \DeH$,   (users, objects,  \\ \hfill operations, proper roles, role hierarchy, demarcation\\ \hfill and demarcation hierarchy respectively). \\
+		\multicolumn{1}{|c|}{\underline{\textit{I. \twoSortedRBAC{} components }}}\\	\\			 
+		 -  $S, OBS, OPS$, $\roles, \RH$, $\demarcation, \DeH$,   (users, objects,   operations, proper roles, \\ \hfill role hierarchy, demarcation  and demarcation hierarchy respectively). \\
 		 -  $PRMS = {(OBS \times OPS)}$, the set of permissions  \\		 
 		 -  $\SR \subseteq S \times \roles$  \\
 		 -  $\PD \subseteq PRMS \times \demarcation$ \\	 
 		 - $G \subseteq \roles \times \demarcation$\\
-		\\ \multicolumn{1}{|c|}{\underline{\textit{II. Construction in \hlabac{}}}} \\
+		\\ \multicolumn{1}{|c|}{\underline{\textit{II. Construction in \hlabac{}}}} \\ \\
 		 	-  $U = S, O = OBS, A = OPS $ \\ 
 		 	- $UL=\roles, ULH=\RH$\\		  
 		 	- $ OL = \demarcation \times OPS$\\
 		 	- $OLH= \{ ((d_i, op_i), (d_j, op_j)) | d_i  \succeq d_j \land op_i = op_j\}$\\
 		 	-  $\uLabel(u) = \{ r | (s,r) \in \SR \}$ \\		 	
 		 	-  $ \oLabel(o) = \{ (d,op) | ((o,op),d) \in PD \}$\\		 	 	
-		 	-  $\policy_{op_i} = \{ (r_i, (d_j,op_j) ) |  (r_i,d_i) \in G \land$ \\ \hfill $((o,op_i),d_i)  \in \PD \} $ \\
+		 	-  $\policy_{op_i} = \{ (r_i, (d_j,op_j) ) |  (r_i,d_i) \in G \land$ $((o,op_i),d_i)  \in \PD \} $ \\
 		 \hline	
 	\end{tabular}	
 

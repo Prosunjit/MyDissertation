@@ -1,0 +1,35 @@
+%\vspace{-1em}
+\begin{table}[t]
+	\centering
+	\caption{ \LPMN{} model} %\vspace*{3pt}
+	\label{tab:lp-abacmn-definition}
+		\begin{tabular}{|l|}						
+		\hline					
+				\multicolumn{1}{|c|}{\underline{\textit{I. Sets and relations}}}\\			
+				 - $U, O$, $S, A$ (set of users,  objects , subjects and actions resp.)\\
+				 %- $ \UAV, \textit{\OAV}$ and $A$ (finite set of user and object attribute values and actions resp.) \\
+				 - $\UAV{1}, \UAV{2}, ..., \UAV{m}$ (range of user attribute functions) \\
+				 - $\OAV{1}, \OAV{2}, ..., \OAV{n}$ (range of object attribute functions) \\
+				 - $UA = \{\ua{1}, \ua{2}, ..., \ua{m}\}$ (set of all user attributes);   $\ua{i}: U \to 2^{\UAV{i}}$ for $1 \le i \le m$\\
+ 				 -  $OA = \{\oa{1}, \oa{2}, ..., \oa{n}\}$ (set of all object attributes); $\oa{i}: O \to 2^{\OAV{i}}$ for $1 \le i \le n$\\
+  			     - $\creator: S \to U$, many-to-one mapping \\
+ 				 - $SA = \{\sa{1}, \sa{2}, ..., \sa{m}\}$ (set of all subject attributes); $\sa{i}(s) \subseteq \ua{i}(\creator(s))$\\	
+				
+				%$\langle$ see Table \ref{tab:abac11-session} for user level session functions $\rangle$ \\
+				
+				 \multicolumn{1}{|c|}{\underline{\textit{II. Policy components}}} \\						
+				
+				-  $f_a: (2^{\UAV{1}}, 2^{\UAV{2}}, ... ,2^{\UAV{m}}, 2^{\OAV{1}},  2^{\OAV{2}}, ... , 2^{\OAV{n}} )\to \{true, false\}$ (policy for $a \in A$).  \\
+   			    - $LFs = \{f_a | a \in A \} $ ( set of all policies)\\			
+				 
+				
+				 \multicolumn{1}{|c|}{\underline{\textit{III. Authorization function}}} \\						
+				- \request(s:S,\amem:A,\objmem:O) = \\	\hfill  $\exists f_a \in LFs[f_a(\sa{1}(s), \sa{2}(s),..., \sa{m}(s),  \oa{1}(o), \oa{2}(o), ... \oa{n}(o)) = true] $  
+			
+\\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%\vspace{-1em}
+

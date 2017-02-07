@@ -1,0 +1,107 @@
+\section { Access Control Scope}
+\label {sec:scope}
+JSON  is  used   both in data storage and  data  transfer between applications. In storage, JSON is utilized  for storing bulk volume of data (e.g. MongoDB \cite{mongodb}, CouchDB \cite{couchdb}, Apache Cassandra \cite{cassandra}) as well as  lightweight data (e.g. client side persistent storage, LawnChair \cite{lawnchair}).  
+
+At the database level, authorization models for existing JSON document databases are coarse grained. For example, widely used document database, MongoDB at the finest level provides authorization for a collection of JSON documents (see section \ref{sec:mongodb-authorization}). 
+
+We feel  there are legitimate requirements for content level authorization of a JSON document in JSON databases. Authorization actions for a JSON document include read or update value of a JSON key, insert or delete a new key and so on. Without loss of generalization, in the next sections, we only consider read action associated with JSON items.
+
+%In our work, we emphasize on actions at JSON document level and our protection model is specified at that level only. More specifically, we are only concerned with the \emph{Read value} operation which applies to both JSON object or JSON array. The synopsis of this discussion is shown at Figure \ref{fig:json ac scope}. 
+
+
+\subsection{Case Study: Authorization Model of MongoDB}
+\label{sec:mongodb-authorization}
+
+MongoDB is one of the most popular and mature document databases available today. In MongoDB, multiple JSON documents are organized into collections, and multiple collections are organized into databases. Table \ref{table:mongo-auth-model} models the current version (v 2.6) of MongoDB authorization. Note that, MongoDB does not  include single document as a resource type and thus, it is not possible to specify authorization at the document level or at the content level.
+
+
+%MongoDB differentiate databases into two types - Admin Database and User Database. If a user is given any privilege to a User Database, it can  exercise the privilege only on that database while  by giving a privilege to Admin Database, a user can perform the privilege on all User Databases.
+
+%MongoDB uses Role Based Access Control (RBAC) to manage authorization. It has a set of predefined Roles and lets users to create a new role. In MongoDB a role is bound to one or more privileges and privileges are specified as an action on a  resource type. It has a predefined set of resource types and  set of administrative and non-administrative actions  on different resource types.  Example of actions on collection level are \emph{update} or \emph{remove} any  document from a collection. 
+
+
+
+%There are certain challenges on specifying protection on  document and content level because of the very large volume of data (even in  terabytes) MongoDB manages.  This data may contain large number of documents and even though they are organized into collections, each collection may contain many JSON documents and even worse each JSON document may contain enormous JSON data items. Using RBAC to manage access control at this level is difficult because specifying roles requires identifying resources beforehand.  We believe that statically identifying all these resources (e.g. JSON documents in a collection and JSON data items inside a document) are infeasible and it requires attributes to identify and manage them dynamically.
+
+%===================Policy Configuration starts ==================%
+\begin{table*}[t] \footnotesize
+	\centering
+	\caption{MongoDB Authorization  at Database Level }
+	\label{table:mongo-auth-model}
+	\begin{tabular}{p{\textwidth}}
+		
+		\hline
+		
+		$\mathcal{J}$: Set of all JSON documents in a database.\\
+		
+		$\mathcal{CLS}$: Set of all Collections where a collection, $col_i \subset J$ \\
+	
+		$\mathcal{RT}$: A set of predefined resource types in MongoDB, for example,  $  \mathcal{RT} = \{Collection, System Collection, Index, Cursor \}  $\\ 
+		
+		$\mathcal{I}_{rt}$: A set of all instance of a resource type $rt$ \\
+		
+		$\mathcal{A}_{rt}$: A set of all predefined actions on a particular resource type $rt$. \\
+		
+		$P$: Set of all  privileges for all instance on all resource types. $P$ = $\mathcal{RT} \times \mathcal{I}_{rt}  \times  \mathcal{A}_{rt}$ \\
+	
+		$\mathcal {R}, \mathcal{U}$: Set of available roles and users respectively.\\
+		
+		$\mathcal{RPA}$: Role-privilege assignment set. $\mathcal{RPA} \subset  \mathcal{R}  \times 2^\mathcal{P}$ \\
+		
+		$\mathcal{URA}$: User-role assignment set. $\mathcal{URA} \subset  \mathcal{U}  \times \mathcal{R}$\\
+		
+		\hline
+	\end{tabular}
+\end{table*}
+
+%===================Configuration end ==================%
+
+
+
+
+
+\iffalse
+\subsection {Requirements of the Protection Model}
+\label{sec:access-control-requirements}
+In this section, we investigate the requirements that a suitable access control model for JSON document should satisfy.
+
+\begin{enumerate}
+	\item \emph{Handling of large number of objects} -  A JSON document can be very large. So, there is a need to handle large number of JSON objects or arrays.
+	
+	\item \emph{Object-Attribute association} - When we  have large number of objects, manually assigning permissions or policies on individual objects is inefficient. So, we posit that objects should be associated with attributes and policies should be configured in terms of these attributes instead of individual object.
+	
+	 \item \emph{Flexible maintenance of policy} -  Policy should be flexible to maintain. It means small policy set, no duplication of a policy and  possibly no redundant policy.
+	
+	 \item \emph{Data-centric model as oppose to user-centric model} - While some access control model emphasize more  on the user side (e.g. RBAC), we assume that the data centric protection model can reduce some of the complexities of user centric model and focus more on different semantics on the object side, for example, object hierarchy, object to object relation and so on.
+
+\end{enumerate}
+
+\fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

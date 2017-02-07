@@ -6,28 +6,29 @@
 	\label{tab:labac-complete-definition}
 		\begin{tabular}{|l|}						
 		\hline					
-				\multicolumn{1}{|c|}{\underline{\textit{I. Basic Components }}}\\			
+				\multicolumn{1}{|c|}{\underline{\textit{I. Basic Components }}}\\	\\		
 				- $U, O$ and $S$ (set of users, objects and sessions resp.)  \\
-				- $UL$, $OL$ and $A$ (finite set of user-label values, \\ \hfill object-label values and action resp.) \\
-				- $uLabel$ and $oLabel$ (label functions on users and  \\ \hfill objects).  $\uLabel: U \to 2^{\UL}$;   $\oLabel: O \to 2^{\OL}$ \\				
+				- $UL$, $OL$ and $A$ (finite set of user-label values, object-label values and action resp.) \\
+				- $uLabel$ and $oLabel$ (label functions on users and  objects). \\ \hfil  $\uLabel: U \to 2^{\UL}$;   $\oLabel: O \to 2^{\OL}$ \\				
 				- $\ULH \subseteq \ULV \times \ULV$, partial order ($\succeq_{ul})$ on $UL$  \\	
 				- $\OLH \subseteq \OLV \times \OLV$, partial order ($\succeq_{ol}$) on $OL$  \\ 
 				- $\creator: S \to U$, mapping from $S$  to $U$ \\
 				- $\sessionLabels: S \to 2^{UL}$, mapping from $S$   to $uLabel$  values.\\ \hfill	$\sessionLabels(s) \subseteq   \{ ul' | ul \in uLabel(\creator(s)) \land ul \udominate ul' \}$			\\    			  
 			    %- $\allowedLabels(a:A, l:UL/OL) \to 2^{UL/OL}$,  \\ \hfill allowed oLabel values for   given uLabel values \\ \hfill  and vice-versa for action $a$.	\\\\
  			   - $\restrictedTuples \subseteq UL \times OL$ \\
- 			   - \textit{CUL, COL, CSL} (conflicting set of $\uLabel, \oLabel$\\ \hfill and session-label values) \\$\langle$ see Section \ref{sec:session-management} for session management functions $\rangle$\\
+ 			   - \textit{CUL, COL, CSL} (conflicting set of $\uLabel, \oLabel$ and session-label values) \\
+ 			   $\langle$ see Section \ref{sec:session-management} for session management functions $\rangle$\\
 			    
-			   \\	\multicolumn{1}{|c|}{\underline{\textit{II. Policy components}}} \\	
+			   \\	\multicolumn{1}{|c|}{\underline{\textit{II. Policy components}}} \\	\\
 			   	-  $\Policy_a \subseteq \ULV \times  \OLV$,  for action $a \in A$. \\
 			   	- $\Policy = \{ \Policy_a | a \in A  \}$ \\ \\
 			    
-			    \multicolumn{1}{|c|}{\underline{\textit{III. Derived components}}} \\
+			    \multicolumn{1}{|c|}{\underline{\textit{III. Derived components}}} \\\\
 			    - $\impliedPolicy_a = \{ (\ulvmem_i, \olvmem_j) |  \exists (\ulvmem_m, \olvmem_n) \in \policy_a$[ \\ \hfill $ \ulvmem_i \udominate \ulvmem_m \land \olvmem_n \odominate \olvmem_j] \}$	\\
 			     - $\textit{\policyBound} = (UL \times OL) \setminus \restrictedTuples$ \\
 			    
 			    
-				\\ \multicolumn{1}{|c|}{\underline{\textit{IV. Authorization function}}} \\ 						
+				\\ \multicolumn{1}{|c|}{\underline{\textit{IV. Authorization function}}} \\ 	\\					
 				- \request(s:S,\amem:A,\objmem:O) =	 
 					$\exists ul \in \sessionLabels(s), $ $\exists ol $ \\ \hfill   $ \in oLabel(o) [ (ul,ol) \in$ $\textit{\impliedPolicy}_a \cap  \textit{\policyBound}]  $  		
 			

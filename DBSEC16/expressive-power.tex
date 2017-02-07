@@ -1,0 +1,47 @@
+%\section{Theoritical expressive power of \EPMNModel{} and \LPMN{}}
+
+\label{sec:equivalence}
+
+
+
+In this section, we establish the relationship between different \EPModels{} and \LPModels{} models with respect to their theoretical expressive power. We consider single attribute (one user and one object attribute) and multi-attribute \EPModels{} and \LPModels{} models. A relationship among these models is  schematically presented in Figure \ref{fig:all-equivalence}. On the left and right side of the Y-axis, we present single attribute and multi-attribute  models respectively. On above and below the X-axis, we present enumerated and logical-formula policy models respectively. In all these models, we only consider set valued attributes. On the other hand, policy tuples are represented differently in \EPOneOneModels{} and \EPMNModel{} models. While the former uses atomic values (e.g. $(manager,TS)$),  the later uses set values (e.g. $(\{manager\}\,\{TS\})$) in a policy tuple.
+
+We establish four different equivalences labeled number one to four in Figure \ref{fig:all-equivalence}. The first  equivalence  shows  that single and multi attribute \EPModels{} models are equivalent whereas the third equivalence shows similar result for  \LPModels{} models. The second equivalence shows that multi-attribute \EPModels{} models are as expressive as multi-attribute \LPModels{} models. The fourth equivalence shows similar result for single attribute. 
+
+
+
+\textbf{Equivalence of single and multi attribute EAP models:}  We follow the foundation of  \cite{tripli}   to establish the equivalence of theoretical expressive power, referred to \TL{} equivalence for convenience. \TL{} requires us to define an access control model as an access control scheme of state transition system, present the mappings between the models in concern and show the mappings satisfy the requirements of state matching reduction. Additionally, we need to specify the access control queries that we need to preserve in the equivalence. 
+
+%The mappings between \EPMNModel{} and \EPOneOneModels{} are presented in Table \ref{tab:mapping-epmn-ep11}.
+
+% Representation of the model in TripLi schema and proof of state matching reduction are shown in the appendix. Note that, in the reductions, we do not consider state transitions for addition/deletion  of users, objects, authorization policies, and attribute-value assignments. We consider \clabac{} model presented in \cite{labac} as \EPOneOneModels{}.
+
+We consider \clabac{} model presented in \cite{labac} as \EPOneOneModels{}. We present \EPOneOneModels{} in \TL{} as ($\myGamma{1,1}, \myQ{1,1}, \myvdash{1,1}, \myPSI{1,1}$) where a state,  $ \mygamma{}{1,1} \in \myGamma{1,1}$ is  specified as$(U, O, A, S, uLabel, oLabel,$ $ \sessionLabels{},  UL,$  $ OL, \Policy)$. The queries are specified as $\myQ{1,1}=\{ \myq{sao}{1,1} \equiv \isAuthorized(s, a, o)|$  $ a\in A, s \in S, o \in O \}$. The set of state transition rules $\myPSI{1,1}$ are $\{\createSession,$ $ \assignValues,$ $ \removeValues, \deleteSession\}$. Finally, the entailment function is defined as $\mygamma{}{1,1} \myvdash{1,1} \myq{sao}{1,1}$ iff $\isAuthorized(s,a,o)$ $=true$.
+
+\EPMNModel{}  is defined as ($\myGamma{m,n}, \myQ{m,n}, \myvdash{m,n},\myPSI{m,n}$ ) where  a state $ \mygamma{}{m,n} \in \myGamma{m,n}$ is specified as  $(U, O, A, S, \uLabelP{1},..\uLabelP{m}, \oLabelP{1},..\oLabel{n},$ $ \sessionLabelsP{1},..\sessionLabelsP{m},  \UL{1},..\UL{m},$  $ \OL{1},..\OL{n}, \Policy)$. The queries  $\myQ{m,n}=\{ \myq{sao}{m,n} \equiv \isAuthorized$ $(s, a, o) \}$.  State transition rules are represented as $\myPSI{m,n} =  \{\createSession,$ $ \assignValues,$ $ \removeValues, \deleteSession\}$. Finally, $\mygamma{}{m,n} \myvdash{m,n} \myq{sao}{m,n}$ iff $\isAuthorized(s,a,o)$ $=true$.
+
+\input{DBSEC16/mapping-labacmn-to-labac11.tex}
+%\input{all-equivalence.tex}
+
+
+
+
+%While, the former uses $m$ user  and $n$ object attributes, the later uses only one user and one object attribute. Additionally, \EPOneOneModels{} uses atomic valued tuples and \EPMNModel{} uses set valued tuples.
+
+%For each element in the result of the cartesian product, we define a value of the single user attribute. 
+
+The mappings between \EPMNModel{} and \EPOneOneModels{} are presented in Table \ref{tab:mapping-epmn-ep11}. Segment I  presents the \EPOneOneModels{} model \cite{labac}. In  Segment II, we show the mapping from  \EPMNModel{} to \EPOneOneModels{}.  To combine $m$ user attributes of \EPMNModel{} into single attribute  of \EPOneOneModels{}, we take a cross product of the ranges of all $m$ attributes. To map set valued policy tuple into atomic valued policy tuple, we consider power set of the attribute values in computing the cross product.  We follow the similar process in computing single object attribute  and session-label values.  Finally, a tuple of \textit{m} user and \textit{n} object attribute values is converted to a 2-valued-tuple where the first value comes from $m$ user attributes and the second value comes from $n$ object attributes. The second mapping from \EPOneOneModels{} to \EPMNModel{}, given in Segment III, is straightforward where we use only one user and one object attribute out of $m$ and $n$ attributes. 
+
+
+
+To show the mappings satisfy the requirements of state matching transition, let $\mygamma{0}{1,1}$ and $\mygamma{0}{m,n}$ be the start state of \EPOneOneModels{} and \EPMNModel{}  respectively. Let $\mygamma{0}{1,1} \myvdash{1,1} \myq{sao}{1,1}$. i.e. $ \isAuthorized(s,a,o) = true$ and thus, $(ul,ol) \in \Policy_a$, $ul \in uLabel(u)$ and  $ol \in oLabel(o)$ in $\mygamma{0}{1,1}$. According to Segment III of the mapping, it also happens that $(\{ul\},\{\}... \{ol\}.. \{\}) \in \Policy_a$, $ul \in uLabel(u)$ and  $ol \in oLabel(o)$ in $\mygamma{0}{m,n}$. Thus, $\mygamma{0}{m,n} \myvdash{m,n} \myq{0}{m,n}$. So, the initial states are equivalent. Now, for each state transition in $\myPSI{1,1}$ there also exists a similar transition in $\myPSI{m,n}$. For example, $\createSession$ exists in both $\myPSI{1,1}$ and $\myPSI{m,n}$. So, whenever, \EPOneOneModels{} reaches a new state using its state transition rules, so does \EPMNModel{}. So, there exists a one-to-one mapping between states of both models. We can use the same arguments as for initial states to show that corresponding states of the two models are equivalent. This proves the mapping from \EPOneOneModels{} to \EPMNModel{} is a state matching reduction. Similarly, we can show the same result holds for the other mapping. Thus, \EPOneOneModels{} and \EPMNModel{} are equivalent in expressive power.
+
+\input{DBSEC16/mapping-from-mn-EAP-to-mn-LAP.tex}
+\input{DBSEC16/lpmn-to-lp11-table.tex}
+
+\textbf{\textit{Equivalence of multi-attribute EAP and LAP models:}} Segment I and Segment II of Table \ref{tab:mapping-epmn-lpmn} show the required mapping from \EPMNModel{} to  \LPMN{} and  vice versa. In the mappings, both models have \textit{m} user and \textit{n} object attributes. Attributes values, and attribute value assignments and sessions  of one model are mapped to that of the other model. In Segment I, while generating a logical-formula policy from enumerated tuples, for each tuple we build an attribute value expression. Multiple tuples are matched with multiple expression connected by logical $\lor$ operators. In building an expression, for each set of values  in the tuple, we check if the values are activated in the session or contained by corresponding object attribute. On the other hand, in building tuples from a logical formula, for the sets of values of each attribute that evaluate the formula true, we create one tuple for  these values. For brevity, we do not show the \TL{} representation for this and later equivalences. Mappings for  the equivalences between \LPOneOne{} and \LPMN{} \& \LPOneOne{} and \EPOneOneModels{}  are given in Table \ref{tab:lp11-to-lpmn}.
+
+
+
+
+

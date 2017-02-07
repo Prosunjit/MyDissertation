@@ -1,5 +1,52 @@
 \chapter{Background \& Literature Review}
+
 \section{Finite Domain ABAC}
+	Most of the ABAC models (for example, \cite{abacAlpha,hgabac,abac-ws,abac-for-web-service}) assume finite set of user and  object attributes and that values of each attribute come from a finite set. This assumption is useful in many practical cases. For example, values of \textit{roles}, \textit{clearance} or \textit{age} are bounded and mostly static. But attribute values can be unbounded as well. For example, if values of an attribute include users or objects in a system  (e.g. \textit{owner} of an object) where they may grow indefinitely, these values are unbounded.  In this dissertation, we assume that there is a finite set of attributes and values of each attribute come from a finite set.
+	
 \section{Types of authorization policy}
-\section{Theoretical expressive power}
-\section{Related work}
+	Most of the ABAC models assume a finite set of user attributes, finite set of object attributes and finite range for each of these attribute functions. On the other hand, when specifying authorization policies, there are two major methods. More conventional approach is to define policies using logical formula. Examples in this category include $\abacAlpha${} \cite{abacAlpha}, \hgabac{} \cite{hgabac}, ABAC for Web Services \cite{abac-for-web-service}, and XACML \cite{xacml}. The alternative technique for expressing policy is by enumeration. Examples in this category include Policy Machine (PM) \cite{policy-machine} and \twoSortedRBAC{} \cite{two-sorted-rbac}.
+	
+\subsection{Logical-formula Authorization policy}
+	Logical-formula authorization policy (\LAP{}) can be defined as a boolean expression consisting of subexpressions connected with logical operators (for example, $\land, \lor, \lnot$ and so on ) where each subexpression compares attribute values with other attribute or constant values. The language for \LAP{} usually supports a large set of logical and relational operators. A \LAP{} grants a user request for exercising certain action on an object if attributes of the requesting user and requested object evaluate the formula true. $Auth_{read} \equiv clearance(u) \succeq classification(o)$ is an example of  logical-formula authorization policy which allows a user to read an object if the user's clearance dominates classification of the object.
+	
+	\LAP{}s are usually expressed in propositional logic. Examples of  \LPModels{} models  include \cite{abacAlpha,hgabac,abac-ws,abac-for-web-service}.  Flexibility of these models have been demonstrated by configuring conventional DAC\cite{dac}, MAC\cite{lbac} and RBAC \cite{rbac} policies in it. 
+	
+	%It has been shown  \cite{labac} that policy review in  \LPModels{} is equivalent to the satisfiability problem  which is NP-complete for propositional logic. 
+	
+	As satisfiability in propositional logic is NP-complete and policy review in general can be mapped to satisfiability problem, reviewing policy would be NP-Complete in many existing ABAC models including \cite{abacAlpha,hgabac,abac-for-web-service}. On the other hand, if policies are expressed in first-order logic, policy review would be undecidable since  satisfiability is undecidable in first-order logic.
+	
+\subsection{Enumerated Authorization Policy}
+	Usefulness of enumerated authorization policy has been demonstrated in the literature. For example, in Policy Machine (PM) \cite{policy-machine}, Ferraiolo et. al define attribute based enumerated policies using one user attribute, one object attribute and a set of actions. A policy/privilege in PM is defined as $(ua_i, OP, oa_i)$, where $ua_i$ and $oa_i$ are values of user-attribute and object-attribute respectively and $OP$ is  a set of operations. Intuitively, reviewing or updating an enumerated policy would be polynomial time.
+		
+	The simple structure of enumerated policy does not necessarily make it less expressive. For example, PM shows how to configure traditional models using enumerated policies \cite{INCITS526}. In Section \ref{sec:configuration}, we also show how to express RBAC \cite{rbac} and LBAC \cite{lbac} policies using \EAP{}s. Furthermore, in Section \ref{sec:equivalence}, EAP and LAP are are equivalent in their theoretical expressive power.
+	
+	Informally, an enumerated authorization policy (\EAP{}) consists of a set of  tuples.  Each tuple \textit{(UAVals, OAVals)} grants privileges to a set of users  to exercise an action on a set of objects identified by the user and object attribute values \textit{UAVals} and \textit{OAVals} respectively. In an EAP, each tuple is distinct and grants privileges independently. Both  UAVals{} and OAVals{} can be atomic valued or set valued. (\textit{\manager, TS}) and (\textit{\{\manager, dir\}, \{TS,H\}}) are example of atomic and set valued tuples respectively. 
+	
+	
+
+%\section{Theoretical expressive power}
+
+\section{Literature Review}
+
+
+Several attribute based access control models have been proposed in the literature. While, some authors design general purpose ABAC model, others design ABAC in specific application context. There are also significant works towards integrating attributes with traditional RBAC model for enhancing its expressibility. Furthermore, XACML represent another line of work involving attributes to provide flexible policy language and support of multiple access control policies.
+
+$\abacAlpha${} \cite{abacAlpha} is among the first few models to formally define an ABAC model. It is designed to demonstrate flexibilities of an ABAC system to configure DAC, MAC and RBAC models. $\abacAlpha${} uses subset of subject attributes and object attributes to define  an authorization policy for a particular permission $p$. It describes a constraint language to specify subject attributes from user attributes. Furthermore, it also presents a constraint language for changing object attributes at  creation or modification time.
+
+\hgabac{} \cite{hgabac} is another notable work in designing a formal model for an ABAC system. Besides designing a flexible policy language capable of  configuring DAC, MAC and RBAC, it also addresses a real problem of assigning attributes to a large set of users and objects. It specifies hierarchical groups and provides a mechanism for inheriting attributes from a group by joining to the group.
+
+ABAC-for-web-services \cite{abac-for-web-service} is among very few earlier works to outline authorization architecture and policy formulation for an ABAC system. They propose a distributed architecture for authoring, administering, implementing and enforcing an ABAC system. Even though, their policy language is semi-formal, they present a powerful idea of composing hierarchical policies from individual policies.
+
+Wang et al \cite{wang2004logic} presents a stratified logic programming based framework to specify ABAC policies. Even though, they only consider user attributes, they focus on providing a consistent, high performance and workable solution for ABAC system.
+
+
+
+In its ABAC guide \cite{nist-abac-draft} and other publications \cite{hu2015attribute},  NIST defines common terminologies, and concepts for an ABAC system. It discusses required components, considerations and architecture for designing an  enterprise ABAC system. It acknowledges the fact that ABAC rules can be quite complex in boolean combination of attributes or in simple relations involving attributes. Additionally, it discusses more advanced features like attribute and policy engineering, federation of attributes and so on. Nonetheless, these documents are focused towards establishing general definitions and considerations of an ABAC system without providing a concrete model definition.
+
+There are other works that design an ABAC system from a particular application context. For example, WS-ABAC \cite{abac-ws}  is motivated by requirements in web services, ABAC-in-grid \cite{grid-abac}  is motivated by needs in the grid computing.
+
+
+
+Another interesting line of work combines attributes with Role Based Access Control. Kuhn et. al \cite{kuhn2010adding} provides a framework for combining roles and attributes. In the framework, they briefly outline three different approaches - (i) dynamic roles which retain basic structure or RBAC and  uses attribute based rules to derive user roles, (ii) attribute centric,  which treat role as another ordinary attribute, and (iii) role centric, which uses roles to grant permissions and attributes to reduce permissions to be available to the user. Various other earlier or subsequent works involving roles and attributes can also be cast in Kuhn's framework. For example, attribute-based user-role assignment by Al-Kahtani et. al \cite{al2002model} can be considered as an approach based on dynamic roles.
+
+Last but not the least, XACML \cite{xacml} is a declarative access control policy language and processing model which  supports attribute based access control concepts and policies. Although, it lacks a formal definition of an ABAC model, it is notable for its uses in multiple commercial products.

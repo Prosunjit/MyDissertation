@@ -1,0 +1,67 @@
+\section{ABAC$_{\alpha}$: COVERING DAC, MAC AND RBAC}
+
+Our goal is to develop an ABAC model that has ``just sufficient'' features to be ``easily and naturally'' configured to do DAC, MAC and RBAC.  We recognize these terms are qualitative,  hence the quotation marks.  For clarity of reference we designate this model as
+ABAC$_{\alpha}$ and understand ABAC to denote the larger concept.  Our goal is to eventually develop  a family of ABAC models, analogous to RBAC96~\cite{SandhuRBAC96}, which will become the de facto standard for defining, refining and evolving ABAC.  The contributions of this paper are one step towards this goal.
+
+We very much expect ABAC to include advanced features that go significantly beyond ABAC$_{\alpha}$, e.g., mutable attributes~\cite{ucon}, environment attributes~\cite{yuanandtong} and connection attributes~\cite{ksb11}.
+At this point it is premature to consider whether ABAC$_{\alpha}$ might be the core ABAC model, an advanced model or a special case of some model in a prospective ABAC family.
+Which features belong in a core ABAC model, which belong in advanced models and which are outside the scope of ABAC are crucial questions that researchers must eventually resolve.  However, for the moment, we deliberately limit our scope to developing ABAC$_{\alpha}$.
+
+ABAC$_{\alpha}$ is motivated by the fact that the three
+classical models have been widely deployed and remain in active widespread use.
+The value of ABAC has been perceived in benefits it provides beyond DAC, MAC and RBAC,
+such as dynamic access control~\cite{pernul-2006}. Nonetheless, it is of interest to develop ABAC$_{\alpha}$ that captures these three without incorporating ``extraneous'' features. We anticipate that ABAC$_{\alpha}$ will eventually fit somewhere within the yet-to-be-developed authoritative family of ABAC models.
+
+For purpose of ABAC$_{\alpha}$ we understand DAC to mean owner-controlled access control lists~\cite{DACL}, MAC to mean
+lattice-based access control with tranquility~\cite{LBAC} (i.e.,subject and object label do not change)and RBAC to mean core or flat RBAC (RBAC$_{0}$), and hierarchical RBAC (RBAC$_{1}$)~\cite{nistrbac,SandhuRBAC96}.  Extensions beyond these interpretations of DAC, MAC and RBAC may or may not require extensions to ABAC$_{\alpha}$, comprehensive study of which is outside the scope of this paper.
+\begin{table}\footnotesize
+\centering
+\caption{ABAC$_{\alpha}$ intrinsic requirements.}
+\label{table:leastfeature}
+\begin{tabular}{c  c  c  c  c  c  c} \hline
+& Subject      & Object      &           &            &               & \\
+& attribute      & attribute     &           &            &               & Subject\\
+& values         & values        &           &  Attribute &               & attribute\\
+& constrained    & constrained   & Attribute &  functions & Object        & modification\\
+& by creating    & by creating   &   range &  return    & attributes    & by creating\\
+& user?         & subject?       &  ordered? & set value? & modification? & user?\\ \hline
+DAC           &  YES      & YES &  NO   & YES  & YES & NO \\
+\rowcolor{lightgray}
+MAC           &  YES      & YES &  YES  & NO   & NO & NO\\
+RBAC$_{0}$    &  YES      & NA  &  NO   & YES  & NA &  YES\\
+\rowcolor{lightgray}
+RBAC$_{1}$    &  YES      & NA  &   YES & YES  & NA &  YES\\ \hlinewd{2pt}
+\rowcolor{gray}
+ABAC$_{\alpha}$ &  YES    & YES  &  YES & YES  & YES & YES\\ \hline
+\end{tabular}
+\end{table}
+
+The intrinsic features of ABAC$_{\alpha}$ that follow from the above interpretation of DAC, MAC and RBAC are highlighted in Table \ref{table:leastfeature}. This table recognizes three kinds of familiar entities: users, subjects (or sessions in RBAC) and objects.  Each user, subject and object has attributes associated with it.  The range of each attribute is either atomic valued or set valued, with atomic values partially ordered or unordered and set values ordered by subset.  Let us consider each column in turn.
+
+\noindent \textbf{Column 1.}
+In all cases subject attribute values are constrained by attributes of the creating user. In MAC, users can only create
+subjects whose clearance is dominated by that of the user. In RBAC, subjects
+can only be assigned roles assigned to or inherited by the creating user.
+In DAC, MAC and RBAC, the subject's creator is set to be the creating user. Interestingly this is the only column with YES values for all rows.
+
+\noindent \textbf{Column 2.}
+For object attributes in MAC a subject can only create objects with the same or higher classification as the subject's clearance. In DAC there is no constraint on the access control list associated with a newly created object. It is up to the creator's discretion. However, we recognize that DAC has a constraint on newly created objects in that root user usually has all access rights to every object and the owner can not forbid this. RBAC does not speak to object creation.
+
+\noindent \textbf{Column 3.}
+In MAC clearances are values from a lattice of security labels. In
+RBAC$_1$ roles are partially ordered by permission inheritance.  DAC and RBAC$_0$ do not require ordered attribute values.
+
+\noindent \textbf{Column 4.}
+In MAC the clearance attribute is atomic valued as a single label from a lattice.
+In RBAC$_{0}$ and RBAC$_{1}$ attributes are sets of roles, and in DAC each access control list is a set of user identities.
+
+\noindent \textbf{Column 5.}
+In DAC the user who created an object can modify its access control lists.  MAC (with tranquility) does not permit modification of an object's classification.  RBAC$_{0}$ and RBAC$_{1}$ do not speak to this issue.
+
+\noindent \textbf{Column 6.}
+Modification of subject attributes by the creating user is explicitly permitted in RBAC$_{0}$ and RBAC$_{1}$ to allow dynamic activation and deactivation of roles.  DAC and MAC do not require this feature.
+
+Each column imposes requirements on ABAC$_{\alpha}$ so we have YES across the entire row.  Table \ref{table:leastfeature} is, of course, not a complete list of all required features to configure the
+classical models, but rather highlights the salient requirements that stem from each classical model.
+
+

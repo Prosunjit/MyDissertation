@@ -1,0 +1,26 @@
+\begin{table}[t]
+	\centering
+	\caption{Definition of Path-based labeling} %\vspace*{3pt}
+	\label{tab:Path-labeling-definition}			
+	\begin{tabular}{|l|}
+		\hline					
+		\begin{tabular}{l}
+			
+				\multicolumn{1}{c}{\underline{\textit{I. Basic sets and relations}}}\\	
+					- $JPath$ (set of JSONPaths). \\
+					- $AC$ (assignment control) $AC$= \textit{\{no-restriction, senior-down, junior-down\}}.\\
+					- $PC$ (propagation control) $PC = \{\noProp, \oneLevelUP, \cascadeUP\}$.\\
+					
+					- $SCOPE \subseteq  AC \times PC$, relation to assign and propagate values.\\
+					- $SL$ (set of security-label values). \\
+									
+					\multicolumn{1}{c}{\underline{\textit{II. Assignments of security-label values}}}\\					
+					- $\labelAssignment \subseteq JPath \times SCOPE \times 2^{SL}$ (assign security-label values on \\ \hfill JSON elements matched and  propagate  values based on defined scope) \\ 
+
+		\end{tabular}			
+		 \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+

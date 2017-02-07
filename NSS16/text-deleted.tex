@@ -1,0 +1,15 @@
+
+% In the existing implementation, when a request comes for downloading of an object, Object Server checks the ACL and if the object is allowed, the Object Server reads the object from the disk and pass the whole content to the requester through Proxy-server.
+
+
+
+%In order to support content level authorization, we have extended  the logic of Swift Object Server.In our implementation (Fig. \ref{fig:implementation}), if the ACL denies the request, no further check is made and user gets corresponding error messages. Otherwise,  we retrieve the object, content level policy (stored with the Swift Object as metadata), user credential (user-labels  which are the roles of the user maintained by the Keystone) and pass them to the LaBAC module. LaBAC module processes the requested object based on the policy and user credential, removes unauthorized content from the object and pass only the authorized content to the requester.
+
+%Note that we used OpenStack Keystone \cite{keystone} as the identity provider and mapped user roles provided by the Keystone as user-label values.
+
+
+%In the implementation, we have two different types of policies---LaBAC policies in the form of (\emph{user-label} values, \emph{action},  \emph{object-label} values) and labeling rules in the form of \emph{(JSONPath, \{Labels\})}. Policies are stored as the metadata of the Swift object (JSON documents in this case).
+
+%Our prototype works only on objects of type `application/json'. If requested object is not a JSON file or does not have content level policy set, the requester gets full content of the file.
+
+%In order to analyze the performance of our implementation, we compared the download time of a Swift object enabling content policy and without enabling content policy. Analysis (Figure \ref{fig:evaluation})  shows that our implementation works well for Swift objects smaller than 100KB.  We conjecture that  pre-labeling objects and enforcing access control in divide-and-concur may improve the performance.

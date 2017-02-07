@@ -1,0 +1,29 @@
+	In this section, we define a multi-attribute enumerated authorization policy ABAC model named \EPMNModel{} (shown in Figure \ref{fig:epabac-mn}). To the best of our knowledge, \EPMNModel{} is the first such model. \PM{}\cite{policy-machine} also defines a multi-attribute \EPModels{} model, but their interpretation of attributes is different than the traditional interpretation of \textit{(attribute-name, value)} pairs.
+	
+	\subsection{The \EPMNModel{} Model }
+	\label{sec:epmodels}
+	\label{sec:epmodel}	
+	
+	\input{DBSEC16/epabacmn.tex}
+	\input{DBSEC16/ep-abac-mn-definition.tex}
+	
+	\EPMNModel{} has \textit{m} user attributes and \textit{n} object attributes. Components of \EPMNModel{}  are shown in Figure \ref{fig:epabac-mn}.  In the figure, the unbounded set of users and objects are shown by the ovals represented by $U$ and $O$. The finite set of actions is represented by the oval $A$. The set of values represented by $\UL{1}, \UL{2}$ through $\UL{m}$ (only $\UL{1} \text{ and } \UL{m}$ are shown in the figure) represent range of $m$ user attribute functions respectively.  $m$ user attributes named $\uLabelP{1}, \uLabelP{2}$ through $\uLabelP{m}$ (only $\uLabelP{1} \text{ and } \uLabelP{m}$ are shown in the figure) are represented by many-to-many connections between users and  corresponding set of values. All these attributes are set valued. Similarly, $\oLabelP{1}, \oLabelP{2} \text{ through } \oLabelP{n}$ denote $n$ object attributes where $\OL{1}$ $\OL{2}$ \text{ through } $\OL{n}$ specify ranges respectively. In an instantiation of the model, it is useful to replace these  attribute names with meaning ones.
+	
+
+	
+	
+	The set of policies in this model is shown by the oval $\Policy$. We define at most one policy for a single action. A policy is defined a set of policy tuples. A policy tuple  ($\uVal{1},\uVal{2}, ..., \uVal{m}, \oVal{1},\oVal{2}, ..., \oVal{n}$) takes a subset (including empty set) of values for each user and object attribute.
+	
+	
+	
+	
+	The set of sessions is represented by the oval S. There is a one-to-many relation between users and sessions. A user can create many sessions but each session must be attached to only one user. The relation $\creator$ between $U$ and $S$ maintains the creating user of a session. In a session, for each user attribute $\uLabelP{i}$, we maintain a relation $\sessionLabelsP{i}$ that maps values of $\uLabelP{i}$ activated by the user. 
+	
+	
+	
+	The formal definition of the model and semantics of authorization  decision is given in Table \ref{tab:ep-mn-definition}. Segment I of the table defines basic sets and relations discussed above. In Segment II, we show notation of policy tuples and define a policy as a subset of tuples. Finally, the authorization function $\isAuthorized(s,a,o)$ is defined in Segment III.  It allows a session $s$, to perform an action $a$ on an object $o$ if in $\Policy_a$ (the policy for action $a$)  there exists a tuple that satisfies following conditions - (i) values of each user attribute used in the tuple are activated in the session and (ii) values of each object attribute mentioned in the tuple are assigned to  the object.
+	
+	
+	User-level session management functions of \EPMNModel{} are given in Table \ref{tab:ep-abacmn-session}. \EPMNModel{} allows users to create or destroy sessions, assign or remove values to attributes in a session.  In Table \ref{tab:ep-abacmn-session}, each session function is specified with its formal parameters, necessary preconditions and resulting updates as shown in $1^{st}, 2^{nd} \text{ and }  3^{rd}$ columns respectively. The function $\createSession()$ creates a new session with given values and $\deleteSession()$ deletes an existing session.  $\assignValues()$ and $\removeValues()$  assign or remove attributes values of an existing session.
+	
+	\input{DBSEC16/session-in-ep-abac.tex}

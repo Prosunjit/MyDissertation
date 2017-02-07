@@ -1,0 +1,37 @@
+
+
+\begin{table}
+	\centering
+	\caption{ \EPMNModel{} model} 
+	\label{tab:ep-mn-definition}
+	%	\begin{tabular}{|l|l|}						
+	\begin{tabular}{|l|}
+
+		\hline					
+				\begin{tabular}{l}
+							\multicolumn{1}{c}{\underline{\textit{I. Sets and relations }}}\\			
+							 - $U, O, S, A$ (users, objects, sessions and actions resp)\\
+							 - $UL_1, UL_2, ... UL_m$ (values for $\userLabel{1}$, $\userLabel{2}$, ... , $\userLabel{m}$)\\
+ 							 - $OL_1, OL_2, ... OL_n$ (values for $\objectLabel{1}$, $\objectLabel{2}$, ... , $\objectLabel{n}$)\\
+ 							 - $uLabel_i: U \to 2 ^ { {UL_i} } $, for $ 1 \le i \le m$; \\
+ 							 - $oLabel_i: O \to 2 ^ { {OL_i} } $, for $ 1 \le i \le n$\\
+ 							 - $\creator: S \to U$, many-to-one mapping\\
+ 							 - $\sessionLabelsP{i}: S \to 2^{\UL{i}} $, for $ 1 \le i \le m$ and $\sessionLabelsP{i}(s) \subseteq \uLabelP{i}(\creator(s))$\\
+ 							 %- $uLabel_i: U \to 2 ^ {\userLabel{i} }$\\
+							 \multicolumn{1}{c}{\underline{\textit{II. Policy components}}} \\	
+							 - $\Policy_a \subseteq (2^{\UL{1}} \times 2^{\UL{2}} \times  ... \times 2^{\UL{m}}) \times (2^{\OL{1}} \times 2^{\OL{2}} \times ... \times 2^{\OL{n}})$\\
+							 - $\Policy = \{\Policy_a | a \in A \}$\\
+								
+							\multicolumn{1}{c}{\underline{\textit{III. Authorization function}}} \\						
+							 - $\isAuthorized(s:S, a:A, o:O) = (\exists (\ULS{1},\ULS{2}, ..., \ULS{m}, \OLS{1}, \OLS{2}, ... \OLS{n} ) $ \\ \hfill 
+							 $ \in \Policy_a)[\ULS{i} = \sessionLabelsP{i}(s), \text{for } 1 \le i \le m \land \OLS{i} = \oLabelP{i}(o), \text{for } 1 \le i \le n]$ 
+							 
+				\end{tabular}
+					
+			
+ \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+

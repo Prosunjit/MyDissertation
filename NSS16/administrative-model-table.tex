@@ -1,0 +1,32 @@
+
+\begin{table}
+	\centering
+	\caption{ Definition of the administrative model (assigning security-label values) } %\vspace*{3pt}
+	\label{tab:labac-definition}			
+	\begin{tabular}{|l|}
+		\hline					
+		\begin{tabular}{l}
+				\multicolumn{1}{c}{\underline{\textit{I. Assignment of security-label values on JSON objects}}}\\									
+					- $SL$ (set of security-label values). \\
+					- $JO, JOH$ (set of JSON objects and JSON object hierarchy). \\
+					- $VT, VTH$ (type of security-label values and type hierarchy, denoted by $\VTH{}$)\\ \hfil $VT=\{final, suggested\}, VTH=\{ (final,suggested)\}$. \\
+					- $PT$ (propagation types). $PT = \{\textit{direct-leaf}, recursive\}$.\\
+					- $DM, DMH$ (administrative domains, and rooted tree partial order denoted by $\DMH{}$). \\
+					- $SCOPE \subseteq VT \times PT \times DM$, 3-ary relation to assign and propagate values.\\
+					- $\labelAssignment \subseteq 2^{SL} \times JO \times SCOPE$ (assign security-label values on \\ \hfill JSON objects  and propagate  values based on defined scope) \\ \\
+					
+					\multicolumn{1}{c}{\underline{\textit{II. Domination of scopes}}} \\
+					- For $sc_i \equiv (vt_i, pt_i, dm_i), sc_j \equiv (vt_j, pt_j, dm_j) \in SCOPE$, $sc_i$ dominate $sc_j$ iff  \\ \hfill ($vt_i \VTH vt_j$) or $(vt_i = vt_j \land dm_i \DMH dm_j)$ \\
+			
+				\multicolumn{1}{c}{\underline{\textit{III. Domination of \labelAssignment{}}}} \\						
+				
+				- For $LA_i \equiv (SL_i, jo, sc_i), LA_j \equiv (SL_j, jo, sc_j) \in \labelAssignment{}$, $SL_i$ override $SL_j$ iff \\ \hfill   $sc_i$ dominate $sc_j$\\
+				
+							
+		\end{tabular}			
+		 \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+

@@ -1,0 +1,25 @@
+\newcommand{\phoneRE}{\textit{RE-for-phone}}
+\newcommand{\emailRE}{\textit{RE-for-email}}
+\newcommand{\phoneNumbers}{\textit{phone-numbers}}
+\begin{table}[t]
+	\centering
+	\caption{ Example of content based labeling policies} %\vspace*{3pt}
+	\label{tab:labac-definition}			
+	\begin{tabular}{|l|}
+		\hline					
+		\begin{tabular}{l}
+				%\multicolumn{1}{c}{\underline{\textit{I. Assignment of security-label values on JSON objects}}}\\									
+				
+					- $RE$= \{\phoneRE, \emailRE \} . \\
+					- $\matchingElements$ = $\{(Value,\phoneRE)\},  \{ (Key, ``SSN"),$ \\ \hfil  $(Value, \emailRE)\}$. \\
+					- $TO = \{ \phoneNumbers \equiv \{(Value,\phoneRE)\}, emails \equiv  \{(Value, \emailRE)\} \}$\\
+					- $SCOPE = \{sc1\equiv (\match, \oneLevelUP, \unrestrictedLabeling),$ \\ \hfil $  sc2\equiv (\exactMatch, \noProp, \unrestrictedLabeling)\}$\\
+					- $SL = \{ sl1, sl2, sl3, sl4\} $ \\				
+					- $\labelAssignment = \{ (\phoneNumbers, sc1, \{sl1\}, (emails, sc2, \{sl2\} ) ) \}$\\					
+							
+		\end{tabular}			
+		 \\ \hline	
+	\end{tabular}
+	
+\end{table}
+

@@ -1,0 +1,28 @@
+%\vspace{-1em}
+ 
+\begin{table}[t]
+	\centering
+	\caption{ Mapping from \EPMNModel{} to \LPMN{} and vice versa } %\vspace*{3pt}
+	\label{tab:mapping-epmn-lpmn}
+	\begin{tabular}{|l|}						
+		\hline					
+				   
+			 \multicolumn{1}{|c|}{\underline{\textit{I. From \EPMNModel{} to \LPMN{}}}}\\	
+				 - $\UAV{i} = \UL{i}$, for $ 1 \le i \le m$; $\OAV{i} = \OL{i}$, for $ 1 \le i \le n$\\
+				 - $\ua{i}(u) = \uLabelP{i}(u)$; $\oa{i}(o) = \oLabelP{i}(o)$; $\sa{i}(s) = \sessionLabelsP{i}(s)$\\
+				 - $\creator(s) = \creator(s)$;  $ f_a =$ \\
+				  $\mathop{\bigvee}\limits_{ ( \ULS{1}, \ULS{2},..\ULS{m}, \OLS{1}, \OLS{2},..,\OLS{n}) \in \policy_a}  (\mathop{\wedge}\limits_{ 1 \le i \le m } \ULS{i} \subseteq \sa{i}(u) ) \wedge ( \mathop{\wedge}\limits_{ 1 \le i \le n } \OLS{i} \subseteq \oa{i}(u)$ \\
+
+			\multicolumn{1}{|c|}{\underline{\textit{II. From \LPMN{} to \EPMNModel{}}}}\\	
+			
+				- $\UL{i} = \UAV{i}$, for $ 1 \le i \le m$ ; $\OL{i} = \OAV{i}$, for $ 1 \le i \le n$\\
+				- $\uLabelP{i}(u) = \ua{i}(u)$, $\sessionLabelsP{i}(u) = \sa{i}(s)$ for $ 1 \le i \le m$; $\oLabelP{i}(o) = \oa{i}(o)$, for $ 1 \le i \le n$\\
+			    -  $\creator(s) = \creator(s)$\\ 
+			    - $\Policy_a = \{ ( \ULS{1}, \ULS{2}, ..., \ULS{m}, \OLS{1}, \OLS{2}, ..., \OLS{n}) |$ \\ \hfill $ f_a( \ULS{1}, \ULS{2}, ..., \ULS{m}, \OLS{1}, \OLS{2}, ..., \OLS{n}) = true \}$\\
+			 
+		 \hline	
+	\end{tabular}	
+
+	
+\end{table}
+%\vspace{-1em}

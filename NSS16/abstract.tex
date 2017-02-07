@@ -1,0 +1,21 @@
+\begin{abstract}
+	
+ There has been considerable research in specifying authorization policies for XML documents. Most of these approaches consider only \textit{hierarchical structure} of underlying data. They define authorization policies by directly identifying XML nodes in the policies. These approaches work well for hierarchical structure but are not suitable for other required characteristics we identify in this paper as \textit{semantical association} and \textit{scatteredness}.
+ 
+ 
+This paper presents an attribute based protection model for JSON documents. We assign \textit{security-label} attribute values  to JSON elements and specify authorization policies using these values. By using security-label attribute, we leverage  semantical association and scatteredness properties. Our protection mechanism defines two types of policies called  authorization and labeling policies. We present an operational model to specify authorization policies and  different models for defining labeling policies. Finally, we demonstrate a proof-of-concept for the proposed models in the Swift service of OpenStack IaaS cloud.
+
+% In our approach, we assign \textit{security-label} attribute values  to JSON elements in a JSON document and specify authorization policies using these attribute values. Thus, our protection model have a  level of indirection where JSON objects are first annotated with security-label values which can  be managed independently from the JSON documents and seamlessly with other higher level organizational policies. We lay out an architecture of our protection model and  specify labeling policies to assign attribute values to JSON objects. Our protection model is significantly different than most of the existing XML protection models which directly assign authorization policies on XML nodes. These models (XML models) may result duplicated authorization policies which are hard to manage or administer. We believe, our protection model can also be used for XML data as well.
+
+
+% and Our protection model is significantly different than most of the existing XML protection models which could have been  adopted for protecting JSON documents. In this perspective, we argue that most of the existing protection models for XML directly assign authorization policies on XML nodes which leaves the possibility of duplicated authorization policies for similar (in term of authorization requirement) but different information. 
+
+
+ %While XML and JSON 
+	
+%JSON or JavaScript Object Notation is an open standard for data interchange which is gaining immense popularity due to its concise representation and ease of human and machine readability. Industries are increasingly adopting JSON for internal data representation and data transfer format which is reflected by developments including JSON  document database such as MongoDB (more accurately BSON, a modified version JSON) is now officially supported by the OpenStack cloud platform, Twitter latest API (v 1.1) supports only JSON and YouTube latest API (v 3) recommends JSON as the default exchange format. Interestingly, in spite of industry demand, JSON has received minimal interest from the research community.
+
+%In this paper, we investigate access control scope for JSON documents. We present a label based protection mechanism for JSON data. For this purpose, we have demonstrated a simple label based access control model and shown different ways (path based, content based and attribute based) of labeling JSON items automatically or semi-automatically to reduce labeling efforts. We have also specified label based constraints to capture practical labeling requirements. We have implemented the protection mechanism for JSON documents stored as OpenStack Swift objects. As part of our implementation, we have extended ACL based `all or nothing' access of a Swift object towards content level partial access.
+
+%We present a simple attribute based access control model for this purpose and demonstrate a corresponding protection mechanism.  To the best of our knowledge, we are the first to attempt this kind of work for JSON documents. We have implemented  our proposed access control model and made it available as a standard package in the official Python repository.
+\end{abstract} 

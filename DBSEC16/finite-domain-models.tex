@@ -1,0 +1,28 @@
+
+
+	
+	\input{DBSEC16/lpabacmn.tex}	
+	
+	\label{sec:models}
+	%In this section, we define a multi-attribute enumerated authorization policy ABAC model named \EPMNModel{} (shown in Figure \ref{fig:epabac-mn}). To the best of our knowledge, \EPMNModel{} is the first such model. \PM{}\cite{policy-machine} also defines a multi-attribute \EPModels{} model, but their interpretation of attributes is different than the traditional interpretation of \textit{(attribute-name, value)} pairs. 
+	
+	We also define a multi-attribute \LPModels{} model named \LPMN{} (shown in Figure \ref{fig:lp-abacmn-diagram})  by abstracting its policy language and potentially accepting any computational logic as policy language. While existing \LPModels{} models  define their own policy language, \LPMN{} can subsume any policy language which further generalizes our equivalence results presented in the following section.  The differences between \EPMNModel{} and \LPMN{} are highlighted in boxes in the figures. 
+	
+
+
+		\input{DBSEC16/lp-abac-mn-defition.tex}
+	
+	
+	
+	
+
+
+\subsubsection{\LPMN{} - a multi-attribute logical-formula authorization policy ABAC model.}
+	\label{sec:lpmodels}
+	 
+	 \input{DBSEC16/all-equivalence.tex}
+
+	 \LPMN{} (given in Figure \ref{fig:lp-abacmn-diagram}) is very similar to \EPMNModel{}, except it is based on LAPs.  It has an unbounded set of users, objects and sessions and a finite set of user attributes, object attributes, session attributes and authorization policies. \LPMN{} does not define an concrete policy language. Instead, it defines  authorization policies as any boolean function that takes values of $m$ subject and $n$ object attributes as parameters. If attribute values of a requesting subject, and requested object evaluate the authorization function $f_a$ (defined for action $a \in A$) true, corresponding access is granted. The formal definition of the model is given in Table \ref{tab:lp-abacmn-definition}. We deliberately maintain similar sets and relations (compare to \EPMNModel{})  to assert that these models only differ in the definition of authorization policies. 
+	 
+
+	

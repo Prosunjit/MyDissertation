@@ -1,0 +1,26 @@
+\section{Background and related work}
+\label{sec:related-work}
+
+In this section, we briefly review JSON and discuss related work.
+
+\input{background.tex}
+%\clearpage
+
+
+\subsection{Related work}
+
+There is limited academic research published  on security of  JSON data. To the best of our knowledge, we are the first to propose a protection model for it.
+
+On the other hand, XML security has long been investigated by many researchers. A fundamental line of work in this area is about specifying authorization policies for the protection of XML documents \cite{policy-based4,policy-based2,policy-based5,policy-based6}. All of these models attach authorization policies directly on nodes in the XML tree. Most of these models use XPath \cite{Xpath} to specify a node in the tree. For example, Damiani et al. \cite{damiani2002fine} specify authorization policies as a tuple of $\langle$\textit{subject, object, action, sign, type} $\rangle$ where  an \textit{object} is identified by an URI (Uniform Resource Identifier) along with a XPath  expression.
+
+ %On the other hand, XML security has long been investigated by many researchers.  The fundamental works on XML authorization are about developing fine grained access control models for XML. Notable works in this area include \cite{policy-based1,policy-based2,policy-based4,policy-based5,policy-based6}. All of these works  specify XML nodes (both XML tag and attributes) in the XML tree as the minimum unit of protection and specify access control policies for the nodes using XPath or similar path based expression.  For example, Damiane et. al specify authorization policies as a tuple of (subject, object, action, sign, type) where  object is identified by an URI (Uniform Resource Identifier) and an XPath \cite{Xpath} expression.
+
+Another direction of work is about effective enforcement of authorization mechanisms  for secure and efficient query evaluation. For example, in \cite{xml-view1} the authors derive \textit{security views} comprising exactly the set of accessible nodes for different user groups. Based on the security view, they  provide a unique DTD view for each user group. Similar works in this direction include  \cite{xml-performance2,xml-performance1} which use query preprocessing approaches. These models uses preprocessed finite automatas for authorization policies, document and Schema/DTD, and determine if a query is safe before running it. Unsafe queries can be rewritten.
+
+%Other notable works in this area includes \cite{??}.
+
+The idea of associating labels with protected objects has been proposed before. For example,  in \textit{purpose based access control (PBAC)}~\cite{purpose-bac}, the authors associate \textit{intended purposes} with data items and \textit{access purpose} with users. If \textit{access purpose} of a user is included in the \textit{intended purposes} of the requested objects, the request is granted. Our approach is similar. While PBAC manages intended purposes using RBAC \cite{rbac}, we use attributes with attribute-based access control (ABAC). Most significantly, PBAC does not specify how to annotate objects with \textit{access purposes}, which we emphasize in this paper via labeling policies. Adam et al. \cite{content-bac}, have applied \textit{concepts} and \emph{slots} on digital objects which work at a finer grained content level. They have also   specified an access control model based on expressions using concepts and slots.  This model also does not specify how to assign concepts and slots to objects. 
+
+The concept of attaching organized labels to users and objects and controlling access based on these labels is the underlying idea of Lattice Based Access Control (LBAC \cite{lbac}), sometime also referred as Mandatory Access Control (MAC). The operational model, \atom{}, presented in Section \ref{sec:operational-model} resembles LBAC but it is fundamentally different from LBAC. \atom{} is based on enumerated authorization policy ABAC model named \eapabac{} (\cite{labac,eap-abac}). \eapabac{} is a general purpose ABAC model which supports larger set of attributes contrary to single label in LBAC and based on enumerated authorization policies. Correlation between \eapabac{} and LBAC is presented in \cite{labac}.
+
+

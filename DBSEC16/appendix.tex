@@ -1,0 +1,14 @@
+%\textbf{Appendix}
+\section{Appendix}
+\vspace{-1.5em}
+\input{lpmn-to-lp11-table.tex}
+\vspace{-1.5em}
+\subsubsection{Tripli equivalence}
+\EPOneOneModels{}  $\equiv $($\myGamma{1,1}, \myQ{1,1}, \myvdash{1,1}, \myPSI{1,1}$) where a state,  $ \mygamma{}{1,1} \in \myGamma{1,1}$ is  $(U, O, A, S, uLabel, oLabel,$ $ \sessionLabels{},  UL,$  $ OL, \Policy)$. $\myPSI{1,1} =  \{\createSession,$ $ \assignValues,$ $ \removeValues, \deleteSession\}$. $\myQ{1,1}=\{ \myq{s}{1,1} \equiv \isAuthorized(s, a, o)|$  $ a\in A, s \in S, o \in O \}$. $\mygamma{}{1,1} \myvdash{1,1} \myq{s}{1,1}$ iff $\isAuthorized(s,a,o)$ $=true$. 
+
+\EPMNModel{} $\equiv$ ($\myGamma{m,n}, \myQ{m,n}, \myvdash{m,n},\myPSI{m,n}$ ) where  $ \mygamma{}{m,n} \in \myGamma{m,n}$ is  $(U, O, A, S, \uLabelP{1},..\uLabelP{m}, \oLabelP{1},..\oLabel{n},$ $ \sessionLabelsP{1},..\sessionLabelsP{m},  \UL{1},..\UL{m},$  $ \OL{1},..\OL{n}, \Policy)$. $\myPSI{m,n} =  \{\createSession,$ $ \assignValues,$ $ \removeValues, \deleteSession\}$. $\myQ{m,n}=\{ \myq{s}{m,n} \equiv \isAuthorized$ $(s, a, o) \}$. $\mygamma{}{m,n} \myvdash{m,n} \myq{s}{m,n}$ iff $\isAuthorized(s,a,o)$ $=true$.
+
+let $\mygamma{0}{1,1}$ and $\mygamma{0}{m,n}$ be the start state of \EPOneOneModels{} and \EPMNModel{} using mapping in Segment III of Table \ref{tab:mapping-epmn-ep11}. let $\mygamma{0}{1,1} \myvdash{1,1} \myq{s}{1,1}$. i.e. $ \isAuthorized(u,a,o) = true \land (ul,ol) \in \Policy_a$ and $ul \in uLabel(u) \land ol \in oLabel(o)$ in $\mygamma{0}{1,1}$. According to mapping, $(\{ul\},\{\}... \{ol\}.. \{\}) \in \Policy_a$ in $\mygamma{0}{m,n}$. Thus, $\mygamma{0}{m,n} \myvdash{m,n} \myq{0}{m,n}$. So, the initial states are equivalent. Now, for each state transition in $\myPSI{1,1}$ there exists a transition in $\myPSI{m,n}$. For example, $\createSession$ exists in both $\myPSI{1,1}$ and $\myPSI{m,n}$. We can use the same logic of initial states so show that every reachable states using the transition is also equivalent. This proves the current mapping is a state matching reduction. Similarly, we can show the same result for the other mapping. Thus \EPOneOneModels{} and \EPMNModel{} are equivalent.
+
+\vspace{-1em}
+%\input{lp11-to-ep11-table.tex}

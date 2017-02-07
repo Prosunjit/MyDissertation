@@ -1,0 +1,50 @@
+
+\documentclass[11 pt]{llncs}
+
+
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+%\usepackage[export]{adjustbox}
+%\usepackage{subcaption}
+%\captionsetup{compatibility=false}
+\usepackage{epstopdf}
+\epstopdfsetup{outdir=./}
+
+
+\setlength{\textfloatsep}{9pt plus 1.0pt minus 2.0pt}
+
+\begin{document}
+\title{
+An Attribute-Based Protection Model \\ for  JSON Documents
+}
+
+\author{Prosunjit Biswas \and Ravi Sandhu \and Ram Krishnan}
+\institute{Institute for Cyber Security\\
+	University of Texas at San Antonio\\
+	\email{prosun.csedu@gmail.com,} \email{$\{$ravi.sandhu, ram.krishnan$\}$@utsa.edu}
+}
+
+\maketitle
+
+\input{command.tex}
+
+\input{abstract.tex}
+\input{introduction.tex}
+\input{relatedwork.tex}
+\input{operational-model.tex}
+
+\input{model.tex} % administrative model
+
+\input{implementation.tex}
+
+\input{conclusion.tex}
+\input{acknowledgement.tex}
+\bibliographystyle{plain}
+
+\bibliography{references}
+
+
+
+\end{document}

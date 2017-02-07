@@ -1,0 +1,9 @@
+%\input{lpabacmn.tex}
+  \input{lp-abac-mn-defition.tex}
+  \input{all-equivalence.tex}
+
+ \LPMN{} (given in Figure \ref{fig:lp-abacmn-diagram}) is very similar to \EPMNModel{}, except it is based on LAPs.  It has an unbounded set of users, objects and sessions and a finite set of user attributes, object attributes, session attributes and authorization policies. \LPMN{} does not define an concrete policy language. Instead, it defines  authorization policies as any boolean function that takes values of $m$ subject and $n$ object attributes as parameters. If attribute values of a requesting subject, and requested object evaluate the authorization function $f_a$ (defined for action $a \in A$) true, corresponding access is granted. The formal definition of the model is given in Table \ref{tab:lp-abacmn-definition}. We deliberately maintain similar sets and relations (compare to \EPMNModel{})  to assert that these models only differ in the definition of authorization policies. 
+ 
+ %The user-level session management functions also similar to that of \EPMNModel{} and shown in Table \ref{tab:lp-abacmn-session}. 
+
+ %\input{session-in-lp-abac-mn.tex}

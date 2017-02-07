@@ -1,25 +1,25 @@
 \label{sec:model}
+In this section, we discuss Enumerated Authorization Policy (EAP) models based on one user attribute and one object attribute. For the sake of clarity and emphasis on different elements of the model, we present a family of EAP models. We call these models \eapABAC{} family.
+
+Here we describe the \eapABAC{} family of models  along with formal definitions. \eapABAC{} uses one user-attribute named $\uLabel$ and one object-attribute named $\oLabel$. We define these attributes with predefined semantics. While attributes in general have open-ended semantics, labels (user-label and object-label) are associated with specific semantics. For example, attributes can be set-valued (e.g. roles or clearance) or atomic valued (e.g. age). An attribute value can be assigned by an administrator (eg. role, clearance), self-asserted (e.g. date of birth), or derived from other attributes (e.g. age can be derived from date of birth). Moreover, value of attributes can be ordered or unordered.  On the other hand, labels are set-valued, values are partially ordered and are assigned by administrators. 
 
 
-In this section, we describe the LaBAC model  along with formal definitions. LaBAC, short for Label Based Access Control, uses one user-label named $\uLabel$ and one object-label named $\oLabel$. We define label as a special attribute. While attributes in general have open-ended semantics, labels are associated with specific semantics. For example, attributes can be set-valued (e.g. roles or clearance) or atomic valued (e.g. age). An attribute value can be assigned by an administrator (eg. role, clearance), self-asserted (e.g. date of birth), or derived from other attributes (e.g. age can be derived from date of birth). Moreover, value of attributes can be ordered or unordered.  On the other hand, labels are set-valued, values are partially ordered and are assigned by administrators. 
 
-
-
-For the sake of clarity and emphasis on different elements of the model, we present LaBAC as a family of models. Basic LaBAC (\clabac), presents the minimum elements to define a LaBAC model. Additionally, we add hierarchies and constraints with it in \hlabac{} and  \consLabac{} respectively.  \labacOneOneOne{} combines both the hierarchical and constrained models. The components of the LaBAC models are shown in Figure \ref{fig:labac} and the family of the models is schematically presented in Figure \ref{fig:labac-family}.
+We specify \eapABAC{} as a family of models. The basic EAP model (\clabac) presents the minimum elements to define an EAP model. Additionally, we add hierarchies and constraints with it in \hlabac{} and  \consLabac{} respectively.  \labacOneOneOne{} combines both the hierarchical and constrained models. The components of the \eapABAC{} models are shown in Figure \ref{fig:labac} and the family of the models is schematically presented in Figure \ref{fig:labac-family}.
 	\input{ABAC16/labac-model-table.tex}
 	
-\subsection{Basic LaBAC Model}
-The elements represented by solid bold lines in Figure \ref{fig:labac} represent the Basic LaBAC Model (\clabac{}). In this model, a set of users, objects and actions (finite set) are represented by $U, O$ and $A$ respectively. Users are associated with a label function named $\uLabel$ and objects are associated with another label function, $\oLabel$. $\uLabel$ maps a user to one or more values from the finite set  $UL$ (represented by the double headed arrow from users to UL) and $\oLabel$ maps one object to one or more values from the finite set $OL$ (represented by the double headed arrow from objects to OL). Similarly, the double headed arrow from $UL$  to users and $OL$ to objects represent that one user-label value can be associated with more than one user and one object-label value can be associated with more than one object. 
+\subsection{Basic \eapABAC{} Model}
+The elements represented by solid bold lines in Figure \ref{fig:labac} represent the Basic \eapABAC{} Model (\clabac{}). In this model, a set of users, objects and actions (finite set) are represented by $U, O$ and $A$ respectively. Users are associated with a label function named $\uLabel$ and objects are associated with another label function, $\oLabel$. $\uLabel$ maps a user to one or more values from the finite set  $UL$ (represented by the double headed arrow from users to UL) and $\oLabel$ maps one object to one or more values from the finite set $OL$ (represented by the double headed arrow from objects to OL). Similarly, the double headed arrow from $UL$  to users and $OL$ to objects represent that one user-label value can be associated with more than one user and one object-label value can be associated with more than one object. 
 
-
+		\input{ABAC16/tuples-vs-policy.tex}	
 
 
 	
 Sessions are denoted by the set $S$. There is a one-to-many mapping from users to sessions. While a user  may have many $\uLabel$ values assigned to him, he can choose to activate any subset of the assigned values in a session. The relation (and function) $\creator$ and $\sessionLabels$ maintain mapping from sessions to users and sessions to $\uLabel$ values respectively.  The $\creator$ and $\sessionLabels$ functions are formally defined in Segment I of Table \ref{tab:labac-definition}. 
 
-		\input{ABAC16/tuples-vs-policy.tex}	
 
-In LaBAC, for each action, $a \in A$ we define only one policy, denoted $Policy_a$. A policy is comprised of a subset of tuples from the set of all tuples $UL\times OL$. Relationship between a policy and tuples is schematically shown  in Figure \ref{fig:policy-vs-tuples}. In defining policies, a policy may contain many tuples and a tuple $(ul,ol) \in UL\times OL$ can be used in more than one policy. Thus, a many-to-many relation exists between policies and tuples. Finally, the set \textit{\Policy} contains all individual policies for each action $a \in A$. The formal definition of \textit{\Policy{}} is shown in Segment II of Table \ref{tab:labac-definition}.
+
+In \eapABAC{}, for each action, $a \in A$ we define only one policy, denoted $Policy_a$. A policy is comprised of a subset of tuples from the set of all tuples $UL\times OL$. Relationship between a policy and tuples is schematically shown  in Figure \ref{fig:policy-vs-tuples}. In defining policies, a policy may contain many tuples and a tuple $(ul,ol) \in UL\times OL$ can be used in more than one policy. Thus, a many-to-many relation exists between policies and tuples. Finally, the set \textit{\Policy} contains all individual policies for each action $a \in A$. The formal definition of \textit{\Policy{}} is shown in Segment II of Table \ref{tab:labac-definition}.
 
 The authorization function $\request(s, a, o)$ allows  an access request by a  subject $s \in S$ to perform an action $a \in A$ on an object $o \in O$ if all following conditions are satisfied - $s$ is assigned a value $ul$;  $o$ is assigned a value $ol$ and the policy for action $a$ contains the tuple $(ul,ol)$. The formal definition of the authorization function is given in Segment III of Table \ref{tab:labac-definition}.
 
@@ -30,10 +30,10 @@ The authorization function $\request(s, a, o)$ allows  an access request by a  s
 		
 	
 	
-	\subsection{Hierarchical LaBAC}
-	Hierarchical LaBAC model (\hlabac ) introduces user-label hierarchy ($ULH$) and object-label hierarchy ($OLH$) in addition to the components of \clabac{}. Some elements in \clabac{} are also modified in \hlabac{}. The additions and modifications in \hlabac{} from \clabac{} are shown in Table \ref{tab:labach-definition}.
+	\subsection{Hierarchical \eapABAC{}}
+	Hierarchical \eapABAC{} model (\hlabac ) introduces user-label hierarchy ($ULH$) and object-label hierarchy ($OLH$) in addition to the components of \clabac{}. Some elements in \clabac{} are also modified in \hlabac{}. The additions and modifications in \hlabac{} from \clabac{} are shown in Table \ref{tab:labach-definition}.
 	
-	Hierarchy is a convenient way of ranking users and objects. LaBAC achieves ranking on users through $ULH$ and ranking on objects through $OLH$. For two user-label values, $ul_i$ and $ul_j$, when we say $ul_i$ is senior to $ul_j$ (written as $ul_i \udominate ul_j$), we mean that users assigned to $\uLabel$ value $ul_i$  can also exercise all privileges of users who are assigned to value $ul_j$. Similarly, for two object-label values, $ol_i$ and $ol_j$, when we say $ol_i$ is senior to $ol_j$ (written as $ol_i \odominate ol_j$), we mean that objects assigned to value $ol_j$ are also considered as inherited objects for value $ol_i$ for the purpose of authorization. The direction for the containment of privileges and objects along the hierarchy of $ULH$ and $OLH$ is shown in Figure \ref{fig:direction-of-implication}. For containment of objects, in Figure \ref{fig:implied-policy} objects that are assigned value `public', are also considered to be objects that are assigned  value `protected'.
+	Hierarchy is a convenient way of ranking users and objects. \eapABAC{} achieves ranking on users through $ULH$ and ranking on objects through $OLH$. For two user-label values, $ul_i$ and $ul_j$, when we say $ul_i$ is senior to $ul_j$ (written as $ul_i \udominate ul_j$), we mean that users assigned to $\uLabel$ value $ul_i$  can also exercise all privileges of users who are assigned to value $ul_j$. Similarly, for two object-label values, $ol_i$ and $ol_j$, when we say $ol_i$ is senior to $ol_j$ (written as $ol_i \odominate ol_j$), we mean that objects assigned to value $ol_j$ are also considered as inherited objects for value $ol_i$ for the purpose of authorization. The direction for the containment of privileges and objects along the hierarchy of $ULH$ and $OLH$ is shown in Figure \ref{fig:direction-of-implication}. For containment of objects, in Figure \ref{fig:implied-policy} objects that are assigned value `public', are also considered to be objects that are assigned  value `protected'.
 	
 	% For example, in Figure \ref{fig:implied-policy}, $protected \odominate public$ and   $ULH$ and $OLH$ is explained in Figure \ref{fig:direction-of-implication}.
 	
@@ -57,9 +57,9 @@ The authorization function $\request(s, a, o)$ allows  an access request by a  s
 	
 	%\input{policy-bound-diagram.tex}
 	
-	\subsection{Constrained LaBAC}
+	\subsection{Constrained \eapABAC{}}
 	A general treatment of assignment constraints in ABAC has been covered in  \cite{abcl}. similarly, role based authorization constraints have been extensively studied in \cite{rcl}.	
-	In this section, we specify constraints for the LaBAC model. 
+	In this section, we specify constraints for the \eapABAC{} model. 
 	
 	We scope constraints as  means of restricting administrative or user actions. We define two types of constraints - assignment constraints and  policy constraints. Assignment constraints put constraints on user to user-label value assignments,  object to object-label value assignments and session-label value assignments. An example of user-label value assignment constraint is that a user cannot be assigned all following values $\{manager, director,$  $employee\}$.  An example of object-label value assignment constraint is that an object cannot be assigned both values - \textit{protected} and \textit{public}. An example of session-label value assignment constraint is that both \textit{manager} and \textit{director} values cannot be activated in the same session.	 Policy constraints, on the other hand,  prevent certain tuples in policies. For example, policy constraints may enforce that an \textit{employee} can never access \textit{protected} objects by restricting the tuple \textit{(employee, protected)}.  
 	
@@ -76,7 +76,7 @@ The authorization function $\request(s, a, o)$ allows  an access request by a  s
 
 	Policy constraints are defined using the set \textit{\restrictedTuples}.  For a tuple, $(ul_r,ol_r) \in \restrictedTuples$, if it is included in a policy, $\Policy_a$, it would be ignored in the computation of authorization decision. For convenience we define a derived set \textit{\policyBound} as all possible tuples minus \textit{\restrictedTuples}. \textit{\restrictedTuples} and \textit{\policyBound} are shown in Table \ref{tab:constraint-definition}. Policy constraint is explained schematically in Figure \ref{fig:tuples-vs-valid-tuples}.
 	
-	In LaBAC, we include constraint policies beyond authorization policies. While, authorization policies establish relationship only between user-label and object-label values (along with actions), constraint policies go beyond. For example, constraint policies may consider relationship between \textit{UL and OL} (policy constraints), $UL$ and $UL$ (\textit{\uLabel/session} value assignment constraints), $OL$ and $OL$ (\textit{\oLabel} value assignment constraints), \textit{S and UL} (cardinality constraints on session value assignments) and so on.  As a result, constraint policies in LaBAC include logical formulas as well as enumerated tuples.
+	In \consLabac{}, we include constraint policies beyond authorization policies. While, authorization policies establish relationship only between user-label and object-label values (along with actions), constraint policies go beyond. For example, constraint policies may consider relationship between \textit{UL and OL} (policy constraints), $UL$ and $UL$ (\textit{\uLabel/session} value assignment constraints), $OL$ and $OL$ (\textit{\oLabel} value assignment constraints), \textit{S and UL} (cardinality constraints on session value assignments) and so on.  As a result, constraint policies in \eapABAC{} include logical formulas as well as enumerated tuples.
 	
 	
 	

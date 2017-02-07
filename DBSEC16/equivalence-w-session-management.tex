@@ -1,0 +1,13 @@
+
+%\input{session-management-functions.tex}
+%\input{session-management-in-abac.tex}
+%\subsubsection{Session management functions}
+%\subsection{Equivalence of expressive power considering sessions }
+
+Access control scheme represented as ($\Gamma, Q, \vdash, \Psi$)  where $\Gamma$ is the set of states, $Q$ is the set of queries,  $\vdash$ is the entailment function that relates $q\in Q$  to a state $\gamma \in \Gamma$ and $\Psi$ is the set of state transition rules. The entailment function is defined as  $\vdash: (\Gamma \times Q) \to \{true, false\}$
+
+\clabac{} scheme is represented as ($\GammaLabac, \QLabac, \vdashLabac,$  $\{\createSession,$ $ \assignValues,$ $ \removeValues, \deleteSession\}$) where a state,  $ \gammaLabac \in \GammaLabac$ is represented as $(U, O, A, S, uLabel, oLabel,$ $ \sessionLabels{},  UL,$  $ OL, \Policy)$. $\QLabac=\{ \qs \equiv \isAuthorized(s, a, o)|$  $ a\in A, s \in S, o \in O \}$. $\gammaLabac \vdashLabac \qs$ iff $\isAuthorized(s,a,o)$ $=true$
+
+\abacOneOne{} scheme is represented as ($\GammaABAC, \QABAC, \vdashABAC, \{ \createSubject, $ $ \assignValues, \removeValues, \deleteSubject \}$) where a state $\gammaABAC \in \GammaABAC$ is represented as $(U, O, A, S, ua, oa, sa, Range(ua),$  $ Range(oa), LFs)$ where $LFs$ is the set of logical formulas.  $\QABAC=\{ \qsa \equiv \isAuthorized(s, a, o)|$  $ a\in A, s \in S, o  \in O \}$. The entailment function is defined as  $\vdashABAC: \GammaABAC \times \QABAC \to \{true, false\}$. $\gammaABAC \vdashABAC \qsa$ iff $\isAuthorized(s,a,o)=true$
+
+

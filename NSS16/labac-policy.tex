@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Example of an authorization policy and authorization requests}
+\label{tab:example-auth-policy}
+\begin{tabular}{|l|}
+	\hline
+%\textit{}                      \\ \hline
+\multicolumn{1}{|c|}{\textit{\underline{I. Enumerated authorization policies}}} \\   
+$Policy_{read} \equiv$ \{ \textit{(manager,sensitive), (HR,employment)}, \\ \hfill \textit{(employee, enterprise), (guest, public)}\}\\ \hline
+
+\multicolumn{1}{|c|}{\textit{\underline{II. Authorization requests}}} \\   
+$\request(Alice,read, \textit{emp-rec}) = true$, assuming $\uLabel(Alice)=\{manager\}$\\
+$\request(Bob,read, \textit{emp-rec}) = false$, assuming $\uLabel(Bob)=\{employee\}$\\
+$\request(Bob,read, \textit{con-info}) = true$, assuming $\uLabel(Bob)=\{employee\}$\\
+$\request(Charlie,read, \textit{sen-info}) = false$, assuming $\uLabel(Charlie)=\{HR\}$\\
+\hline
+\end{tabular}
+\end{table}
+
+
+%$ Policy_{read} \equiv \{(Visitors, public\_data), (HR, persona\_data),(HR, employment\_data),$  \\\hfil $(employee, protected\_data),(manager,sensitive\_data)\}$         \\ \hline
+%$Policy_{write} \equiv \{(HR, personal\_data),(HR, employment\_data),$ \\ \hfil $(director, sensitive\_data)\}$ \\ \hline

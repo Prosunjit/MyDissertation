@@ -1,0 +1,19 @@
+%\subsection{Related work}
+
+	Several attribute based access control models have been proposed in the literature. Most of them are based on logical-formula authorization policies. For example,	$\abacAlpha{}$ \cite{abacAlpha} is among the first few models to formally define an ABAC model.  $\abacAlpha{}$ was developed  for the specific purpose of simulating simple forms of DAC, MAC and RBAC policies. As such, it deliberately has a more restrictive (and less powerful) policy language.  On the other hand, $\hgabac{}$ \cite{hgabac} is more general in purpose and also capable of accommodating  the traditional models. Both $\abacAlpha{}$ and \hgabac{} use propositional logic as their policy language. In the very same direction, ABAC-for-web-services \cite{abac-for-web-service} is among very few earlier works to outline authorization architecture and policy formulation for an ABAC system. Other notable work for the development of logical formula ABAC model include \cite{grid-abac,ontologies,abac-ws,wang2004logic}.
+	
+    NIST ABAC guide \cite{nist-abac-draft} and other publications \cite{hu2015attribute}  are also significant in defining concepts, required components, considerations and architecture for designing an  enterprise ABAC system. They acknowledge the fact that ABAC rules can be quite complex in boolean combination of attributes or in simple relations involving attributes.    
+    
+%    It is designed to demonstrate flexibilities of an ABAC system to configure DAC, MAC and RBAC models. As such,
+    
+	%In the other direction, Policy Machine (PM) \cite{policy-machine} and \labac{} \cite{labac} are	examples of ABAC models based on enumerated authorization policy. A policy/privilege in PM is defined as $(ua_i, OP, oa_i)$, where $ua_i$ and $oa_i$ are values of user-attribute and object-attribute respectively and $OP$ is  a set of operations. A policy tuple in \labac{} is also defined a very similar way specified as $(user\_attr\_value, action, object\_attr\_value)$. Both of these two models have also demonstrate their flexibility in configuring traditional models in it. In a very similar way, authorization policies is enumerated in \twoSortedRBAC{} \cite{two-sorted-rbac} in the  context of role.  
+	
+	Damiani et al \cite{damiani2005} describe an informal framework for 	attribute based access control in open environments. Bonatti et al \cite{bonatti,bonatti2} present a uniform structure to logically formulate and reason about both service access and information disclosure constraints according to related entity attributes. 	
+	
+	Other related work include XACML \cite{xacml}, UCON \cite{ucon}, policy mining \cite{mining},attribute certificates \cite{attribute-cert} and so on \cite{enforcing,lee,foley}.
+	
+	 %ABE \cite{abe} 
+	%Similarly, [28,29,30] develop a service negotiation framework for requesters and providers to gradually expose their attributes.
+
+	 %XACML \cite{xacml} is a declarative access control policy language and processing model which  supports attribute based concepts and policies. Although, it lacks a formal definition of an ABAC model, it is notable for its uses in multiple commercial products.
+	 

@@ -1,0 +1,28 @@
+
+
+\subsection{The operational model}
+
+
+\input{NSS16/operational-model-diagram.tex}
+
+
+\label{sec:operational-model}
+
+
+This section presents the Attribute-based Operational Model (\atom{}) for protection of JSON documents. \atom{} adapts enumerated authorization policies from  \cite{labac,eap-abac}.
+
+\input{NSS16/json-operational-model-table.tex}
+\input{NSS16/ulabel-olabel-hierarchy.tex}
+\input{NSS16/labac-policy.tex}
+
+Figure \ref{fig:operational-model} presents components of \atom{}. In the figure, the set of users is represented by $U$. Each user is assigned to one or more values of an attribute named \textit{user-label} or \textit{uLabel} in short. These values are selected from the set of all possible user-label values $UL$ which are partially ordered. The partial order is represented by $ULH$. An example showing user-label values and  hierarchy is presented in Figure \ref{fig:operational-explanation}(a). On the other hand, the set of JSON elements are specified as \textit{JE}. JSON elements may subsume other JSON elements, and form a tree structured hierarchy. The hierarchy is represented by \textit{JEH}. Each JSON element is assigned values of an attribute named \textit{security-label} or \textit{sLabel} in short. These values are selected from the set of security-label values $SL$ which are also partially ordered. The partial order is represented by \textit{SLH}. An example showing security-label values and  hierarchy is presented in Figure \ref{fig:operational-explanation}(b). A JSON tree annotated with security-label values is given in Figure \ref{fig:operational-explanation}(c). These components and relationship among them are formally specified in Segment I of Table  \ref{tab:operational-model}.
+
+% The many-to-many relation between JSON elements and security-label values are specified by the attribute function \textit{sLabel}In an organization, it is possible to have an existing classification system that categorizes all objects or resources in the organization. Such a classification system can be used to derive security-label values and its hierarchy. 
+
+In Figure \ref{fig:operational-model}, the set of authorization policies is represented by \textit{Policy}. There exists one authorization policy per action which is shown by the one-to-one relation between  \textit{Policy} and \textit{A}. In Table \ref{tab:operational-model}, $Policy_{read}$ presents the authorization policy for  action read. An authorization policy may contain one or more micro-policies and one micro-policy can be associated with more than one authorization policies. This is represented by the many-to-many relation between \textit{Policy} and \textit{Policy-tuples}. $Policy_{read}$, as mentioned above, contains four policy-tuples including \textit{(manager, sensitive)}. The tuple \textit{(manager, sensitive)} while contained in policy $Policy_{read}$ specifies that users who are manager can read objects that have been assigned values sensitive. Formally, we represent a policy-tuple a pair of atomic values $(ul, sl)$ where $ul \in UL$ and $sl \in SL$. The formal definition of policies and policy-tuples is given in Segment II of Table \ref{tab:operational-model}. We use the terms policy-tuples and micro-policies equivalently to represent sub-policies.
+
+%The formal definition of \atom{} is given in Table \ref{tab:operational-model}. In Section I of the table, we formally specify the sets and relations used in the model as described above. Section II formally specifies the relationship among policies, actions and policy-tuples. 
+
+The authorization function $\request{}()$ is specified in Section III of Table \ref{tab:operational-model}. We define the helper function $\canAccess{}(u,a,o)$ which specifies that the user $u$ can access the object $o$ for action $a$ if there exists a policy-tuple in $Policy_{a}$ for that allows it. A user is authorized to perform an action on the requested JSON element  if he can access the requested element and all its sub-elements. For example, let us assume, Alice as a manager wants to read \textit{emp-rec} which has been assigned value \textit{enterprise} as shown in Figure \ref{fig:operational-explanation}(c). The tuple \textit{(manager, sensitive)} in $Policy_{read}$ specifies that Alice can read object labeled with sensitive or junior values. Thus, the request $\request$\textit{(Alice, read, emp\_rec)} is evaluated true. On the other hand, assuming Bob as an employee, the request \textit{\request(Bob, read, emp-rec)} is evaluated false as an employee cannot read \textit{sen-info} which is sub-element of \textit{emp-rec}. Additional examples of authorization request is given in Segment II of Table  \ref{tab:example-auth-policy}.
+
+

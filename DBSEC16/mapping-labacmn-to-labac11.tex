@@ -1,0 +1,38 @@
+%\vspace{-1em}
+\newcommand{\denom}{\empty}
+\newcommand{\suffix}{\empty}
+\newcommand{\suffixTwo}{\empty}
+\begin{table}
+	\centering
+	\caption{ Mapping from \EPMNModel{} to \EPOneOneModels{} and vice versa } %\vspace*{3pt}
+	\label{tab:mapping-epmn-ep11}
+	\begin{tabular}{|l|}						
+		\hline					
+			\multicolumn{1}{|c|}{\underline{\textit{I. \EPOneOneModels{}  components}}} \\
+			-  $U_{\suffix}, O_{\suffix},  A_{\suffix}, S_{\suffix}, UL_{\suffix}$, $OL_{\suffix}$ (users, objects, actions, sessions, user and object attribute values) \\ 				  
+			-  $\uLabel_{\suffix}: U_{\suffix} \to 2^{UL_{\suffix}}$, $\oLabel_{\suffix}: O_{\suffix} \to 2^{OL_{\suffix}}$; $\creator_{\suffix}: S_{\suffix} \to U_{\suffix}$; $\sessionLabels_{\suffix}: S_{\suffix} \to 2^{UL_{\suffix}}$ \\
+			- $\Policy_{a_{1,1}} \subseteq {UL_{\suffix}} \times {OL_{\suffix}}$, policy for action $a \in A$ and $\Policy_{1,1} = \{Policy_{a_{1,1}}| a \in A\}$\\
+		   
+	 \multicolumn{1}{|c|}{\underline{\textit{II. From \EPMNModel{} to \EPOneOneModels{}}}}\\	
+			- $U = U_\denom{}, O = O_\denom{}, A = A_\denom{}, S_{\suffixTwo{}} = S$ \\
+			- $UL = 2^{\UL{1}} \times 2^{\UL{2}} \times ... \times 2^{\UL{m}}$; $OL = 2^{\OL{1}} \times 2^{\OL{2}} \times ... \times 2^{\OL{m}}$\\  
+			- $\uLabel(u) = 2^{\uLabelP{1}(u)} \times 2^{\uLabelP{2}(u)} \times ... \times 2^{\uLabelP{m}(u)} $\\
+			- $\oLabel(u) = 2^{\oLabelP{1}(o)} \times 2^{\oLabelP{2}(o)} \times ... \times 2^{\oLabelP{n}(o)} $ \\
+		
+			- $\creator_{\suffixTwo}(s) = \creator(s)$; $\sessionLabels_{\suffixTwo{}}(s) = 2^{\sessionLabelsP{1}(s)} \times 2^{\sessionLabelsP{2}(s)} \times ... \times 2^{\sessionLabelsP{m}(s)}$\\
+			
+			-  $\Policy_{a_{1,1}}= \{( (\ULS{1},  \ULS{2}, ..., \ULS{m}),  (\OLS{1}, \OLS{2}, ..., \OLS{n}))|$ \\ \hfill $(\exists (\ULS{1}, \ULS{2}, ...,\ULS{m},  \OLS{1}, \OLS{2}, ...,\OLS{n}) \in \Policy_a  )$ $[ \Policy_a \in \Policy_{m,n}]\}$ \\
+			\multicolumn{1}{|c|}{\underline{\textit{III. From \EPOneOneModels{} to \EPMNModel{}}}}\\	
+			
+				- $U = U_\denom, O = O_\denom, A = A_\denom, S_{\suffixTwo} = S$ \\
+				- $\UL{1} = UL$, $\UL{i} = \{\}$, for $2\le i \le m$; $\OL{1} = OL$, $\OL{i} = \{\}$, for $2\le i \le n$\\
+				- $\uLabelP{1}(u) = \uLabelP{}(u)$, $\uLabelP{i}(u) = \{\}$, for $2 \le i  \le m $\\
+				- $\oLabelP{1}(o) = \oLabelP{}(o)$, $\oLabelP{i}(o) = \{\}$, for $2 \le i  \le n $\\
+				- $\creator(s) = \creator(s)$, for $s \in S$; $\sessionLabelsP{1}(s) = \sessionLabelsP{}(s)$, $\sessionLabelsP{i}(s) = \{\}$, for $2 \le i \le m$\\
+				- $\Policy_a = \{( \{ul\}, \{\}, ...\{\}, \{ol\}, \{\}, ... \{\} ) | (ul,ol) \in \Policy_{a_{1,1}}[ \Policy_{a_{1,1}} \in \Policy_{1,1}]\}$\\
+		 \hline	
+	\end{tabular}	
+
+	
+\end{table}
+%\vspace{-1em}

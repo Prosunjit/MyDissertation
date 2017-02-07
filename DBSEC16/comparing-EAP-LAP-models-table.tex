@@ -1,0 +1,55 @@
+\begin{table}[]
+\centering
+\caption{Comparison of  \LPModels{} and \EPModels{} models }
+\label{tab:pros-cons-table}
+\begin{tabular}{|c|c|c|}
+	\hline
+Characteristics       & \LPModels{} models        & \EPModels{} models       \\ \hline
+\multicolumn{3}{l}{} \\ 
+\multicolumn{3}{l}{\textit{\textbf{Definition}}} \\ \hline
+\begin{tabular}[c]{@{}l@{}} \textit{distinguishing features}\end{tabular} & \begin{tabular}[c]{@{}l@{}}  logical-formula as \\authorization policies \end{tabular} & \begin{tabular}[c]{@{}l@{}}  enumeration as \\  authorization -policy\end{tabular} \\ \hline
+\multicolumn{3}{l}{} \\ 
+\multicolumn{3}{l}{\textit{\textbf{Authorization policy}}} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Definition} \end{tabular} & \begin{tabular}[c]{@{}l@{}} one large expression  of \\ boolean subexpression \end{tabular} & \begin{tabular}[c]{@{}l@{}} set of enumerated tuples \end{tabular} \\ \hline \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Representation} \end{tabular} & \begin{tabular}[c]{@{}l@{}} multiple ways to represent a \\ \hfil policy, heterogenius \end{tabular} & \begin{tabular}[c]{@{}l@{}} can be in a canonical\\ form, homogeneous \end{tabular} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Type}\end{tabular} & \begin{tabular}[c]{@{}l@{}} macro-policy\end{tabular} & \begin{tabular}[c]{@{}l@{}} micro-policy  \end{tabular} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Structure}\end{tabular} & \begin{tabular}[c]{@{}l@{}} monolithic\end{tabular} & \begin{tabular}[c]{@{}l@{}} polylithic  \end{tabular} \\ \hline
+
+
+\begin{tabular}[c]{@{}l@{}}\textit{size}\end{tabular} & \begin{tabular}[c]{@{}l@{}} concise\end{tabular} & \begin{tabular}[c]{@{}l@{}}  large  \end{tabular} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Language}\end{tabular} & \begin{tabular}[c]{@{}l@{}} often propositional logic\end{tabular} & \begin{tabular}[c]{@{}l@{}} Disjunctive Normal Form  \end{tabular} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Readability}\end{tabular} & \begin{tabular}[c]{@{}l@{}} human readable\end{tabular} & \begin{tabular}[c]{@{}l@{}}  human and machine \\ \hfil readable  \end{tabular} \\ \hline 
+
+\multicolumn{3}{l}{} \\ 
+\multicolumn{3}{l}{\textit{\textbf{Policy Administration}}} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Cost of reviewing policy} \end{tabular} & \begin{tabular}[c]{@{}l@{}} NP-complete \end{tabular} & \begin{tabular}[c]{@{}l@{}} polynomial \\ (in no. of tuples) \end{tabular} \\ \hline
+
+%\multicolumn{3}{l}{\textit{\textbf{Privilege administration}}} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Granting new privilege} \end{tabular} & \begin{tabular}[c]{@{}l@{}} manual update \end{tabular} & \begin{tabular}[c]{@{}l@{}} add new tuples \end{tabular} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Remove existing privileges} \end{tabular} & \begin{tabular}[c]{@{}l@{}}manual update  \end{tabular} & \begin{tabular}[c]{@{}l@{}} remove tuples \end{tabular} \\ \hline 
+
+
+%\multicolumn{3}{l}{\textit{\textbf{Updating authorization policy}}} \\ \hline
+
+%\begin{tabular}[c]{@{}l@{}}\textit{Cost} \end{tabular} & \begin{tabular}[c]{@{}l@{}}NP-complete \end{tabular} & \begin{tabular}[c]{@{}l@{}} polynomial \end{tabular} \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}\textit{Automation} \end{tabular} & \begin{tabular}[c]{@{}l@{}} \hfil require manual effort   \\ (complete or partial rewrite) \end{tabular} & \begin{tabular}[c]{@{}l@{}} can be automated \end{tabular} \\ \hline
+            
+\multicolumn{3}{l}{} \\            
+ \multicolumn{3}{l}{\textit{\textbf{Distributed administration}}} \\ \hline                                            
+\begin{tabular}[c]{@{}l@{}}\textit{Minimum administrative unit} \end{tabular} & \begin{tabular}[c]{@{}l@{}}authorization policy \end{tabular} & \begin{tabular}[c]{@{}l@{}} micro-policy \end{tabular} \\ \hline     
+
+\begin{tabular}[c]{@{}l@{}}\textit{Administrative scalability} \end{tabular} & \begin{tabular}[c]{@{}l@{}} not scalable  \end{tabular} & \begin{tabular}[c]{@{}l@{}} \hfil scalable \end{tabular} \\ \hline     
+
+                                        
+\end{tabular}
+\end{table}

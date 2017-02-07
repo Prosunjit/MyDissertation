@@ -1,0 +1,49 @@
+\subsection{JSON (JavaScript Object Notation)}
+\label{sec:background}
+
+
+JSON or JavaScript Object Notation is a format for representing textual data in a structured way.  In JSON, data is represented in one of two forms --- as an \emph{object} or an \emph{array} of values. A JSON object is defined as a collection of \emph {key,value} pairs where a \emph {key} is simply a string representing a name  and a \emph {value}  is one of the following primitive types---string, number, boolean, null or another object or an array. The definition of a JSON object is recursive in that an object may contain other objects. An array is defined as a set of an ordered collection of  values. JSON data  manifests following characteristics.
+
+%\vspace{-1.0em}
+\begin{itemize}
+
+  \item JSON data forms a rooted tree hierarchical structure. 
+
+  \item In the tree, leaf nodes represent values and a non-leaf nodes represent keys.
+
+  \item A node in the tree, can be uniquely identified by a unique path.
+\end{itemize}
+
+Figure \ref{fig:JSON-example}(a) shows the content of a JSON document where strings representing values have been replaced by \textit{``..."} for ease of presentation.  Figure \ref{fig:JSON-example}(b) shows the corresponding tree representation. Any node in the tree can be uniquely represented by  JSONPath \cite{JSONPath} which is a standard representation of paths for JSON documents.
+
+
+
+
+
+\input{JSON-example.tex}
+
+%\subsubsection{JSONPath}
+
+
+
+
+
+
+
+
+%\vspace{-.5em}
+
+
+
+%
+%\subsubsection{JSON vs XML}
+%\label{sec:json-vs-xml}
+%
+%Syntactically XML has a different structure than JSON. But both of them represent a common hierarchical structure. Thus authorization policy specified for JSON data can also be used for XML and vice versa. 
+
+
+
+%\subsection{LaBAC as an enumerated ABAC model}
+
+
+

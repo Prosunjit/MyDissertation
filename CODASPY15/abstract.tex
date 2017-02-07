@@ -1,0 +1,10 @@
+\begin{abstract}
+Swift, the object storage service from OpenStack cloud computing platform is used for storing, managing and retrieving large amounts of data. Inside Swift, uploaded files, also known as objects, are organized in containers. Objects inside a container are managed to be accessible or restricted from users through  Access Control Lists (ACLs). Swift ACL, at the finest level, works on a Swift object  enforcing who can or cannot access the object. Once an object is accessible to some one, he gets the full content of the object. Thus Swift ACL is an "all or nothing" approach.
+
+In this work, we allow Swift users to specify access control at the content level of a Swift object. The content level policy describes who can access which part of a Swift object. When a request comes for downloading (i.e. read) an object, we check content level policy along with the ACL of the object. The response of the request is a partial content of the requested object based on the credential of the requester. Our prototype implementation is done on Swift objects of content type `application/json'.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.4}{Information Systems Applications}{Miscellaneous}
+
+\keywords{Content level access control; OpenStack Swift; ACL}

@@ -1,0 +1,20 @@
+
+\begin{table}[t]
+	\centering
+	\caption{ Examples of JSONPath and path-based labeling policies} %\vspace*{3pt}
+	\label{tab:path-based-example}			
+	\begin{tabular}{|l|}
+		\hline					
+		\begin{tabular}{l}
+				\multicolumn{1}{c}{\underline{\textit{I. JSONPaths}}}\\										
+				- {path-to-email}=\$.{emp-rec.con-info.email}\\					
+				- {path-to-salary}=\$.{emp-rec.sen-info.salary}\\
+				\multicolumn{1}{c}{\underline{\textit{II. \labelAssignment}}}\\			
+				- \labelAssignment = \{ (path-to-email, (no-prop, unrestricted), \{enterprise\}),  \\ \hfil (path-to-salary, (no-prop, unrestricted),  \{sensitive\}) \}				\\
+		\end{tabular}			
+		 \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+

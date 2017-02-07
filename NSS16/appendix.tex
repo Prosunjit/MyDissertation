@@ -1,0 +1,40 @@
+\section{Appendix}
+%===================MongoDB Enhanced with Label ==================%
+\begin{table*}[t] \footnotesize
+	\centering
+	\caption{MongoDB Authorization  at Database Level }
+	\label{table:mongo-auth-model}
+	\begin{tabular}{p{\textwidth}}
+		
+		\hline
+		
+		$\mathcal{J}$: Set of all JSON documents in a database.\\
+		
+		$\mathcal{CLS}$: Set of all Collections where a collection, $col_i \subset J$ \\
+		
+		$\mathcal{L}$: set of labels to be used. \\
+		%$\mathcal{LC}$: Set of all LabeledContent. $\mathcal{LC} = \mathcal{J} \times \mathcal{L}$\\
+		
+		$\mathcal{RT}$: A set of  all resource types in MongoDB,   $  \mathcal{RT} = \{Collection, System Collection, Index, Cursor \} \cup \{\textit{Document}, \textit{LabeledContent}\}  $\\ 
+		
+		
+		$\mathcal{I}_{rt}$: A set of all instance of a resource type $rt$  \\
+		
+		$\mathcal{I}_\mathcal{LC}$: A set of all instances LabeledContent where $\mathcal{I}_\mathcal{LC} = \mathcal{J} \times \mathcal{L}$    \\
+		$\mathcal{A}_{rt}$: A set of all predefined actions on a particular resource type $rt$. \\
+		
+		$\mathcal{A}_\mathcal{LC}, \mathcal{A}_\mathcal{J}$: set of actions defined on LabeledContent and Document respectively.
+		
+		$P$: Set of all  privileges for all instance on all resource types. $P$ = $\mathcal{RT} \times ( \mathcal{I}_{rt} \cup \mathcal{I}_\mathcal{LC} \cup \mathcal{J})   \times  (\mathcal{A}_{rt} \cup  \mathcal{A}_\mathcal{LC} \cup \mathcal{A}_\mathcal{J})$\\
+		
+		$\mathcal {R}, \mathcal{U}$: Set of available roles and users respectively.\\
+		
+		$\mathcal{RPA}$: Role-privilege assignment set. $\mathcal{RPA} \subset  \mathcal{R}  \times 2^\mathcal{P}$ \\
+		
+		$\mathcal{URA}$: User-role assignment set. $\mathcal{URA} \subset  \mathcal{U}  \times \mathcal{R}$\\
+		
+		\hline
+	\end{tabular}
+\end{table*}
+
+%===================Configuration end ==================%

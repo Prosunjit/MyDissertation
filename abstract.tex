@@ -1,8 +1,16 @@
 \begin{abstract}
-The first chapter of this document is a description of the content
-and the usage of the UTSAthesis package. The remaining chapters serve
-to illustrate some use of \LyX{} features for writing a thesis/dissertation. 
+Attribute Based Access Control (ABAC) has gained considerable attention from businesses, academia and standard bodies (e.g. NIST  and NCCOE ) in recent years. ABAC uses attributes on users, objects and possibly other entities (e.g. context/environment) and specifies rules using these attributes to assert who can have which access permissions (e.g. read/write) on which objects.  Although ABAC concepts have been around for over two decades, there remains a lack of well-accepted ABAC models.  Recently there has been a resurgence of interest in ABAC due to continued dissatisfaction with the traditional models---specially Role Based Access Control (RBAC), Discretionary Access Control (DAC), Lattice Based Access Control (LBAC).
 
-The first line of the abstract has been indented as per required by
-the thesis/dissertation guideline.
+There are two major techniques stated in the literature for specifying authorization policies in Attribute Based Access Control (ABAC). The more conventional approach is to define policies by using logical formulas involving attribute values. The alternate technique for expressing policies is by enumeration. While considerable work has been done for the former approach, the later is less studied.  
+
+%There remains many fundamental research problem to investigate, such as how to enumerate an authorization policy, how an enumerated authorization policy ABAC model should look like,  how enumerated policy is related to logical-formula policy and so on. 
+
+In this dissertation, we conduct a systematic study of Enumerated Authorization Policy (EAP). We have studied available EAP models for both ABAC and RBAC. We have develop a representative, simplistic EAP ABAC model---EAP-ABAC$^{1,1}$. For the sake of clarity and emphasis on different elements of the model, we present EAP-ABAC$^{1,1}$ as a family of models. We have investigated how the defined model is comparable with other existing EAP models. We also demonstrate capability of the defined model by configuring traditional LBAC and RBAC models in it. 
+
+We compare theoretical expressive power of EAP based ABAC models to logical-formula authorization policy ABAC models. In this regard, presents a finite attribute, finite domain ABAC model for enumerated authorization policies and investigates its relationship with logical-formula authorization policy ABAC models in the finite domain. We show that these models are equivalent in their theoretical expressive power. We also show that single and multi-attribute ABAC models are equally expressive.
+
+As a proof-of-concept, we demonstrate how EAP ABAC models can be enforced in different applications. We have designed an enhanced EAP-ABAC$^{1,1}$ model to protect JSON document. In our design, we show how most of the existing XML protection model consider only hierarchical structure of underlying data. We additionally identify two more inherent characteristics of data--- semantical association and scatteredness and consider them in the design. Finally, we have demonstrate of EAP-ABAC$^{1,1}$ can be used in OpenStack Swift to enhance its ``all/no access'' paradigm to policy-based selective access.
+
+
+
 \end{abstract}

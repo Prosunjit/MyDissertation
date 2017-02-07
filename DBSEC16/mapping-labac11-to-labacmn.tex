@@ -1,0 +1,30 @@
+%\vspace{-1em}
+\renewcommand{\denom}{0}
+\renewcommand{\suffix}{0}
+\renewcommand{\suffixTwo}{0}
+\begin{table}
+	\centering
+	\caption{ Mapping from \clabac{} to \EPMNModel{}  } %\vspace*{3pt}
+	\label{tab:mapping-clabac-to-slabac}
+	\begin{tabular}{|l|}						
+		\hline					
+			\multicolumn{1}{|c|}{\underline{\textit{I. \clabac{} components}}} \\
+			-  $U_\suffix, O_\suffix,  A_\suffix, S_\suffix, UL_\suffix$, $OL_\suffix$ (users, objects, actions, sessions, $uLabel$ and $oLabel$ values resp.) \\ 				  
+			-  $\uLabel_\suffix: U_\suffix \to 2^{UL_\suffix}$, $\oLabel_\suffix: O_\suffix \to 2^{OL_\suffix}$; $\creator_\suffix: S_\suffix \to U_\suffix$; $\sessionLabels_\suffix: S_\suffix \to 2^{UL_\suffix}$ \\
+			- $\Policy_a \subseteq 2^{UL_\suffix} \times 2^{OL_\suffix}$ and $\Policy_\suffix = \{Policy_a | a \in A\}$\\
+		   
+	 \multicolumn{1}{|c|}{\underline{\textit{II. Construction}}}\\	
+			- $U = U_\denom, O = O_\denom, A = A_\denom, S_\suffixTwo = S$ \\
+			- $\UL{1} = \UL{0}$, $\UL{i} = \{\}$, for $2\le i \le m$\\
+			- $\OL{1} = \OL{0}$, $\OL{i} = \{\}$, for $2\le i \le n$\\
+			- $\uLabelP{1}(u) = \uLabelP{0}(u)$, $\uLabelP{i}(u) = \{\}$, for $2 \le i  \le m $\\
+			- $\oLabelP{1}(o) = \oLabelP{0}(u)$, $\oLabelP{i}(o) = \{\}$, for $2 \le i  \le n $\\
+			- $\creator_0(s) = \creator(s)$, for $s \in S$\\
+			- $\sessionLabelsP{1}(s) = \sessionLabelsP{0}(s)$, $\sessionLabelsP{i}(s) = \{\}$, for $2 \le i \le m$\\
+			- $\Policy_a = \{( \{ul\}, \{\}, ...\{\}, \{ol\}, \{\}, ... \{\} ) | (ul,ol) \in \Policy_a[ \Policy_a \in \Policy_\suffix]\}$\\
+		 \hline	
+	\end{tabular}	
+
+	
+\end{table}
+%\vspace{-1em}

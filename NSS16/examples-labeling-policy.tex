@@ -1,0 +1,24 @@
+\newcommand{\orgLevel}{org-level}
+\newcommand{\deptLevel}{dept-level}
+\newcommand{\firstLevel}{first-level}
+\newcommand{\cascading}{cascading}
+\begin{table}[]
+\centering
+\caption{Examples of labeling policies}
+\label{organizational-auth-policy}
+\begin{tabular}{|l|}
+	\hline
+%\textit{}                      \\ \hline
+\multicolumn{1}{|c|}{\textunderscore{\textit{Organization wide  labeling policies}} } \\   
+1. $\langle <*,//SSN>,\{sensitive\_data\}, <\orgLevel, final, \firstLevel>\rangle$	\\  
+2. $\langle <$*,\$.employee-record.employment-info?(@.salary$\ge$20000)$>$,\{protected\_data\}, \\ \hfill  $<$\orgLevel, suggested, \cascading$>\rangle$	\\ \hline
+
+\multicolumn{1}{|c|}{\textit{\textunderscore{Local  labeling policies}}} \\  
+1. $\langle <$doc1-identifier,\$.employee-record.public-info>,\{public\_data\}, \\ \hfill  <\deptLevel,suggested, \firstLevel$>\rangle$	\\  
+
+2. $\langle <$doc1-identifier,\$.employee-record.contact-info$>$,\{employment\_data\}, \\ \hfill  <\deptLevel, suggested, \cascading>$\rangle$	\\  
+3. $\langle <$doc1-identifier,\$.employee-record.employment-info.salary$>$,\{sensitive\_data\}, \\ \hfill  $<$\deptLevel, final, \cascading$>\rangle$	\\  \hline
+
+
+\end{tabular}
+\end{table}

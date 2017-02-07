@@ -4,22 +4,22 @@
 	\label{tab:labac-in-policy-machine}
 	\begin{tabular}{|l|}						
 		\hline					
-			\multicolumn{1}{|c|}{\underline{\textit{I. \hlabac{} components}}} \\
-			-  $U_L, O_L,  A, S$ (set of users, objects, actions \\ \hfill and sessions  resp.) \\ 
-			- $UL, OL, ULH,  OLH$ (uLabel values, oLabel values, \\ \hfill uLabel and oLabel value hierarchy  resp.) \\		  
+			\multicolumn{1}{|c|}{\underline{\textit{I. \hlabac{} components}}} \\ \\
+			-  $U_L, O_L,  A, S$ (set of users, objects, actions  and sessions  resp.) \\ 
+			- $UL, OL, ULH,  OLH$ (uLabel values, oLabel values,  uLabel and \\ \hfill oLabel value hierarchy  resp.) \\		  
 			-  $\uLabel: U \to 2^{UL}$, $\oLabel: O \to 2^{OL}$ \\
 			-  $\Policy_{a}$, authorization policy for action $a \in A$\\
 			- $\creator: S \to U$\\
 		   
-		\\ \multicolumn{1}{|c|}{\underline{\textit{II. Construction}}}\\	
+		\\ \multicolumn{1}{|c|}{\underline{\textit{II. Construction}}}\\	\\
 		- $ U=U_L, O=O_L, OP=A, P = S $\\
 		- $\processUser(s) = \creator(s)$, for $s \in S$\\
 		- $UA = UL, OA=OL$ \\		
-		- $\assignment$ = $\{(u,ul) | ul \in \uLabel(u) \} \cup$  \\ \hfil 
+		- $\assignment$ = $\{(u,ul) | ul \in \uLabel(u) \} \cup$   
 										$\{(ul_i, ul_j) | ul_i \udominate ul_j \} \cup$ \\ \hfil
-										$\{(o,ol) | ol \in \oLabel(o) \}\cup $ \\ \hfil
+										$\{(o,ol) | ol \in \oLabel(o) \}\cup $  
 										$\{(ol_i, ol_j) | ol_j \udominate ol_i \}$ \\
-		- $\association= \{ (ul, a, ol) | \exists (ul,ol) \in \Policy_a$ \\ \hfill $ \land \Policy_a \in \Policy \}$ 
+		- $\association= \{ (ul, a, ol) | \exists (ul,ol) \in \Policy_a$  $ \land \Policy_a \in \Policy \}$ 
 
 		\\ \hline	
 	\end{tabular}	

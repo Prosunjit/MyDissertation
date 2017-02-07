@@ -1,0 +1,23 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}
+	\centering
+	\caption{ Mapping from \EPOneOneModels{} to \LPOneOne{} and vice versa } %\vspace*{3pt}
+	\label{tab:lp11-to-ep11}
+		\begin{tabular}{|l|}						
+		\hline		
+	\multicolumn{1}{|c|}{\underline{\textit{I. From \EPOneOneModels{} to \LPOneOne{} }}}\\					
+	- $U  = U ; O  = O ; A  = A $; $UAV	= UL; OAV = OL$;$ua(u) = uLabel(u)$; $oa(o)=oLabel(o) $\\
+	-  $sa(s) = \sessionLabels(s) $ ;$f_a =$ $\mathop{\vee}\limits_{ (ul_i, ol_i) \in \policy_a} ( ul_i \in ua(u) \land ol_i \in oa(o))$. \\
+	 
+	 \multicolumn{1}{|c|}{\underline{\textit{II. From \LPOneOne{} to \EPOneOneModels{}}}}\\	
+	  - $UL= 2^{ULV}; OL= 2^{OLV}; \uLabel(u) = 2^{ua(u)};\oLabel(o) = 2^{oa(o)}; \sessionLabels(s) = 2^{sa(s)}$ \\	  
+	 - $\Policy_a = \{  (\ulsubset, \olsubset) | (\exists \ulsubset \subseteq UL, \exists \olsubset \subseteq OL)[ f_a(\ulsubset, o\ulsubset) = true] \} $
+
+		 \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+%mod
+

@@ -1,0 +1,15 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[t]
+\centering
+\caption{Effective assignments from multiple assignments}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\multicolumn{4}{|c|}{Assignments of values from multiple scopes}   & \multirow{2}{*}{Effective assignment} \\ \cline{1-4}
+(global,final) & (global, suggested) & (local,final) & (local, suggested) &                                   \\ \hline
+S1             & S2                  & S3            & S4                 & S1                                \\ \hline
+N/A            & S2                  & S3            & S4                 & S3                                \\ \hline
+N/A            & N/A                 & S3            & S4                 & S2 $\cup$ S4                             \\ \hline
+\end{tabular}
+\end{table}

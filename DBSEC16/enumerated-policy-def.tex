@@ -1,0 +1,7 @@
+An enumerated authorization policy (\EAP{}) consists of a set of  tuples.  Each tuple \textit{(UAVals, OAVals)} grants privileges to a set of users  to exercise an action on a set of objects identified by the user and object attribute values \textit{UAVals} and \textit{OAVals} respectively. In an EAP, each tuple is distinct and grants privileges independently. Both  UAVals{} and OAVals{} can be atomic valued or set valued. (\textit{\manager, TS}) and (\textit{\{\manager, dir\}, \{TS,H\}}) are example of atomic and set valued tuples respectively. 
+	
+Usefulness of \EAP{}s have been demonstrated in the literature. For example, \textit{Policy Machine (PM)} \cite{policy-machine} and \labac{} \cite{labac} show flexibility of \EAP{}s by their ability to configure traditional models. 
+
+
+%For example, in Policy Machine (PM) \cite{policy-machine}, Ferraiolo et. al define attribute based enumerated policies using one user attribute, one object attribute and a set of actions. PM also shows how to configure traditional models including DAC \cite{dac}, MAC \cite{lbac}, RBAC \cite{rbac} and Chinese wall \cite{chinese-wall}  using enumerated policies \cite{INCITS526}. On the other hand, \labac{} is another example showing usefulness of enumerated policies. A comparative analysis of enumerated authorization policy and logical-formula authorization policy is discussed in Section \ref{sec:LP-vs-EP}
+

@@ -1,0 +1,22 @@
+
+\begin{table}[t]
+	\centering
+	\caption{ Examples of query objects and content-based labeling policies} %\vspace*{3pt}
+	\label{tab:content-based-example}			
+	\begin{tabular}{|l|}
+		\hline					
+		\begin{tabular}{l}
+				\multicolumn{1}{c}{\underline{\textit{I. Query objects}}}\\										
+				- ob1 = \{``email": \{ \$regex:``/.*@example.com/"\} \} (matches email addresses \\ \hfil from domain example.com)  \\
+				- ob2 = \{ \$elemMatch: \{ \$regex: ``\reForEmail''  \} \} (matches any key having value \\ \hfil  corresponding to the  given regular expression) \\  
+				- ob3 = \{\$elemMatch:\{ \$regex: ``\reSSN"\}, \$elemMatch: \{``\reCreditCard"\}\} \\ \hfil (matches all objects containing both social security and credit card number) \\
+					
+				\multicolumn{1}{c}{\underline{\textit{II. \labelAssignment}}}\\			
+				- \labelAssignment = \{ (ob1, (no-prop, unrestricted), \{enterprise\}),   (ob2,\\ \hfil (no-prop, unrestricted),  \{enterprise\}), (ob3, (no-prop, restricted), \{ sensitive\} \}				\\
+		\end{tabular}			
+		 \\ \hline	
+	\end{tabular}
+	
+\end{table}
+
+

@@ -1,0 +1,44 @@
+%\vspace{-1em}
+\renewcommand{\suffix}{m,n}
+\newcommand{\suffixT}{1,1}
+\begin{table}
+	\centering
+	\caption{ Mappings } %\vspace*{3pt}
+	\label{tab:lp11-to-lpmn}
+	\begin{tabular}{|l|}						
+		\hline					
+%			\multicolumn{1}{|c|}{\underline{\textit{I. \LPOneOne{} components}}} \\
+%				  - $U, O, A, S, UAV, OAV$  (users,  objects, actions, subjects, user and object attr. values.)\\
+%				  - $ua,oa$ (attribute functions);  $ua:U\to 2^{UAV}$; $oa:O\to 2^{OAV}$ \\ 
+%				  - $\subCreator: S \to U$ ; $sa:S\to 2^{UAV}$,    $sa(s) \subseteq ua(\subCreator(s))$\\
+%				  - $f_a: (sa(u), oa(o)) \to \{true, false\}$  and $\isAuthorized(s,a,o) =(f_a(sa(u),oa(o))=true$) \\
+				 
+		   
+		   \multicolumn{1}{|c|}{\underline{\textit{I. From \LPMN{} to \LPOneOne{}}}}\\	
+			   - $U = U_{\suffix}; O = O_{\suffix}; A = A_{\suffix}; S = S_{\suffix};$$\textit{UAV} = \UAV{1} \times \UAV{2}\times ... \times \UAV{m}$\\
+			   -  $\textit{OAV} = \OAV{1} \times \OAV{2}\times ... \times \OAV{m}$;$ua(u) = \ua{1}(u) \times \ua{2}(u) \times ... \times \ua{m}(u) $\\
+			   -$oa(u) = \oa{1}(u) \times  ... \times \oa{m}(u) $$sa(u) = \sa{1}(u) \times ... \times \sa{m}(u) $; $\creator(s) = \creator_{\suffix}(s)$\\
+			    - $ f_a =$ $\mathop{\bigvee}\limits_{ f_{a_{m,n}}( \ULS{1}, \ULS{2},...\ULS{m}, \OLS{1}, \OLS{2}, ...,\OLS{n})=true }  (\ULS{1}(u) \times ... \times \ULS{m}(u) \subseteq ua(u) )\land$ \\ \hfill  $(\OLS{1}(o) \times ... \times \OLS{n}(o) \subseteq oa(o))$, for $\ULS{i} \subseteq \UAV{i}$ and $\OLS{i} \subseteq \OAV{i}$ \\ 		
+			   
+ 
+	   \multicolumn{1}{|c|}{\underline{\textit{II. From \LPOneOne{} to \LPMN{}}}}\\	
+			- $U = U_{\suffixT}; O = O_{\suffixT}; A = A_{\suffixT}; S = S_{\suffixT};$\\
+			- $\UAV{1} = UAV; \UAV{2} = \{\}; ... \UAV{m} = \{\};$  $\OAV{1} = OAV; \OAV{2} = \{\}; ... \OAV{n} = \{\};$\\
+			- $\ua{1}(u) = ua(u); \ua{2}(u) = \{\};...\ua{m}(u) = \{\}$; $\oa{1}(o) = oa(o); \oa{2}(o) = \{\};...\oa{m}(o) = \{\}$\\
+		    - $\sa{1}(u) = sa(u); \sa{2}(u) = \{\};...\sa{m}(u) = \{\}$; $\creator_{\suffix}(s) = \creator(s)$ and $f_{a_{\suffix}} =$\\
+		    $\mathop{\bigvee}\limits_{ f_{a}( \ULS{i},\OLS{i})=true }  (\ULS{i} \subseteq \ua{1}(u) \land$   $ \OLS{i}\subseteq oa(o))$  for $\ULS{i} \subseteq UAV$ and $\OLS{i} \subseteq OAV$ \\ 
+		 %\hline	
+		 	\multicolumn{1}{|c|}{\underline{\textit{III. From \EPOneOneModels{} to \LPOneOne{} }}}\\					
+		 	- $U  = U ; O  = O ; A  = A $; $UAV	= UL; OAV = OL$;$ua(u) = uLabel(u)$; $oa(o)=oLabel(o) $\\
+		 	-  $sa(s) = \sessionLabels(s) $ ;$f_a =$ $\mathop{\vee}\limits_{ (ul_i, ol_i) \in \policy_a} ( ul_i \in ua(u) \land ol_i \in oa(o))$. \\
+		 	
+		 	\multicolumn{1}{|c|}{\underline{\textit{IV. From \LPOneOne{} to \EPOneOneModels{}}}}\\	
+		 	- $UL= 2^{ULV}; OL= 2^{OLV}; \uLabel(u) = 2^{ua(u)};\oLabel(o) = 2^{oa(o)}; \sessionLabels(s) = 2^{sa(s)}$ \\	  
+		 	- $\Policy_a = \{  (\ulsubset, \olsubset) | (\exists \ulsubset \subseteq UL, \exists \olsubset \subseteq OL)[ f_a(\ulsubset, o\ulsubset) = true] \} $
+		 	
+		 	\\ \hline	
+	\end{tabular}	
+
+	
+\end{table}
+%\vspace{-1.5em}
