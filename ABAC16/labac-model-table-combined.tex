@@ -2,7 +2,7 @@
 % \usepackage{booktabs}
 \begin{table}
 	\centering
-	\caption{ \labac{} Model} %\vspace*{3pt}
+	\caption{ \combinedEAP{} model} %\vspace*{3pt}
 	\label{tab:labac-complete-definition}
 		\begin{tabular}{|l|}						
 		\hline					
@@ -24,12 +24,12 @@
 			   	- $\Policy = \{ \Policy_a | a \in A  \}$ \\ \\
 			    
 			    \multicolumn{1}{|c|}{\underline{\textit{III. Derived components}}} \\\\
-			    - $\impliedPolicy_a = \{ (\ulvmem_i, \olvmem_j) |  \exists (\ulvmem_m, \olvmem_n) \in \policy_a$[ \\ \hfill $ \ulvmem_i \udominate \ulvmem_m \land \olvmem_n \odominate \olvmem_j] \}$	\\
+			    - $\impliedPolicy_a = \{ (\ulvmem_i, \olvmem_j) |  \exists (\ulvmem_m, \olvmem_n) \in \policy_a$[ $ \ulvmem_i \udominate \ulvmem_m \land \olvmem_n \odominate \olvmem_j] \}$	\\
 			     - $\textit{\policyBound} = (UL \times OL) \setminus \restrictedTuples$ \\
 			    
 			    
 				\\ \multicolumn{1}{|c|}{\underline{\textit{IV. Authorization function}}} \\ 	\\					
-				- \request(s:S,\amem:A,\objmem:O) =	 
+				- \request(s:S,\amem:A,\objmem:O) $\equiv$	 
 					$\exists ul \in \sessionLabels(s), $ $\exists ol $ \\ \hfill   $ \in oLabel(o) [ (ul,ol) \in$ $\textit{\impliedPolicy}_a \cap  \textit{\policyBound}]  $  		
 			
  \\ \hline	

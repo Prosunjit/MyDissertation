@@ -1,7 +1,19 @@
-\chapter{Enforcement of \eapABAC{} models.}
-In this section, we demonstrate usefulness of EAP models by enforcing them in different application contexts. Firstly, we use \eapABAC{} to design a protection model for JSON documents. In the second case, we design a protection model for OpenStack Swift storage.  They are discussed in detail in the following sections.
-\section{Protection model for JSON Documents}
-	In this section, we design a protection model for JSON documents. In the following sub-section, we discuss our motivation for choosing JSON data model. We also discuss salient properties semi-structured JSON data and justify our approach over existing XML protection mechanisms. 
+\chapter{Enforcement of \eapABAC{} Models}
+\label{sec:enforcements}
+In this chapter, we demonstrate usefulness of EAP models by demonstrating enforcement in application contexts. We particularly use \eapABAC{} to design a protection model for JSON documents. We have implemented this protection model in OpenStack Swift storage.  The implementation allows ``policy-based selective access'' of stored OpenStack Swift objects instead of Swift's default ``all/no access''. In the following sections of this chapter, we briefly discuss motivations for this work, required background of JSON documents, enforcement models, security-policy syntax and finally implementation and its evaluation. 
+
+%\section{Protection Model for JSON Documents}
+%	In this section, we design a protection model for JSON documents. In the following sub-section, we discuss our motivation for choosing JSON data model. We also discuss salient properties of semi-structured JSON data, and justify our approach over existing XML protection mechanisms. 
+	
 	\input{modified-nss-paper.tex}
-\section{Content-level protection for OpenStack Swift}
-	\input{modified-codasy-poster.tex}
+	
+%\section{Content-Level Protection for OpenStack Swift}
+
+%	In this section, we show how we have extended our enforcement of \eapABAC{} specified in the last section to enable content-level protection for objects stored in OpenStack Swift.
+
+%	\subsection{Motivation}
+%	Swift, the object storage service from OpenStack cloud computing platform is used for storing, managing and retrieving large amounts of data. Inside Swift, uploaded files, also known as objects, are organized in containers. Objects inside a container are managed to be accessible or restricted from users through  Access Control Lists (ACLs). Swift ACL, at the finest level, works on a Swift object  enforcing who can or cannot access the object. Once an object is accessible to some one, he gets the full content of the object. Thus Swift ACL is an ``all or nothing'' approach.
+
+%	In this work, we allow Swift users to specify access control at the content level of a Swift object. The content level policy describes who can access which part of a Swift object. When a request comes for downloading (i.e. read) an object, we check content level policy along with the ACL for the object. The response of the request is a partial content of the requested object based on the credential of the requester. Our prototype implementation is done on Swift objects of content type ``application/json''.
+	
+%	\input{modified-codasy-poster.tex}

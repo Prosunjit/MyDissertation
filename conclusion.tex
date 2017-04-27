@@ -1,2 +1,21 @@
-\chapter{Conclusion}
-\section{Comparison beyond expressive power}
+\chapter{Conclusion and Future Work}
+\label{sec:conclusion}
+\section{Summary}
+In this dissertation, we conduct a systematic study of Enumerated Authorization Policy (EAP) for ABAC. We have developed a representative, simple EAP ABAC model---EAP-ABAC$^{1,1}$. For the sake of clarity and emphasis on different elements of the model, we present EAP-ABAC$^{1,1}$ as a family of models. We have investigated how the defined models are comparable to other existing EAP models. We also demonstrate capability of the defined models by configuring traditional LBAC and RBAC models in them. 
+
+We compare theoretical expressive power of EAP based ABAC models to logical-formula authorization policy ABAC models. In this regard, we present a finite-attribute, finite-domain ABAC model for enumerated authorization policies and investigate its relationship with logical-formula authorization policy ABAC models in the finite domain. We show that these models (EAP-ABAC and LAP-ABAC) are equivalent in their theoretical expressive power. We further respectively show that single and multi-attribute ABAC models are equally expressive.
+
+As proof-of-concepts, we demonstrate how EAP ABAC models can be enforced in different application contexts. We have designed an enhanced EAP-ABAC$^{1,1}$ model to protect JSON documents. While most of the existing XML protection model consider only hierarchical structure of underlying data, we additionally identify two more inherent characteristics of data--- semantical association and scatteredness and consider them in the design. Finally, we have outlined how EAP-ABAC$^{1,1}$ can be used in OpenStack Swift to enhance its ``all/no access'' paradigm to ``policy-based selective access''.
+
+\section{Future Work}
+
+\begin{itemize}
+	
+	\item\textbf{ {Variation of EAP models.}} In this work, I focus on developing the concepts of EAP models. The proposed models involves  attributes of positive values only. Many other types of EAP models can be developed, for example, models involving negative attribute values where negative value means absence of a value. In contrast to positive valued model where granted permissions is monotonically increasing with addition of micro-policies, negative valued models deviate from this characteristics which make these models more interesting to investigate.
+	
+	\item \textbf{{Administrative Models.}} EAP ABAC model demonstrate itself as a viable alternate to logical-formula ABAC models with respect to theoretical expressive power. To take EAP  models to the next step, it is worth to investigate its administrative models.
+	
+	\item \textbf{ Combining Enumerated and Logical-formula ABAC.} We have shown enumerated authorization policy ABAC models as a viable alternate to Logical-formula Authorization Policy (LAP) ABAC models. These models have corresponding pros and cons. For example, logical-formula authorization policies are easy to set up but might be difficult to administer. On the other hand, enumerated authorization policy would be difficult to set up due to verbosity but be easy to administer. As a result, it is worth to investigate how to combine pros of these two models where authorization policies is setup with logical-formula but administered using enumerated policy. 	
+\end{itemize}
+
+ 

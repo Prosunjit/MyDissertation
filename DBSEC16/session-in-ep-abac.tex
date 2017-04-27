@@ -8,14 +8,14 @@
 \textbf{Fuction}    & \textbf{Condition} & \textbf{Updates} \\ \hline
 
 
-\begin{tabular}[c]{@{}l@{}}$\createSession$ $(u:U, s:S, $ \\ $\val{1}:2^{\UL{1}},$ $\val{2}:2^{\UL{2}} $,..., \\ $\val{m}:2^{\UL{m}})$\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s \not \in S \land$  \\$\val{i} \subseteq \ua{i}(u)$, for $1 \le i \le m$\\   \end{tabular} &  \begin{tabular}[c]{@{}l@{}}$S' = S \cup \{s\}$, $\subCreator(s) = u $ , \\ $ \sessionLabelsP{i}(s)=\val{i}$, for $ 1\le i \le m$   \end{tabular} \\\hline
+\begin{tabular}[c]{@{}l@{}}$\createSession$ $(u:U, s:S, $ \\ $\val{1}:2^{\UL{1}},$ $\val{2}:2^{\UL{2}} $,..., \\ $\val{m}:2^{\UL{m}})$\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s \not \in S \land$  \\$\val{i} \subseteq \ua{i}(u)$, for $1 \le i \le m$\\   \end{tabular} &  \begin{tabular}[c]{@{}l@{}}$S' = S \cup \{s\}$, \\ $\subCreator(s) = u $ , \\ $ \sessionLabelsP{i}(s)=\val{i}$, \\ for $ 1\le i \le m$   \end{tabular} \\\hline
 
 
-\begin{tabular}[c]{@{}l@{}}$\deleteSession$\\ $(u:U, s:S)$\end{tabular}   & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land \subCreator(s)=u  $ \end{tabular}                   & \begin{tabular}[c]{@{}l@{}}$S' = S \setminus \{s\}$ \end{tabular}                             \\\hline
+\begin{tabular}[c]{@{}l@{}}$\deleteSession$$(u:U, s:S)$\end{tabular}   & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land \subCreator(s)=u  $ \end{tabular}                   & \begin{tabular}[c]{@{}l@{}}$S' = S \setminus \{s\}$ \end{tabular}                             \\\hline
 
-\begin{tabular}[c]{@{}l@{}}$\assignValues$ $(u:U, s:S, $ \\ $\val{1}:2^{\UL{1}},$ $\val{2}:2^{\UL{2}} $,..., \\ $\val{m}:2^{\UL{m}})$\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land \subCreator(s)=u \land $  \\$\val{i} \subseteq \ua{i}(u)$,for $1 \le i \le m$   \end{tabular} &  \begin{tabular}[c]{@{}l@{}} $ \sessionLabelsP{i}'(s)= \sessionLabelsP{i}(s) \cup \val{i}$, \\ for $ 1\le i \le m$   \end{tabular} \\\hline
+\begin{tabular}[c]{@{}l@{}}$\assignValues$ $(u:U, s:S, $ \\ $\val{1}:2^{\UL{1}},$ $\val{2}:2^{\UL{2}} $,..., \\ $\val{m}:2^{\UL{m}})$\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land \subCreator(s)=u \ \land $  \\$\val{i} \subseteq \ua{i}(u)$, for $1 \le i \le m$   \end{tabular} &  \begin{tabular}[c]{@{}l@{}} $ \sessionLabelsP{i}'(s)= \sessionLabelsP{i}(s)$ \\ $ \cup \val{i}$, for $ 1\le i \le m$   \end{tabular} \\\hline
 
- \begin{tabular}[c]{@{}l@{}}$\removeValues$ $(u:U, s:S, $ \\ $\val{1}:2^{\UL{1}},$ $\val{2}:2^{\UL{2}} $,..., \\ $\val{m}:2^{\UL{m}})$\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land \subCreator(s)=u \land $  \\   \end{tabular} &  \begin{tabular}[c]{@{}l@{}} $  \sessionLabelsP{i}'(s)= \sessionLabelsP{i}(s) \setminus \val{i}$   \end{tabular} \\\hline
+ \begin{tabular}[c]{@{}l@{}}$\removeValues$ $(u:U, s:S, $ \\ $\val{1}:2^{\UL{1}},$ $\val{2}:2^{\UL{2}} $,..., \\ $\val{m}:2^{\UL{m}})$\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land \subCreator(s)=u \ \land $  \\ $\val{i} \subseteq \ua{i}(u)$, for $1 \le i \le m$   \end{tabular} &  \begin{tabular}[c]{@{}l@{}} $  \sessionLabelsP{i}'(s)= \sessionLabelsP{i}(s) $ \\ $ \setminus \val{i}$   \end{tabular} \\\hline
                  
 \end{tabular}
 \end{table*}

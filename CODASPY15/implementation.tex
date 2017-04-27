@@ -23,7 +23,7 @@
 	
 Note that in the implementation,  we have used OpenStack Keystone \cite{keystone} as the identity provider and we have mapped user roles provided by the Keystone as user-label values of the requester.
 
-\subsubsection{Storing of Policies}
+\subsubsection{Storing Policies}
 	In our implementation, we have two different types of policies---LaBAC policies in the form of (\emph{user-label} values, \emph{action},  \emph{object-label} values) and content-level policies in the form of \emph{(JSONPath, \{Labels\})}. All of these policies are stored as the metadata of the Swift object. Note that the Swift object is the JSON document itself.
 	
 	One challenge of storing policies as metadata of Swift object is that Swift does not allow a single metadata item larger than 256 bytes. To circumvent this limitation, policies are stored as multiple metadata items.

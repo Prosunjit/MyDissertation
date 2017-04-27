@@ -1,14 +1,22 @@
-\chapter{Enumerated authorization policy models}
+\chapter{Enumerated Authorization Policy Models}
+\label{sec:concepts}
+In this chapter, we first discuss Enumerated Authorization Policy (EAP) ABAC models based on one user attribute and one object attribute. Subsequently we define EAP ABAC models based on multiple user and object attributes. 
+
+%For the sake of clarity and emphasis on different elements of the model, we present a family of EAP models. We call these models \eapABAC{} family.
 
 \input{ABAC16/labac-1-11-diagram.tex}
 
 \input{ABAC16/labac-family.tex}	
 
-\section{\eapABAC{} Family}
+%\section{\eapABAC{} Family}
+\section{Single Attribute Enumerated Authorization-Policy Models}
+
 	\input{family.tex}
-\section{Functional specification of \eapABAC{} models}
+\section{Functional Specification of \eapABAC{} models}
 	\input{functional-specification.tex}
-\section{Comparing expressive power of  \eapABAC{} with conventional models}
+\section{Configuring Traditional Models in  \eapABAC{}}
+	\label{sec:configuration}
+	In this section, we establish relationship between \eapABAC{} and traditional access control models. We first show that \eapABAC{} is equivalent to \twoSortedRBAC{} which is an enumerated policy model for RBAC. Additionally, we show how to configure RBAC and LBAC using \eapABAC{} model.
 \subsection{Equivalence of \eapABAC{}  and \twoSortedRBAC{} }
 	\input{ABAC16/equivalence.tex}
 \subsection{Configuring LBAC in \eapABAC{}}
@@ -17,5 +25,5 @@
 	\input{ABAC16/rbac-in-eap.tex}
 \subsection{\eapABAC{} as a subset of \policyMachine{}}
 	\input{ABAC16/eap-in-pm.tex}
-\section{Multi-attribute Enumerated Auth. Policy (\eapmnABAC{}) Model }
+\section{Multi Attribute Enumerated Authorization-Policy Model }
 	\input{ABAC16/eap-abac-mn.tex}

@@ -9,25 +9,17 @@
 %\begin{tabular}[c]{@{}l@{}}\createSession\\ (u:U, s:S, values)\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s \not \in S \land values \subseteq \uLabel(u) \setminus \{\createReq, \removeReq\}\  $ \\ $\createReq \in \uLabel(u) \land $ \\ $\exists\Policy_{\createSession} \equiv \{(\createReq, \sessionOL) \}\in \Policy$ \\ \end{tabular} &  \begin{tabular}[c]{@{}l@{}}$S' = S \cup \{s\}$ \\ $\creator(s) = u \land \sessionLabels(s)=value $ \end{tabular} \\\hline
 %\multicolumn{3}{c}{\textbf{\textit{User level functions}}}\\ \hline
 
-\begin{tabular}[c]{@{}l@{}}$\createSession$\\ $(u:U, s:S, values:2^{UL}$)\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s \not \in S \land values \subseteq \uLabel(u)$  \end{tabular} &  \begin{tabular}[c]{@{}l@{}}$S' = S \cup \{s\}$,  $\creator(s) = u ,$ \\ $ \sessionLabels(s)=value $ \end{tabular} \\\hline
+\begin{tabular}[c]{@{}l@{}}$\createSession$\\ $(u:U, s:S, values:2^{UL}$)\end{tabular} & \begin{tabular}[c]{@{}l@{}} $u \in U \land s \not \in S \land values \subseteq \uLabel(u)$  \end{tabular} &  \begin{tabular}[c]{@{}l@{}}$S' = S \cup \{s\}$,\\  $\creator(s) = u ,$ \\ $ \sessionLabels(s)=values $ \end{tabular} \\\hline
 
 
 \begin{tabular}[c]{@{}l@{}}$\deleteSession$\\ $(u:U, s:S)$\end{tabular}   & \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land creator(s)=u  $ \end{tabular}                   & \begin{tabular}[c]{@{}l@{}}$S' = S \setminus \{s\}$ \end{tabular}                             \\\hline
 
 
-\begin{tabular}[c]{@{}l@{}}$\assignValues$\\ $(u:U,s:S, values:2^{UL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land creator(s)=u \land  values \subseteq \uLabel(u)$ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $\sessionLabels(s)= \sessionLabels(s) \cup values $ \end{tabular}                \\ \hline
+\begin{tabular}[c]{@{}l@{}}$\assignValues$\\ $(u:U,s:S, values:2^{UL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land creator(s)=u \ \land$ \\ $values \subseteq \uLabel(u)$ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $\sessionLabels(s)= \sessionLabels(s)$ \\ $\cup \ values $ \end{tabular}                \\ \hline
 
 
-\begin{tabular}[c]{@{}l@{}}$\removeValues$\\ $(u:U,s:S, values:2^{UL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land creator(s)=u \land   values \subseteq \uLabel(u)$ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $\sessionLabels(s)= \sessionLabels(s) \setminus values $ \end{tabular}                \\ \hline
-
-%\begin{tabular}[c]{@{}l@{}}$\createObject$\\ $(s:S, o:O, values:2^{OL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $s \in S \land o \not \in O \land $ \\$ f_{\createObject}(s,o, values) $ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $O' = O \cup \{o\}, \oLabel(o) = values$ \end{tabular}                \\ \hline
-
-%\begin{tabular}[c]{@{}l@{}}$\assignLabels$\\ $(s:S, o:O, values:2^{OL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $s \in S \land o  \in O \land $ \\$ f_{\assignLabels}(s,o, values) $ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $ \oLabel(o) = \oLabel(o) \cup values  $ \end{tabular}                \\ \hline
-
-%\begin{tabular}[c]{@{}l@{}}$\removeLabels$\\ $(s:S, o:O, values:2^{OL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $s \in S \land o  \in O \land $ \\$ f_{\removeLabels}(s,o, values) $ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $ \oLabel(o) = \oLabel(o) \setminus values  $ \end{tabular}                \\ \hline
+\begin{tabular}[c]{@{}l@{}}$\removeValues$\\ $(u:U,s:S, values:2^{UL}$)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land creator(s)=u \ \land$  \\ $values \subseteq \uLabel(u)$ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $\sessionLabels(s)= \sessionLabels(s)$ \\ $\setminus \ values $ \end{tabular}                \\ \hline
 
 
-%\begin{tabular}[c]{@{}l@{}}\removeValues\\ (u:U,s:S, values:2)\end{tabular} &  \begin{tabular}[c]{@{}l@{}} $u \in U \land s  \in S \land $  $\creator(s) = u \land $ $ \removeReq \in \uLabel(u) $ \\ \end{tabular} &   \begin{tabular}[c]{@{}l@{}} $\sessionLabels(s)= \sessionLabels(s) \setminus values $ \end{tabular}                \\ \hline
-                 
 \end{tabular}
 \end{table*}

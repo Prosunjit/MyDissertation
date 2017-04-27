@@ -1,11 +1,11 @@
 \subsection{OpenStack background}
+In this section, we briefly discuss OpenStack Swift object storage. In particular, we focus on how Swift objects are accessed and how Swift specifies control on access to these objects.
+\subsubsection{OpenStack Swift}
 
-\subsubsection{Swift}
-
-Swift is a highly available, distributed, eventually consistent object storage which can operate standalone or integrated with the rest of the OpenStack cloud computing platform. It is used  to store lots of data efficiently, safely, and cheaply using a scalable redundant storage system \cite{swift-definition}. As opposed to conventional storage architectures like file systems which manage data using file hierarchy and block storage, Swift manages data as objects. Each object typically includes the data itself, a variable amount of metadata, and a globally unique identifier.
+Swift is a highly available, distributed, eventually consistent object storage which can operate standalone or integrated with the rest of the OpenStack cloud computing platform. It is used  to store lots of data efficiently, safely, and cheaply using a scalable redundant storage system. As opposed to conventional storage architectures like file systems which manage data using file hierarchy and block storage, Swift manages data as objects. Each object typically includes the data itself, a variable amount of metadata, and a globally unique identifier.
 
 %\textbf{Swift Servers}: 
-Using its well defined RESTful API \cite{swift-api}, users can upload or download objects to and from Swift storage. Inside Swift, objects are organized into containers which is similar to directories in a filesystem except that Swift containers cannot be nested. Again, a user is associated with a Swift account and can have multiple containers associated with the account. In order to manage user accounts, user containers and objects inside a container, Swift uses an Account Server, a Container Server and Object Servers correspondingly.
+Using its well defined RESTful API, users can upload or download objects to and from Swift storage. Inside Swift, objects are organized into containers which is similar to directories in a filesystem except that Swift containers cannot be nested. Again, a user is associated with a Swift account and can have multiple containers associated with the account. In order to manage user accounts, user containers and objects inside a container, Swift uses an Account Server, a Container Server and Object Servers correspondingly.
 
 When a user corresponding to a user account requests for an object inside a container (either for uploading or downloading), the Account Server looks for the account first in its account database and finds associated containers with the account. The Container Server then checks the container database to find whether the requested object exists in the specified container and finally the Object Server looks into `object databases' to find retrieval information about the object. In order to retrieve an object, the Proxy Server needs to know which of the Object Servers are storing the object, and path of the object in the local filesystem of that server.
 
@@ -50,7 +50,7 @@ When a user corresponding to a user account requests for an object inside a cont
 \begin{figure}
   \centering
     \includegraphics[width=0.3\textwidth]{CODASPY15/json-data}
- \caption{A sample JSON Document containing   records of an employee.}
+ \caption{An example of a JSON document containing   records for an employee}
    \label{fig:json-data}
 \end{figure}
 
@@ -62,7 +62,7 @@ In order to protect a JSON document stored as a Swift object, we assign each JSO
 \begin{figure*}
 \centering
 \epsfig{file=CODASPY15/labac-model.eps}
-\caption{Label Based Access Control Model.}
+\caption{Label Based Access Control Model}
 \label{fig:labac-model}
 \end{figure*}
 

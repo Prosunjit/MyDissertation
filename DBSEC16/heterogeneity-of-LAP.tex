@@ -1,18 +1,18 @@
 
-
- \newcommand{\highlight}[1]{%
- 	\colorbox{black!19}{$\displaystyle#1$}}
+\newcommand{\office}{\text{office}}
+% \newcommand{\highlight}[1]{%
+% 	\colorbox{black!19}{$\displaystyle#1$}}
  
 \begin{table}
 	\centering
-	\caption{ Different representations of  $Auth_{read}$ policy  ($Auth_{read}$ states that \textit{\manager} can access \textit{TS} objects being from either \textit{office} or \textit{home})} 
+	\caption{ Different representations of  $Auth_{read}$ policy  ($Auth_{read}$ states that \textit{\manager} can access \textit{TS} objects  from either \textit{office} or \textit{home} locations)} 
 	\label{tab:LAP-heterogeneity}
 	\begin{tabular}{|l|}						
 		\hline					
 			
-			(i) $  \manager \in role(u) \land (office \in location(u) \highlight {\lor home \in location(u)})  \land TS \in sensitivity(o)$ \\
-			(ii) $((\manager \in role(u) \land office \in location(u) ) \highlight {\lor (\manager \in role(u) \land home \in location(u) )}  )$ \\ \hfill $ \land TS \in sensitivity(o)$\\
-			(iii) $((\manager \in role(u) \land office \mathbf{\in}\in location(u) \land TS \in sensitivity(o) ) \highlight{\lor}$  \\ \hfill $\highlight{((\manager \in role(u) \land home \in location(u) \land TS \in sensitivity(o) )}$ \\
+			(i) $  \manager \in role(u) \land (\office{} \in location(u) \highlight {\lor home \in location(u)})  \land TS \in sensitivity(o)$ \\
+			(ii) $((\manager \in role(u) \land \office{} \in location(u) ) \highlight {\lor (\manager \in role(u) \land home \in location(u) )}  )$ \\ \hfill $ \land TS \in sensitivity(o)$\\
+			(iii) $((\manager \in role(u) \land \office{} \in location(u) \land TS \in sensitivity(o) ) \highlight{\lor}$  \\ \hfill $\highlight{((\manager \in role(u) \land home \in location(u) \land TS \in sensitivity(o) )}$ \\
 		 \hline	
 	\end{tabular}	
 

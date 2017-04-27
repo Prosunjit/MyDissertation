@@ -1,35 +1,44 @@
 \begin{table}[]
 \centering
-\caption{Comparison of  \LPModels{} and \EPModels{} models }
+\caption{Comparison of  LAP  and  EAP }
 \label{tab:pros-cons-table}
 \begin{tabular}{|c|c|c|}
 	\hline
-Characteristics       & \LPModels{} models        & \EPModels{} models       \\ \hline
+Characteristics    of   &  \begin{tabular}[c]{@{}l@{}} LAPs  (considering \\ $ABAC_\alpha$/HGABAC)  \end{tabular}     & \begin{tabular}[c]{@{}l@{}}  EAPs  (value enumeration \\ for  positive attribute-values) \end{tabular}        \\ \hline
 \multicolumn{3}{l}{} \\ 
 \multicolumn{3}{l}{\textit{\textbf{Definition}}} \\ \hline
-\begin{tabular}[c]{@{}l@{}} \textit{distinguishing features}\end{tabular} & \begin{tabular}[c]{@{}l@{}}  logical-formula as \\authorization policies \end{tabular} & \begin{tabular}[c]{@{}l@{}}  enumeration as \\  authorization -policy\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}} \textit{distinguishing features}\end{tabular} & \begin{tabular}[c]{@{}l@{}}  logical-formula \end{tabular} & \begin{tabular}[c]{@{}l@{}}  enumeration\end{tabular} \\ \hline
 \multicolumn{3}{l}{} \\ 
-\multicolumn{3}{l}{\textit{\textbf{Authorization policy}}} \\ \hline
+\multicolumn{3}{l}{\textit{\textbf{Syntax}}} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Definition} \end{tabular} & \begin{tabular}[c]{@{}l@{}} one large expression  of \\ boolean subexpression \end{tabular} & \begin{tabular}[c]{@{}l@{}} set of enumerated tuples \end{tabular} \\ \hline \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Representation} \end{tabular} & \begin{tabular}[c]{@{}l@{}} expression \end{tabular} & \begin{tabular}[c]{@{}l@{}} set  \end{tabular} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Representation} \end{tabular} & \begin{tabular}[c]{@{}l@{}} multiple ways to represent a \\ \hfil policy, heterogenius \end{tabular} & \begin{tabular}[c]{@{}l@{}} can be in a canonical\\ form, homogeneous \end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Morphism} \end{tabular} & \begin{tabular}[c]{@{}l@{}} polymorphic (single policy can \\  be represented many ways) \end{tabular} & \begin{tabular}[c]{@{}l@{}} unique representation \end{tabular} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Type}\end{tabular} & \begin{tabular}[c]{@{}l@{}} macro-policy\end{tabular} & \begin{tabular}[c]{@{}l@{}} micro-policy  \end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Policy type}\end{tabular} & \begin{tabular}[c]{@{}l@{}} macro-policy, \\ possibly cohesive sub-policies\end{tabular} & \begin{tabular}[c]{@{}l@{}} micro-policy, \\ disjointed sub-policies  \end{tabular} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Structure}\end{tabular} & \begin{tabular}[c]{@{}l@{}} monolithic\end{tabular} & \begin{tabular}[c]{@{}l@{}} polylithic  \end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Divisibility}\end{tabular} & \begin{tabular}[c]{@{}l@{}} monolithic\end{tabular} & \begin{tabular}[c]{@{}l@{}} polylithic  \end{tabular} \\ \hline
 
 
-\begin{tabular}[c]{@{}l@{}}\textit{size}\end{tabular} & \begin{tabular}[c]{@{}l@{}} concise\end{tabular} & \begin{tabular}[c]{@{}l@{}}  large  \end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Size}\end{tabular} & \begin{tabular}[c]{@{}l@{}} usually concise\end{tabular} & \begin{tabular}[c]{@{}l@{}}  usually large  \end{tabular} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Language}\end{tabular} & \begin{tabular}[c]{@{}l@{}} often propositional logic\end{tabular} & \begin{tabular}[c]{@{}l@{}} Disjunctive Normal Form  \end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Language}\end{tabular} & \begin{tabular}[c]{@{}l@{}} propositional/ \\ first-order logic formula\end{tabular} & \begin{tabular}[c]{@{}l@{}} equivalent to DNF \\  of logical formula  \end{tabular} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Readability}\end{tabular} & \begin{tabular}[c]{@{}l@{}} human readable\end{tabular} & \begin{tabular}[c]{@{}l@{}}  human and machine \\ \hfil readable  \end{tabular} \\ \hline 
+ 
+ \multicolumn{3}{l}{} \\ 
+ \multicolumn{3}{l}{\textit{\textbf{Semantics}}} \\ \hline
+ 
+ \begin{tabular}[l]{@{}l@{}}\textit{Set of granted  privileges} \end{tabular} & \begin{tabular}[c]{@{}l@{}} dynamic (may change on addition/ \\removal  of attribute-values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}static (privilege is explicitly\\ granted) \end{tabular} \\ \hline 
+
+
+ \begin{tabular}[c]{@{}l@{}}\textit{Required attribute-value }\\ \textit{assgnments for granting} \\ \textit{privileges} \end{tabular} & \begin{tabular}[c]{@{}l@{}} partial assignments may \\  grant privilege\end{tabular} & \begin{tabular}[c]{@{}l@{}} requires complete assignment  \end{tabular} \\ \hline 
+ 
+% \begin{tabular}[c]{@{}l@{}}\textit{ Privilege abstraction} \end{tabular} & \begin{tabular}[c]{@{}l@{}} may abstract granted privileges\end{tabular} & \begin{tabular}[c]{@{}l@{}} no privilege abstraction  \end{tabular} \\ \hline 
 
 \multicolumn{3}{l}{} \\ 
-\multicolumn{3}{l}{\textit{\textbf{Policy Administration}}} \\ \hline
+\multicolumn{3}{l}{\textit{\textbf{Administration}}} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Cost of reviewing policy} \end{tabular} & \begin{tabular}[c]{@{}l@{}} NP-complete \end{tabular} & \begin{tabular}[c]{@{}l@{}} polynomial \\ (in no. of tuples) \end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{Cost of reviewing policy} \end{tabular} & \begin{tabular}[c]{@{}l@{}} NP-complete \end{tabular} & \begin{tabular}[c]{@{}l@{}} polynomial \\ (in number of tuples) \end{tabular} \\ \hline
 
 %\multicolumn{3}{l}{\textit{\textbf{Privilege administration}}} \\ \hline
 
@@ -37,18 +46,16 @@ Characteristics       & \LPModels{} models        & \EPModels{} models       \\ 
 
 \begin{tabular}[c]{@{}l@{}}\textit{Remove existing privileges} \end{tabular} & \begin{tabular}[c]{@{}l@{}}manual update  \end{tabular} & \begin{tabular}[c]{@{}l@{}} remove tuples \end{tabular} \\ \hline 
 
+\begin{tabular}[c]{@{}l@{}}\textit{Minimum administrative unit} \end{tabular} & \begin{tabular}[c]{@{}l@{}} entire policy \end{tabular} & \begin{tabular}[c]{@{}l@{}} micro-policy \end{tabular} \\ \hline   
 
-%\multicolumn{3}{l}{\textit{\textbf{Updating authorization policy}}} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textit{scalability} \end{tabular} & \begin{tabular}[c]{@{}l@{}} not scalable  \end{tabular} & \begin{tabular}[c]{@{}l@{}} \hfil scalable \end{tabular} \\ \hline     
 
-%\begin{tabular}[c]{@{}l@{}}\textit{Cost} \end{tabular} & \begin{tabular}[c]{@{}l@{}}NP-complete \end{tabular} & \begin{tabular}[c]{@{}l@{}} polynomial \end{tabular} \\ \hline
+\multicolumn{3}{l}{} \\ 
+\multicolumn{3}{l}{\textit{\textbf{Application}}} \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}\textit{Automation} \end{tabular} & \begin{tabular}[c]{@{}l@{}} \hfil require manual effort   \\ (complete or partial rewrite) \end{tabular} & \begin{tabular}[c]{@{}l@{}} can be automated \end{tabular} \\ \hline
-            
-\multicolumn{3}{l}{} \\            
- \multicolumn{3}{l}{\textit{\textbf{Distributed administration}}} \\ \hline                                            
-\begin{tabular}[c]{@{}l@{}}\textit{Minimum administrative unit} \end{tabular} & \begin{tabular}[c]{@{}l@{}}authorization policy \end{tabular} & \begin{tabular}[c]{@{}l@{}} micro-policy \end{tabular} \\ \hline     
+\begin{tabular}[l]{@{}l@{}}\textit{} Convenient for \end{tabular} & \begin{tabular}[c]{@{}l@{}} specifying new policy, \\  administration using range \\ of attribute-values\end{tabular} & \begin{tabular}[c]{@{}l@{}}  updating policy, \\ fine grained administration\end{tabular} \\ \hline 
 
-\begin{tabular}[c]{@{}l@{}}\textit{Administrative scalability} \end{tabular} & \begin{tabular}[c]{@{}l@{}} not scalable  \end{tabular} & \begin{tabular}[c]{@{}l@{}} \hfil scalable \end{tabular} \\ \hline     
+\begin{tabular}[l]{@{}l@{}}\textit{} Suitable environment \end{tabular} & \begin{tabular}[c]{@{}l@{}} open, loosely administered system, \\ distributed administration\end{tabular} & \begin{tabular}[c]{@{}l@{}}  close, tightly administered \\ system\end{tabular} \\ \hline 
 
                                         
 \end{tabular}

@@ -8,11 +8,12 @@
 		\hline					
 				\begin{tabular}{l}
 							\multicolumn{1}{c}{\underline{\textit{I. Sets and relations }}}\\			
-							- \textit{U, JE} and $A$  (set of users, JSON elements and actions resp.)  \\
+							- \textit{U, JE} and $A$  (set of users, JSON elements and actions respectively)  \\
 							- \textit{JEH} (hierarchy of JSON elements, represented by $\JEH$) \\
-							- \textit{UL} and \textit{ULH} (finite set of uLabel values and their partial order denoted as $\udominate$ resp) \\
-							- \textit{SL} and  \textit{SLH} (finite set of security-label values and their partial denoted as $\odominate$ resp) \\
-							- $\uLabel$ and $sLabel$ (attribute functions on users and JSON objects resp.) Formally,  \\ \hfill  $\uLabel: U \to 2^{UL}$; $\oLabel: JO \to 2^{SL}$ \\														
+							- \textit{UL} and \textit{ULH} (finite set of uLabel values and their partial order denoted as $\udominate$ respectively) \\
+							- \textit{SL} and  \textit{SLH} (finite set of security-label values and their partial order denoted as $\odominate$ respectively) \\
+							- $\uLabel$ and $sLabel$ (attribute functions on users and JSON objects respectively) \\
+							 \hfil Formally, $\uLabel: U \to 2^{UL}$; $\oLabel: JO \to 2^{SL}$ \\														
 
 							 \multicolumn{1}{c}{\underline{\textit{II. Policy components}}} \\	
 							 - $\policyTuples{} = UL \times SL$\\			
@@ -20,8 +21,8 @@
 							-  $Policy = \{Policy_a | a \in A\}$ \\
 							\multicolumn{1}{c}{\underline{\textit{III. Authorization function}}} \\						
 							%- $\request(u:U, a:A, je_i:JE)$ =	($\forall je_j \preceq je_i$ ($\exists ul_i \in \uLabel(u), \exists sl_m \in \oLabel(je_j),$ \\ \hfill$\exists (ul_j, sl_n) \in Policy_a $) ) $[ul_i \udominate ul_j \land sl_m \odominate sl_n]$ 
-							- $\canAccess (u:U, a:A, o:JE) = (\exists (ul,sl) \in Policy_a) [ul \in \uLabel(u) \land sl \in \oLabel(o)]$\\
-							- $\request(u:U, a:A, je_i: JE) = (\canAccess(u,a,je_j)) [je_i \odominate je_j]$ \\
+							- $\canAccess (u:U, a:A, o:JE) =  (\exists (ul,sl) \in Policy_a) [ul \in \uLabel(u) \land sl \in \oLabel(o)]$\\
+							- $\request(u:U, a:A, je_i: JE) \equiv \exists je_j [(\canAccess(u,a,je_j)) \land je_i \odominate je_j]$ \\
 							
 				\end{tabular}
 					

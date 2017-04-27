@@ -1,24 +1,34 @@
 \chapter{Introduction}
 
+\input{introduction-beginning.tex}
 
 
 
 
-
-\section{Motivation}
-
+%\section{Motivation}
 
 
 
-\section{Problem statement and thesis}
-\subsection{Problem statement}
+
+%\section{Problem statement and thesis}
+\section{Problem statement}
 There are two major techniques for specifying authorization policies in Attribute Based Access Control (ABAC). The more conventional approach is to define policies using logical formulas involving attribute values. The alternate technique is by enumeration. While considerable work has been done for the former approach, the later  lacks fundamental work from the research community.
 
-\subsection{Thesis}
-\textit{Enumerated Authorization Policy ABAC (EAP-ABAC) model is a viable alternate to Logical-formula Authorization Policy ABAC (LAP-ABAC) model. EAP-ABAC is as expressive as LAP-ABAC in the finite domain. EAP-ABAC models can be enforced in different application domains.}
+\section{Thesis}
+\textit{Enumerated Authorization-Policy ABAC (EAP-ABAC) is a viable alternate to Logical-formula Authorization Policy ABAC (LAP-ABAC). EAP-ABAC is as expressive as LAP-ABAC in the finite domain. EAP-ABAC models can be enforced in different application domains.}
 
 
-\section{Summary of contribution}
+\section{Summary of Contribution}
+The major contributions of this research are as follows:
 
-\section{Organization of the dissertation}
+\begin{itemize}
+	\item We have developed enumerated authorization-policy models for single and multi attributes defined on users and objects. For the case of single attribute, we have formulated a family of models starting from the bare minimum ABAC model to hierarchical and constrained models. Flexibility and expressive power of the developed models are analyzed by configuring traditional access control models in them.
+	
+	\item   We have compare  enumerated authorization-policy models to logical-formulate authorization-policy models with respect to their theoretical expressive power.
+	
+	\item We have demonstrated proof-of-concept implementation of  enumerated authorization-policy based protection models in different application contexts.
+\end{itemize}
+
+\section{Organization of the Dissertation}
+Rest of this dissertation is organized as follows. In Section \ref{sec:related-work}, we build preliminary concepts. We discuss related works in this section. In Section \ref{sec:concepts}, we develop enumerated authorization-policy models. We discuss different characteristics of the developed models here. In the following section (Section \ref{sec:expresssive-power}), we show that enumerated authorization-policy ABAC models are equivalent to logical-formula authorization-policy ABAC models with respect to their theoretical expressive power. In Section \ref{sec:enforcements}, we show how we enforce enumerated models in the practical application domains. Finally, we conclude this dissertation in Section \ref{sec:conclusion}.
 
