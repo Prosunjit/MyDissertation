@@ -120,9 +120,13 @@
 \setlength{\pdfpageheight}{11in}    % paper height
 \setlength{\textwidth}{6.5in}      %
 \setlength{\textheight}{8.9in}     %
-\setlength{\oddsidemargin}{0.25in}  % left margin;
-\setlength{\evensidemargin}{0.25in} %
-\setlength{\topmargin}{0.25in}      % top margin;
+%\setlength{\oddsidemargin}{0.25in}  % left margin;
+%\setlength{\evensidemargin}{0.25in} %
+%\setlength{\topmargin}{0.25in}      % top margin;
+\setlength{\oddsidemargin}{0.0in}  % left margin;
+\setlength{\evensidemargin}{0.0in} %
+\setlength{\topmargin}{0.0in}      % top margin;
+
 \setlength{\headheight}{0.0in}      % Height of the header (the header is text that appears atop all pages)
 \setlength{\headsep}{0.0in}         % Distance from bottom of header to the body of text on a page.
 \setlength{\topskip}{0.0in}         % Distance from top of main text box to the baseline of the first line of 
@@ -345,43 +349,33 @@
 %% Preliminaries - as per 9-6-2011 UTSA Graduate School Guidelines
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Blank Page (not counted or typed)
-    \pagestyle{empty}
-    \mbox{}
+%    \pagestyle{empty}
+%    \mbox{}
     
 % 2. Signature Page (not counted or typed)
-    \newpage
-    \pagestyle{empty}
-    \begin{center}
-    \@thesistitle
-    \end{center}
-    \vfill       % put signature lines at bottom of page
-    \@signature
+%    \newpage
+%    \pagestyle{empty}
+%    \begin{center}
+%    \@thesistitle
+%    \end{center}
+%    \vfill       % put signature lines at bottom of page
+%    \@signature
 
 % 3. Copyright (optional, counted, not typed)
-    \ifx \@empty\@thesiscopyright
-    \else
-      \newpage
-    \pagenumbering{roman} %counting starts
-      \pagestyle{empty}    
-      \vspace*{1.5in} 
-      \begin{singlespace}
-      \begin{center}
-        \@thesiscopyright
-      \end{center}
-      \end{singlespace}
-    \fi
+%    \ifx \@empty\@thesiscopyright
+%    \else
+%      \newpage
+%    \pagenumbering{roman} %counting starts
+%      \pagestyle{empty}    
+%      \vspace*{1.5in} 
+%      \begin{singlespace}
+%      \begin{center}
+%        \@thesiscopyright
+%      \end{center}
+%      \end{singlespace}
+%    \fi
     
-% 4. Dedication (optional, counted, not typed)
-    \newpage
-    \ifx \@empty\@thesiscopyright
-	    \pagenumbering{roman} %counting starts
-    \fi
-    \pagestyle{empty}
-    \begin{center}
-    {\bf DEDICATION}
-    \end{center}
-    \vspace{2ex}
-    \@dedication
+
     
 % 5. Title page (counted, note typed)
     \newpage
@@ -418,6 +412,19 @@
     \end{center} %\linespace{2}
     
     \newpage
+    
+    % 4. Dedication (optional, counted, not typed)
+    \newpage
+    \ifx \@empty\@thesiscopyright
+    \pagenumbering{roman} %counting starts
+    \fi
+    \pagestyle{empty}
+    \begin{center}
+    	{\bf DEDICATION}
+    \end{center}
+    \vspace{2ex}
+    \@dedication
+     \newpage
     \pagestyle{plain} % page number typed starts
 % % 6. Acknowledgements (counted, typed in lower case Roman numerals   
 % % 7. Abstract  (counted, typed in lower case Roman numerals)  
